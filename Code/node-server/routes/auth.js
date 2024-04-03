@@ -11,6 +11,7 @@ const User = require('../models/User');
 router.post('/signup', async (req, res) => {
   try {
     const { email, password } = req.body;
+
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
@@ -23,7 +24,7 @@ router.post('/signup', async (req, res) => {
 
     res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
-    res.status(500).json({ message: 'Something went wrong' });
+    res.status(401).json({ message: 'Try again' });
   }
 });
 
@@ -43,30 +44,36 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ email: user.email }, process.env.JWT_KEY, { expiresIn: '1h' });
+    const token = jwt.sign({ email: user.email }, process.env.TOKEN_SECRET_KEY, { expiresIn: '1h' });
     
     res.status(200).json({ token });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: 'Something went wrong' });
   }
 });
 
 // Forget Password
-router.post('/forgotpassword', async (req, res) => {
-  try {
-    const { email } = req.body;
-    const user = await User.findOne({ email });
+// router.post('/forgotpassword', async (req, res) => {
+//   try {
+//     const { email } = req.body;
+//     const user = await User.findOne({ email });
 
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
+//     if (!user) {
+//       return res.status(404).json({ message: 'User not found' });
+//     }
 
-    // Logic to send email for password reset goes here
+//     // Logic to send email for password reset goes here
 
-    res.status(200).json({ message: 'Password reset instructions sent to your email' });
-  } catch (error) {
-    res.status(500).json({ message: 'Something went wrong' });
-  }
-});
+//     res.status(200).json({ message: 'Password reset instructions sent to your email' });
+//   } catch (error) {
+//     res.status(500).json({ message: 'Something went wrong' });
+//   }
+// });
+
+
+
+
+
 
 module.exports = router;

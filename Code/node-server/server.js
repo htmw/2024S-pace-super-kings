@@ -25,6 +25,14 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   });
 
 
+
+  
+  // Apply token verification middleware to all routes
+
+
+  
+
+
 // Routes
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
