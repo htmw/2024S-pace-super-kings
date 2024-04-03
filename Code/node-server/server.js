@@ -35,7 +35,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Routes
 const authRoutes = require('./routes/auth');
+const profileRoutes = require('./routes/profile');
 app.use('/auth', authRoutes);
+app.use('/profile', profileRoutes);
 
 // Start the server
 app.listen(PORT, () => {

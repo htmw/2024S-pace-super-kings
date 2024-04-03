@@ -24,6 +24,7 @@ router.post('/signup', async (req, res) => {
 
     res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
+    console.log(error);
     res.status(401).json({ message: 'Try again' });
   }
 });
@@ -44,7 +45,8 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ email: user.email }, process.env.TOKEN_SECRET_KEY, { expiresIn: '1h' });
+   
+    const token = jwt.sign({ email: user.email }, process.env.TOKEN_SECRET_KEY, { expiresIn:  process.env.JWT_ACCESS_EXPIRES_IN});
     
     res.status(200).json({ token });
   } catch (error) {
