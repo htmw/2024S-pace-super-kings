@@ -1,0 +1,33 @@
+{
+  "name": "node-server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon server.js",
+    "dev": "nodemon ./src/server.js --exec babel-node",
+    "build": "babel ./src -d ./dist --source-maps",
+    "precommit": "pretty-quick --staged"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "4.19.2",
+    "express-graphql": "0.12.0",
+    "graphql": "14.7.0",
+    "graphql-iso-date": "3.6.1",
+    "jsonwebtoken": "9.0.2",
+    "mongoose": "8.2.4",
+    "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.24.1",
+    "@babel/core": "7.24.3",
+    "@babel/node": "7.23.9",
+    "@babel/plugin-proposal-optional-chaining": "7.21.0",
+    "@babel/plugin-proposal-pipeline-operator": "7.24.1",
+    "@babel/preset-env": "7.24.3",
+    "babel-eslint": "10.1.0",
+    "eslint": "8.57.0",
+    "nodemon": "^3.1.0"
+  }
+}

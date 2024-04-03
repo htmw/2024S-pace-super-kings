@@ -10,3 +10,34 @@ services:
     environment:
       - PORT=3002
       - ENVIRONMENT=production
+  nodeapi:
+    build:
+      context: ./node-server
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+
+    environment:
+      - PORT=3001
+    environment:
+      - PORT=3001
+      - DB_USER=user1
+      - DB_PASSWORD=G8SKI21KPoReDw0j
+      - DB_HOST=cluster1.dgbvwbw.mongodb.net
+      - DB_NAME=investmatedb
+      - JWT_ACCESS_EXPIRES_IN=90000000
+      - JWT_REFRESH_EXPIRES_IN=2592000000
+      - JWT_EMAIL_EXPIRES_IN=360000
+      - TOKEN_SECRET_KEY=ausydhuaukydbry76wrcywvbr8cbw7rthc
+    # depends_on:
+    #   - mongo
+
+  # mongo:
+  #   image: mongo
+  #   container_name: mongo
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=user1
+  #     - MONGO_INITDB_ROOT_PASSWORD=G8SKI21KPoReDw0j
+  #     - MONGO_INITDB_DATABASE=cluster1.dgbvwbw.mongodb.net
+  #   ports:
+  #     - 27017:27017
