@@ -5,18 +5,30 @@ const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
+const morgan = require('morgan');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.use(morgan("tiny"));
+
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
 
 const  {Server} = require('socket.io');
-
+app.use(cors())
 
 /**
  * SOCKET : Start
  */
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000"
+  }
+
+});
 
 io.on('connection', (socket) => {
   console.log('New client connected');
@@ -30,12 +42,13 @@ io.on('connection', (socket) => {
   });
 
   // Listen for incoming messages
-  socket.on('message', (data) => {
+  socket.on('chat', (data) => {
     console.log('Received message:', data);
-    const { userId, message } = data;
+    // const { userId, message } = data;
+
 
     // Broadcast the message to all clients in the same room (user's room)
-    io.to(userId).emit('message', message);
+    //io.emit('message', data);
   });
 
   socket.on('disconnect', () => {
@@ -80,11 +93,15 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 // Routes
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
-app.use('/profile', profileRoutes);
 const dashboardRoutes = require('./routes/dashboard');
-app.use('/auth', authRoutes);
+const stockRoutes = require('./routes/stocks');
+
+
+
 app.use('/profile', profileRoutes);
+app.use('/auth', authRoutes);
 app.use('/dashboard', dashboardRoutes);
+app.use('/stocks', stockRoutes);
 
 // Start the server
 
