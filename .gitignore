@@ -2,4 +2,6 @@
 *.env
 *.pt
 
+**/node_modules
+
 **/docker-compose.yml
