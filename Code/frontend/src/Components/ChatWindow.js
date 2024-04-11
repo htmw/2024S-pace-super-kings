@@ -38,10 +38,21 @@ const[email, setEmail] = useState(null);
         console.log('Received message:', value);
       }
 
+      function onReceiveMessage2(value) {
+        console.log('Received message2:', value);
+      }
 
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
     socket.on('chat', onReceiveMessage);
+    socket.on('ankitmhatre@hotmail.com', onReceiveMessage2);
+
+
+    
+    socket.on("connection", function(socket){
+      console.log("A user connected +  connection");
+      //socket.to("room1").emit("some event");
+    });
 
     return () => {
       socket.off('connect', onConnect);
