@@ -8,8 +8,8 @@ MarkupSafe==2.1.5
 python-dotenv==1.0.1
 Werkzeug==3.0.2
 zipp==3.18.1
-load-dotenv==0.1.0
 opencv-python==4.9.0.80
 ultralyticsplus==0.1.0
 numpy==1.26.4
 psutil==5.9.8
+python-dotenv==1.0.1

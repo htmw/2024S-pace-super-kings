@@ -42,13 +42,11 @@ io.on('connection', (socket) => {
   });
 
   // Listen for incoming messages
-  socket.on('chat', (data) => {
-    console.log('Received message:', data);
-    // const { userId, message } = data;
+  socket.on('chat', (message) => {
+    console.log('Received message:', message);
+     const { userId, data, type, timeStamp } = message;
+      socket.to(userId).emit(data);
 
-
-    // Broadcast the message to all clients in the same room (user's room)
-    //io.emit('message', data);
   });
 
   socket.on('disconnect', () => {
@@ -95,6 +93,7 @@ const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
 const dashboardRoutes = require('./routes/dashboard');
 const stockRoutes = require('./routes/stocks');
+const extraRoutes = require('./routes/extra');
 
 
 
@@ -102,6 +101,7 @@ app.use('/profile', profileRoutes);
 app.use('/auth', authRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/stocks', stockRoutes);
+app.use('/extra', extraRoutes);
 
 // Start the server
 
