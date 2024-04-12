@@ -1,9 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Tv from './Tv';
 import Landing from './Components/Landing';
-import Dashboard from './Components/Dashboard';
+// import Dashboard from './Components/Dashboard';
 import ModuleHome from './Components/ModuleHome';
 import Login from './Components/Login/Login';
 import setupInterceptors from './network/networkInterceptor';
@@ -18,6 +17,9 @@ import StockResearch from './Components/ModulesPages/StockResearch/StockResearch
 import OptionsStrategies from './Components/ModulesPages/OptionsStrategies/OptionsStrategies'
 import ManagePortfolio from "./Components/ModulesPages/ManagePortfolio/ManagePortfolio"
 import IntroToOptions from './Components/ModulesPages/IntroToOptions/IntroToOptions'
+import Tv from './Tv';
+import Dashboard from './Tv/dashboard';
+
 
 function App() {
 
