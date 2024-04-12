@@ -61,7 +61,7 @@ const Landing = () => {
             imageUrl={certified}
             heading="Stock Simulator"
             upperContainerColor="#b6adf4"
-            link="/dashboard/simulator"
+            link="/trading"
           />
           
           <Card
