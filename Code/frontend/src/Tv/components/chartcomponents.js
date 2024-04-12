@@ -11,7 +11,20 @@ const ChartComponent = ({ stockData }) => {
       const options = {
         chart: {
           type: 'candlestick',
-          height: 350
+          height: 350,
+          animations: {
+            enabled: true,
+            easing: 'easeinout',
+            speed: 200,
+            animateGradually: {
+                enabled: true,
+                delay: 0
+            },
+            dynamicAnimation: {
+                enabled: false,
+                speed: 100
+            }
+        }
         },
       
         xaxis: {

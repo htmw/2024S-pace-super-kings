@@ -1,5 +1,5 @@
 {
-  "name": "investmate_fake_react_app",
+  "name": "Investmate",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,6 +19,7 @@
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.8",
     "socket.io-client": "^4.7.5",
     "sort-by": "^1.2.0",
     "trading-vue-js": "^1.0.2",

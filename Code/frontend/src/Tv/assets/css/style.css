@@ -11,6 +11,15 @@
 @import url("../icons/flaticon/flaticon.css");
 @import url("../icons/flaticon-1/font/flaticon-1.css");
 @import url(../vendor/metismenu/css/metisMenu.min.css);
+
+.stockTitle{
+  font-size: 2rem;
+  font-weight: 600;
+  color: #424562;
+  margin-bottom: 1.5rem;
+  display: block;
+  text-align: left;
+}
 :root {
   --primary: #3736af;
   --secondary: #3693FF;

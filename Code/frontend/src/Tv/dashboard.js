@@ -8,12 +8,17 @@ import { saveAs } from 'file-saver';
 import axios from 'axios';
 import ChartComponent from './components/chartcomponents';
 import ChatScreen from './chatScreen';
+import ClipLoader from "react-spinners/ClipLoader";
+import './dashboard.css';
+
 
 function Tv() {
 	const divRef = useRef(null);
 	const [query, setQuery] = useState('');
+	const [stockTitle, setStockTitle] = useState('Apple INC');
 	const [suggestions, setSuggestions] = useState([]);
 	const [selectedStockData, setSelectedStockData] = useState(null);
+	const [isStockLoading, setStockLoading] = useState(false);
 
 	const handleDownloadClick = () => {
 		// Get the DOM node of the div
@@ -47,8 +52,10 @@ function Tv() {
 
 	  async function autofetchStock(){
 		setSuggestions([])
+		setQuery('');
+		
 		try {
-		  const response = await axios.get(`https://160e-198-105-46-191.ngrok-free.app/stocks/data/?ticker=AAPL`);
+		  const response = await axios.get(`/stocks/data/?ticker=AAPL`);
 		  console.log(response.data);
 		  setSelectedStockData(response.data);
 		} catch (error) {
@@ -57,23 +64,25 @@ function Tv() {
 	  }
 
 
-	  const fetchStocksName = async (event) => {
-		const value = event.target.value;
-		console.log(value);
-		try {
-			const response = await axios.get(`https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=${value}`);
-			if (response.data !== null) {
-			  console.log(response.data.items);
-			  setSuggestions(response.data.items);
-			}
-		  } catch (error) {
-			console.error('Error fetching suggestions:', error.message);
-		  }
+
+
+const fetchStockBySearch = async (event)=>{
+	setQuery(event.target.value);
+	if(event.target.value.length <1){
+		setSuggestions([])
+		return;
+	}
+	try {
+		const response = await axios.get(`https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=${query}`);
+		if (response.data !== null) {
+		  console.log(response.data.items);
+		  setSuggestions(response.data.items);
+		}
+	  } catch (error) {
+		
+		console.error('Error fetching suggestions:', error.message);
 	  }
-
-
-
-
+}
 
 
 	  
@@ -97,15 +106,20 @@ function Tv() {
         }
     }
 
-	const handleClick = async (stockSymbol) => {
+	const handleClick = async ({symbol, name}) => {
+		setStockLoading(true)
 		setSuggestions([])
+		 setStockTitle(name);
+		console.log(symbol);
+		setQuery('');
 		try {
-		  const response = await axios.get(`https://4dac-98-109-149-177.ngrok-free.app/stocks/data/?ticker=${stockSymbol}`);
+		  const response = await axios.get(`/stocks/data/?ticker=${symbol}`);
 		  console.log(response.data);
 		  setSelectedStockData(response.data);
 		} catch (error) {
 		  console.error('Error fetching stock data:', error.message);
 		}
+		setStockLoading(false)
 	  };
 	
 
@@ -174,7 +188,7 @@ function Tv() {
 										<a href="javascript:void(0);" class="dropdown-item ai-icon ">											
 											<span class="ms-2">Settings </span>
 										</a>
-										<a href="page-login.html" class="dropdown-item ai-icon">
+										<a href="/dashboard" class="dropdown-item ai-icon">
 											<svg class="logout" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fd5353" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
 											<span class="ms-2 text-danger">Logout </span>
 										</a>
@@ -189,6 +203,7 @@ function Tv() {
 				
 				
 			</div>
+			
 		</div>
 		<br/><br/><br/>
         {/* <div className='Header'></div> */}
@@ -198,30 +213,44 @@ function Tv() {
 					<div class="col-xl-8">
 						<div class="card">
 							<div class="card-body">
-								<input style={{"width":"100%", "height":"45px", "border":"1px solid #B3C0CD", "margin-bottom":"15px", "border-radius":"5px", "padding-left":"10px"}} type="text" placeholder='Search Stock Name..' onChange={fetchStocksName}/>
+								<input style={{"width":"100%", "height":"45px", "border":"1px solid #B3C0CD", "margin-bottom":"15px", "border-radius":"5px", "padding-left":"10px"}} type="text" placeholder='Search Stock Name..' value={query} onChange={fetchStockBySearch}/>
 							
 								
 
-								<ul className='stockSuggestionlist-ul'>
+								{suggestions.length>0 ? (<ul className='stockSuggestionlist-ul'>
 										{suggestions.map((stock) => (
-											<li key={stock.symbol} onClick={() => handleClick(stock.symbol)}>
+											<li className='stockSuggestionlist-li' key={stock.symbol} onClick={() => handleClick(stock)}>
 											<span>{stock.name} ({stock.symbol})</span>
 											</li>
 										))}
 										</ul>
+										): <div />}
+								
 
 
 
 
 								{/* <div id="tradingview_85dc0" class="" ref={divRef}></div> */}
+							<div className='stockTitle'>{stockTitle}   {isStockLoading ? <ClipLoader
+        color="#00ff00"
+        loading={isStockLoading}
 
-								{selectedStockData && ( <ChartComponent stockData={selectedStockData} />)}
+        size={30}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      /> :(<div />)} 
+
+</div>
+							 { (selectedStockData && (  <ChartComponent stockData={selectedStockData} />))}
+								
 
 							</div>
 							{/* <button onClick={getImage}>Download Screenshot</button> */}
 						</div>
 						
 					</div>
+
+					
 					<div class="col-xl-4">
 						<div class="card" id='chatscreen'>
 							<div class="card-header border-0 pb-0">
