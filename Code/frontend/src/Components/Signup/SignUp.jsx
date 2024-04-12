@@ -25,7 +25,7 @@ const SignUp = () => {
       checkForToken();
     }, []);
   
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState("milind@gmail.com");
     const [birthDate, setbirthDate] = useState(null);
     const [firstName, setFirstname] = useState("");
     const [lastName, setLastname] = useState("");
