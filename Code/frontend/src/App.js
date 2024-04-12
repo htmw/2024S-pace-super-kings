@@ -57,11 +57,11 @@ function App() {
       element: <Login />,
       
     },
-    {
-      path: "/dashboard/Simulator",
-      element: <Simulator />,
+    // {
+    //   path: "/dashboard/Simulator",
+    //   element: <Simulator />,
       
-    },
+    // },
 {
   path: "/testchart",
   element : <TestChart />

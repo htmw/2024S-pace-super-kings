@@ -49,6 +49,10 @@ useEffect(()=>{
           email,
           password
         });
+        if(!response.data){
+          setError(error.response.data.message);
+        }else{
+
         
   
         // Extract token from response data
@@ -59,7 +63,8 @@ useEffect(()=>{
         localStorage.setItem('email',email );
         navigate('/trading')
   
-        // Redirect or perform other actions after successful login
+        // Redirect or perform other actions after successful login}}
+        }
       } catch (error) {
         console.log(error)
         if(error){
