@@ -26,6 +26,13 @@ const SignUp = () => {
     }, []);
   
     const [email, setEmail] = useState("");
+    const [birthDate, setbirthDate] = useState(null);
+    const [firstName, setFirstname] = useState("");
+    const [lastName, setLastname] = useState("");
+
+
+
+
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
   
@@ -47,11 +54,18 @@ const SignUp = () => {
   
       try {
         // Make a POST request to your login endpoint
-        const response = await axios.post("/auth/login", {
-          email,
-          password,
+        const response = await axios.post("/auth/signup", {
+           email,
+           password,
+          birthDate,
+          firstName,
+          lastName
         });
   
+        if(!response){
+          return null;
+          //todo: handle error
+        }else{
         // Extract token from response data
         const token = response.data.token;
   
@@ -59,7 +73,7 @@ const SignUp = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("email", email);
         navigate("/dashboard/simulator");
-  
+        }
         // Redirect or perform other actions after successful login
       } catch (error) {
         console.log(error);
