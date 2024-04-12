@@ -41,6 +41,16 @@
     display: none;
   }
   
+.signupLogin{
+  padding: 0.7rem;
+  background: #ff8773;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+
   @media screen and (max-width: 950px) {
     .nav-menu {
       display: flex;

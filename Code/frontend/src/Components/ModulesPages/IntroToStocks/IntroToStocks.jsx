@@ -7,6 +7,7 @@ const IntroToStocks = () => {
   return (
     <>
       <div className="introstocks">
+        <h1><center>Introduction to Stocks</center></h1>
         <div className="heading">
           <div className="num-Line">
             <div className="num">
@@ -15,9 +16,10 @@ const IntroToStocks = () => {
             <div className="line1"></div>
           </div>
 
-          <h2>Introduction to Stocks</h2>
+          <h1>Introduction to Stocks</h1>
           <div className="linksandpara">
             <div className="linksOfItS">
+              <h4>Quick Links</h4>
               <Link to="/thestockmarket">
                 <span>The stock market</span>
               </Link>
