@@ -17,8 +17,10 @@ import StockResearch from './Components/ModulesPages/StockResearch/StockResearch
 import OptionsStrategies from './Components/ModulesPages/OptionsStrategies/OptionsStrategies'
 import ManagePortfolio from "./Components/ModulesPages/ManagePortfolio/ManagePortfolio"
 import IntroToOptions from './Components/ModulesPages/IntroToOptions/IntroToOptions'
+
 import Tv from './Tv';
 import Dashboard from './Tv/dashboard';
+import SignUp from './Components/Signup/SignUp';
 
 
 function App() {
@@ -115,6 +117,11 @@ function App() {
     {
       path: "/stocktradingbasics",
       element: <StockTradingBasics />,
+      
+    },
+    {
+      path: "/signup",
+      element: <SignUp />,
       
     },
   ]);

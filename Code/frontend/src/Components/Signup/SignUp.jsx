@@ -72,7 +72,9 @@ const SignUp = () => {
         // Save token to localStorage
         localStorage.setItem("token", token);
         localStorage.setItem("email", email);
+
         navigate("/trading");
+
         }
         // Redirect or perform other actions after successful login
       } catch (error) {
@@ -115,7 +117,9 @@ const SignUp = () => {
                <input
                  type="text"
                  id="username"
+
                  value={firstName}
+
                  onChange={handleUsernameChange}
                />
              </div>
@@ -128,6 +132,7 @@ const SignUp = () => {
                  type="text"
                  id="username"
                  value={lastName}
+
                  onChange={handleUsernameChange}
                />
              </div>

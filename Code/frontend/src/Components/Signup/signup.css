@@ -57,7 +57,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 35%;
+    width: 50%;
     flex-direction: column;
     gap: 1rem;
     /* background-image:url(../../assets/chart.jpg); */
@@ -163,7 +163,7 @@
   }
   
   .animatedGraph{
-    width: 65%;
+    width: 60%;
     gap: 1rem;
     display: flex;
     flex-direction: column;
@@ -194,4 +194,14 @@
     .forgetPass a{
       text-decoration: none;
       color: #28292b;
+    }
+
+    .firstLastnameCon{
+        display: flex;
+        gap: 1rem;
+    }
+
+    .passDate{
+        display: flex;
+        gap: 1rem;
     }
