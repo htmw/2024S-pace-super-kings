@@ -103,6 +103,7 @@ import { loginEndpoint } from "../../variables";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 
 function checkForToken() {
   const token = localStorage.getItem("token");
@@ -117,17 +118,17 @@ const Login = () => {
   useEffect(() => {
     checkForToken();
   }, []);
-
-  const [email, setEmail] = useState("ankitmhatre@hotmail.com");
-  const [password, setPassword] = useState("test123");
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
   const [showPassword, setShowPassword] = useState(false);
+  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleUsernameChange = (event) => {
+  const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
 
@@ -152,20 +153,19 @@ const Login = () => {
         
   
         // Extract token from response data
-        const token = response.data.token;
+        const {token, firstName} = response.data.token;
   
         // Save token to localStorage
         localStorage.setItem('token', token);
         localStorage.setItem('email',email );
-        navigate('/trading')
+        localStorage.setItem('firstName', firstName);
+        navigate('/dashboard');
   
         // Redirect or perform other actions after successful login}}
         }
       } catch (error) {
         console.log(error)
         if(error){
-
-
         // Handle login errors
         setError(error.response.data.message);
       } // Assuming error message is provided in the response
@@ -198,14 +198,14 @@ const Login = () => {
           <h2>Welcome Back!</h2>
           <p>Sign into your accout</p>
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">Email</label>
               <div className="input-with-icon">
-                <FaUser className="icon" />
+                <IoMdMail className="icon" />
                 <input
-                  type="text"
-                  id="username"
+                  type="email"
+                  id="email"
                   value={email}
-                  onChange={handleUsernameChange}
+                  onChange={handleEmailChange}
                 />
               </div>
             </div>

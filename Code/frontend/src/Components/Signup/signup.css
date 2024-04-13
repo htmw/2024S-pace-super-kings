@@ -93,7 +93,8 @@
   }
   
   input[type="text"],
-  input[type="password"] {
+  input[type="password"]
+  input[type="date"] {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -103,6 +104,16 @@
     padding-right: 2rem;
   }
   
+#birthDate{
+  width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
   .login-btn {
     width: 100%;
     padding: 10px;
