@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Dashboard from './Tv/dashboard';
 
 function Tv() {
   return (
     <div >
-     <span>Treading View</span>
+       <Dashboard/>
     </div>
   );
 }

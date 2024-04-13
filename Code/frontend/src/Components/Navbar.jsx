@@ -17,11 +17,13 @@ const Navbar = () => {
 
     
     return (
-      <div className="navbar">
-        <div className="logo">
+      <div className="navbar-2">
+       <a href="/">
+       <div className="logo">
             <div className="img"></div>
             <div className="name"><span style={{fontWeight:'700',fontSize:'1.5rem',color:"#ff8773"}}>InvestMate</span></div>
         </div>
+       </a>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           {/* <li>
             <Link to="/dashboard"></Link>

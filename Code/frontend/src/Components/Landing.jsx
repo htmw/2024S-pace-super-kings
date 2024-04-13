@@ -54,11 +54,16 @@ const Landing = () => {
             upperContainerColor="#77b4f2"
             link="/module-page"
           />
+       
+         
+
           <Card
             imageUrl={certified}
             heading="Stock Simulator"
             upperContainerColor="#b6adf4"
+            link="/trading"
           />
+          
           <Card
             imageUrl={finance}
             heading="Risk Calculator"
