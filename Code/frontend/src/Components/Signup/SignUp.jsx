@@ -72,7 +72,9 @@ const SignUp = () => {
         // Save token to localStorage
         localStorage.setItem("token", token);
         localStorage.setItem("email", email);
-        navigate("/dashboard/simulator");
+
+        navigate("/trading");
+
         }
         // Redirect or perform other actions after successful login
       } catch (error) {
@@ -115,7 +117,9 @@ const SignUp = () => {
                <input
                  type="text"
                  id="username"
-                 value={email}
+
+                 value={firstName}
+
                  onChange={handleUsernameChange}
                />
              </div>
@@ -127,7 +131,8 @@ const SignUp = () => {
                <input
                  type="text"
                  id="username"
-                 value={email}
+                 value={lastName}
+
                  onChange={handleUsernameChange}
                />
              </div>

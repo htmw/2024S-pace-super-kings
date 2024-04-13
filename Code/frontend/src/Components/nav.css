@@ -4,7 +4,9 @@
     box-sizing: border-box;
   }
   
-  .navbar {
+
+
+  .navbar-2 {
     background-color: white;
     height: 5rem;
     display: flex;
@@ -13,12 +15,12 @@
     padding: 0rem 2rem;
   }
   
-  .navbar ul {
+  .navbar-2 ul {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .navbar ul li {
+  .navbar-2 ul li {
     list-style: none;
     text-decoration: none;
     color: #ffffff;
@@ -28,12 +30,20 @@
     padding: 1.5rem;
   }
   
-  .navbar ul li a {
+  .navbar-2 ul li a {
     color: #28292b;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 600;
   }
+
+
+
+
+
+
+
+
   .hamburger {
     float: right;
     right: 2rem;
@@ -68,10 +78,10 @@
       z-index: 3;
       transition: 0.3s;
     }
-    .navbar ul li {
+    .navbar-2 ul li {
       padding-top: 3rem;
     }
-    .navbar ul li a {
+    .navbar-2 ul li a {
       font-size: 1.8rem;
       color: #fff;
     }
@@ -79,7 +89,7 @@
       display: block;
       z-index: 3;
     }
-    .navbar{
+    .navbar-2{
         padding: 0rem 0.5rem;
     }
   }
@@ -88,3 +98,7 @@
     left: 0;
   }
   
+
+  a{
+    text-decoration: none;
+  }

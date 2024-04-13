@@ -2,6 +2,6 @@
 *.env
 *.pt
 
-**/node_modules
-
 **/docker-compose.yml
+**/node_modules
+**/package-lock.json
