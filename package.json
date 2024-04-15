@@ -7,9 +7,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon server.js",
-    "dev": "nodemon ./src/server.js --exec babel-node",
-    "build": "babel ./src -d ./dist --source-maps",
-    "precommit": "pretty-quick --staged"
+   "precommit": "pretty-quick --staged"
   },
   "dependencies": {
     "axios": "^1.6.8",
