@@ -1,6 +1,9 @@
 {
   "name": "node-server",
   "version": "0.1.0",
+  "engines": {
+    "node": "20.x"
+  },
   "private": true,
   "scripts": {
     "start": "nodemon server.js",
