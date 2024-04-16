@@ -96,6 +96,7 @@ const dashboardRoutes = require('./routes/dashboard');
 const stockRoutes = require('./routes/stocks');
 const extraRoutes = require('./routes/extra');
 const accountRoutes = require('./routes/account');
+const ordersRoutes = require('./routes/orders');
 const User = require('./models/User');
 
 
@@ -106,6 +107,7 @@ app.use('/dashboard', dashboardRoutes);
 app.use('/stocks', stockRoutes);
 app.use('/account',checkToken,  accountRoutes);
 app.use('/extra', extraRoutes);
+app.use('/orders', checkToken, ordersRoutes);
 
 // Start the server
 
@@ -127,7 +129,7 @@ async function checkToken(req, res, next) {
   try{
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
     var user = await User.findOne({email:decoded.email});
-
+console.log("user",user)
     if(user){
       req.user = user;
       return next();

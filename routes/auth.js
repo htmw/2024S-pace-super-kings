@@ -47,9 +47,9 @@ router.post('/login', async (req, res) => {
     }
 
    
-    const token = jwt.sign({ email: user.email }, process.env.TOKEN_SECRET_KEY, { expiresIn:  process.env.JWT_ACCESS_EXPIRES_IN});
+    const token = jwt.sign({ email: user.email, id:user._id , amount:user.amount}, process.env.TOKEN_SECRET_KEY, { expiresIn:  process.env.JWT_ACCESS_EXPIRES_IN});
     
-    res.status(200).json({ token, data : { email: user.email, firstName : user.firstName, lastName : user.lastName, birthDate : user.birthDate, amount: user.amount } 
+    res.status(200).json({ token, data : { email: user.email, firstName : user.firstName, lastName : user.lastName, birthDate : user.birthDate, amount: user.amount, id : user._id }
 
 
   

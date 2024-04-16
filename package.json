@@ -6,7 +6,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
    "precommit": "pretty-quick --staged"
   },
   "dependencies": {
