@@ -7,7 +7,7 @@ const router = express.Router();
 const User = require('../models/User');
 const verifyToken = require('../utils/verifyToken');
 const { FMP_API } = require('../constants');
-const { default: axios } = require('axios');
+const {  axiosHandler } = require('../../../frontend/src/network/networkInterceptor');
 
 
 
@@ -19,7 +19,7 @@ router.get('/search', async (req, res) => {
         return res.status(400).json({ error: 'Keyword is required' });
       }
   
-      const response = await axios.get('https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=${keyword}');
+      const response = await axiosHandler.get('https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=${keyword}');
       console.log("response", response)
       const data = response.data;
       res.json(data);
