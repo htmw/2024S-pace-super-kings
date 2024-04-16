@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FaUser, FaLock, FaEye, FaEyeSlash, FaMail } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { MdDateRange } from "react-icons/md";
-import axios from "axios";
+import axios from "../../network/networkInterceptor";
 // import "../Login/login.css";
 import "./signup.css";
 

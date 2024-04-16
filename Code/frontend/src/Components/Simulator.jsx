@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
-import axios from 'axios';
+import axios from '../network/networkInterceptor';
 import ChartComponent from './ChartComponent';
 import ChatWindow from './ChatWindow';
 import './simulator.css'

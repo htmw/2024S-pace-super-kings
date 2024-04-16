@@ -98,7 +98,7 @@
 
 import React, { useEffect, useState } from "react";
 import "./login.css"; // Import CSS file for styles
-import axios from "axios";
+import axios from "../../network/networkInterceptor";
 import { loginEndpoint } from "../../variables";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -119,8 +119,8 @@ const Login = () => {
     checkForToken();
   }, []);
   
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("ankitmhatre@hotmail.com");
+  const [password, setPassword] = useState("test123");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   
@@ -150,16 +150,16 @@ const Login = () => {
           setError(error.response.data.message);
         }else{
 
-        
+
   
         // Extract token from response data
-        const {token, firstName} = response.data.token;
+        const {token, data} = response.data;
   
         // Save token to localStorage
         localStorage.setItem('token', token);
-        localStorage.setItem('email',email );
-        localStorage.setItem('firstName', firstName);
-        navigate('/dashboard');
+        localStorage.setItem('email',data.email );
+        localStorage.setItem('firstName', data.firstName);
+        navigate('/');
   
         // Redirect or perform other actions after successful login}}
         }

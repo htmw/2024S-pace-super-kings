@@ -21,15 +21,12 @@ import IntroToOptions from './Components/ModulesPages/IntroToOptions/IntroToOpti
 import Tv from './Tv';
 import Dashboard from './Tv/dashboard';
 import SignUp from './Components/Signup/SignUp';
+import TopUpFunds from './Components/TopUpFunds';
 
 
 function App() {
 
-  useEffect(() => {
-    setupInterceptors();
-//checkForToken()
 
-  }, []);
 
 
   const router = createBrowserRouter([
@@ -57,6 +54,11 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+      
+    },
+    {
+      path: "/topup",
+      element: <TopUpFunds />,
       
     },
     // {

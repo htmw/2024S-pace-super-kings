@@ -10,8 +10,6 @@ import { base } from '../variables';
 
 
 
-const setupInterceptors = () => {
-
   const axiosHandler = axios.create({
     baseURL: base,
     headers: {
@@ -30,9 +28,10 @@ const setupInterceptors = () => {
       // Modify request config here (e.g., add headers, handle authentication)
       // Example: add an authorization header with a token
       const token = localStorage.getItem('token');
+
       if (token) {
         config.headers.authorization = `${token}`;
-      }
+           }
       return config;
     },
     (error) => {
@@ -57,6 +56,5 @@ const setupInterceptors = () => {
       return Promise.reject(error);
     }
   );
-};
 
-export default setupInterceptors;
+export default axiosHandler;
