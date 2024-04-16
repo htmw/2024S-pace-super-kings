@@ -129,7 +129,7 @@ async function checkToken(req, res, next) {
   try{
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
     var user = await User.findOne({email:decoded.email});
-console.log("user",user)
+
     if(user){
       req.user = user;
       return next();
