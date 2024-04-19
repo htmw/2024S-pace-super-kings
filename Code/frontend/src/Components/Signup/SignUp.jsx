@@ -77,7 +77,7 @@ const SignUp = () => {
         // Save token to localStorage
         console.log(token);
         console.log(response.token);
-        localStorage.setItem("token", token);
+        // localStorage.setItem("token", token);
         localStorage.setItem("email", email);
         localStorage.setItem("firstName", response.data.firstName);
 
