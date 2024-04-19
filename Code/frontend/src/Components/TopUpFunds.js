@@ -3,6 +3,7 @@ import axios from '../network/networkInterceptor';
 import { redirect } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './topupfunds.css';
 
 
 
@@ -46,20 +47,26 @@ if(!addingMoneyCall){
  console.log(responseMoney.data);
     }
     return (
-        <center>
+        <div className='topUp-main-container'>
         		<ToastContainer />
-            <h2>Top Up Funds</h2>
-            <div>
-                <label htmlFor="amountInput">Amount:</label>
-                <input
+               
+                <div className='topupcard'>
+                <h2 className='topupH2'>Top Up Your Funds</h2>
+            <div className='lableInput'>
+                <label htmlFor="amountInput">Enter Amount</label>
+                <input className='topupinput'
                     type="number"
                     id="amountInput"
                     value={amount}
                     onChange={handleAmountChange}
                 />
             </div>
-            <button onClick={handleTopUp}>Top Up</button>
-        </center>
+            <button className='topUpBtn' onClick={handleTopUp}>Top Up</button>
+                </div>
+
+
+          
+        </div>
     );
 }
 
