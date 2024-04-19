@@ -159,7 +159,9 @@ const Login = () => {
         localStorage.setItem('token', token);
         localStorage.setItem('email',data.email );
         localStorage.setItem('firstName', data.firstName);
-        navigate('/');
+        navigate('/trading');
+
+        console.log(token);
   
         // Redirect or perform other actions after successful login}}
         }

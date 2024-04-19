@@ -216,3 +216,54 @@
         display: flex;
         gap: 1rem;
     }
+
+   
+
+
+    @media only screen and (max-width:950px){
+      .loginMain-Container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between !important;
+        flex-direction: column;
+        width: 100%;
+        /* background-color: grey; */
+        height: auto !important;
+        }
+        .animatedGraph{
+          width: 100% !important;
+          gap: 1rem;
+          display: flex;
+          flex-direction: column;
+          padding: 1rem !important;
+          /* background-color: ; */
+        }
+        .login-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: auto !important;
+          width: 100% !important;
+          flex-direction: column;
+          gap: 1rem;
+          padding: 2rem 1rem!important;
+          /* background-image:url(../../assets/chart.jpg); */
+          /* background-repeat: no-repeat; */
+          /* background-size: cover; */
+          /* background-color: #007bff; */
+          background-color: #bde0fe;
+          /* border-top-left-radius: 50px; */
+          /* border-bottom-left-radius: 50px; */
+          border-radius: 10px !important;
+          margin: 0rem 1rem !important;
+
+        }
+        .login-form{
+          width: 100%;
+        }
+        .firstLastnameCon,.passDate{
+          display: flex;
+          flex-direction: column;
+          gap: 0rem;
+        }
+    }
