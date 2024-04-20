@@ -2,9 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 
 import "./assets/vendor/datatables/css/jquery.dataTables.min.css";
 
-import demo from "./js/functions.js";
+import demo from "./js/functions/functions.js";
 import html2canvas from "html2canvas";
-import { saveAs } from "file-saver";
 import axios from "../network/networkInterceptor.js";
 import ChartComponent from "./components/chartcomponents";
 import ChatScreen from "./chatScreen";
@@ -12,7 +11,6 @@ import ClipLoader from "react-spinners/ClipLoader";
 import "./dashboard.css";
 import Navbar from "../Components/Navbar.jsx";
 import { useLocation } from "react-router-dom";
-
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TabBar from "../Components/Tab-bar/TabBar.jsx";
