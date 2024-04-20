@@ -7,7 +7,11 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
+<<<<<<< HEAD
     "precommit": "pretty-quick --staged"
+=======
+   "precommit": "pretty-quick --staged"
+>>>>>>> temp_dev
   },
   "dependencies": {
     "axios": "^1.6.8",
@@ -26,7 +30,8 @@
     "nodemailer": "^6.9.13",
     "nodemon": "^3.1.0",
     "socket.io": "^4.7.5",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "nodemon": "^3.1.0"
   },
   "devDependencies": {
     "@babel/cli": "7.24.1",

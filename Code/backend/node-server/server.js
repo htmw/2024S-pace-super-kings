@@ -143,10 +143,6 @@ server.listen(PORT, () => {
 
 
 
-
-
-
-
 async function checkToken(req, res, next) {
 
   // Get the token from the request headers

@@ -5,7 +5,29 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import profileimg from '../Tv/assets/images/1.png';
 import axios from "../network/networkInterceptor";
 
+
+
+
+
+
 const Navbar = () => {
+
+  const [userData, setUserData] = useState(null);
+
+  useEffect(()=>{
+    const fetchUserData = async ()=> {
+      try {
+        const response = await axios.get("/user/profile");
+        setUserData(response.data);
+      }
+      catch(error){
+        console.error("Error fetching userdata")
+      }
+    };
+    fetchUserData();
+  },[]);
+
+
   const location = useLocation();
   const { hash, pathname, search } = location;
 
@@ -57,17 +79,17 @@ const Navbar = () => {
 
                          
 							
-							<li>
+							<li class="prfileImage">
 								<div class="dropdown header-profile2">
 									<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										<div class="header-info2 d-flex align-items-center">
+										<div class="header-info2 d-flex align-items-center justify-content-center" style={{display:'flex',alignItems:"center",justifyContent:'center', flexDirection:'column-reverse'}}>
 											<div class="d-flex align-items-center sidebar-info">
 												<div>
-													<h4 class="text-white mb-1">Hi, Ankit</h4>
+													<h6 class="" style={{color:'#28292b', paddingTop:'0.5rem'}}>Hi, Ankit</h6>
 												
 												</div>
 											</div>
-											<img src={profileimg} alt=""/>
+											<img src={profileimg} alt="" style={{width:'50px', height:'50px'}}/>
 										</div>
 									</a>
 									<div class="dropdown-menu dropdown-menu-end" >

@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tabBar{
+/* width: 100%; */
+background-color: pink;
+margin: 0rem 0rem;
+}
+
+/* tabbar.css */
+.tabBar { /* Updated class name */
+    display: flex;
+    justify-content: space-between;
+    background-color: pink;
+    padding: 10px 10px;
+    gap: 0.5rem;
+
+  }
+  
+  .tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tab:hover {
+    background-color: #ddd;
+  }
+  
+  .tab.active {
+    background-color: #ccc;
+  }
+  

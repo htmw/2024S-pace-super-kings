@@ -8,18 +8,19 @@ import axios from "../../network/networkInterceptor";
 // import "../Login/login.css";
 import "./signup.css";
 
-function checkForToken() {
-  const token = localStorage.getItem("token");
-  if (token) {
-    // Redirect to dashboard if token is present
-    window.location.href = "/dashboard";
-  }
-}
+// function checkForToken() {
+//   const token = localStorage.getItem("token");
+//   console.log(token);
+//   if (token) {
+//     // Redirect to dashboard if token is present
+//     window.location.href = "/dashboard";
+//   }
+// }
 // ankitmhatre@hotmail.com   test123
 const SignUp = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    checkForToken();
+    // checkForToken();
   }, []);
 
   const [email, setEmail] = useState("");
@@ -74,11 +75,14 @@ const SignUp = () => {
         // Extract token from response data
         const token = response.data.token;
         // Save token to localStorage
-        localStorage.setItem("token", token);
+        console.log(token);
+        console.log(response.token);
+        // localStorage.setItem("token", token);
         localStorage.setItem("email", email);
-        localStorage.setItem("firstName", email);
+        localStorage.setItem("firstName", response.data.firstName);
 
-        navigate("/trading");
+        // navigate("/login");
+        // navigate("/dashboard");
       }
       // Redirect or perform other actions after successful login
     } catch (error) {
@@ -111,7 +115,7 @@ const SignUp = () => {
         <div className="login-container">
           <form onSubmit={handleSubmit} className="login-form">
             {/* <h2>Welcome Back!</h2> */}
-            <h2>Sign into your accout</h2>
+            <h2>Sign up your accout</h2>
 
             <div className="firstLastnameCon">
               <div className="form-group">
@@ -157,7 +161,7 @@ const SignUp = () => {
               <div className="form-group">
                 <label htmlFor="username">Birth Date</label>
                 <div className="input-with-icon">
-                  <MdDateRange className="icon" />
+                  {/* <MdDateRange className="icon" /> */}
                   <input
                     type="date"
                     id="birthDate"

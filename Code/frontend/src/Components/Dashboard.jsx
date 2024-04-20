@@ -12,8 +12,8 @@ function checkForToken() {
 const Dashboard = () => {
 
   useEffect(()=>{
-    checkForToken()
-  })
+    checkForToken();
+  },[]);
   return (
     <>
       <Navbar />
