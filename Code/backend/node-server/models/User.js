@@ -24,7 +24,12 @@ const userSchema = new mongoose.Schema({
   birthDate: {
     type: Date,
 
-  }
+  },
+amount: {
+    type: Number,
+    default: 0
+  },
+
 
 
 

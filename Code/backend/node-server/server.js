@@ -5,6 +5,7 @@ const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const morgan = require('morgan');
 
@@ -94,6 +95,9 @@ const profileRoutes = require('./routes/profile');
 const dashboardRoutes = require('./routes/dashboard');
 const stockRoutes = require('./routes/stocks');
 const extraRoutes = require('./routes/extra');
+const accountRoutes = require('./routes/account');
+const ordersRoutes = require('./routes/orders');
+const User = require('./models/User');
 
 
 
@@ -101,7 +105,9 @@ app.use('/profile', profileRoutes);
 app.use('/auth', authRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/stocks', stockRoutes);
+app.use('/account',checkToken,  accountRoutes);
 app.use('/extra', extraRoutes);
+app.use('/orders', checkToken, ordersRoutes);
 
 // Start the server
 
@@ -109,3 +115,31 @@ app.use('/extra', extraRoutes);
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
+
+
+
+
+async function checkToken(req, res, next) {
+
+  // Get the token from the request headers
+  const token = req.headers.authorization;
+  
+  try{
+    const decoded = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
+    var user = await User.findOne({email:decoded.email});
+
+    if(user){
+      req.user = user;
+      return next();
+    }else{
+      return res.status(401).json({ error: 'Invalid token' });
+    }
+  }catch(error){
+    console.log("error",error)
+    return res.status(401).json({ error: 'Invalid token' });
+  
+  }
+
+}
