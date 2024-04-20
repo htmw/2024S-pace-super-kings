@@ -1,7 +1,12 @@
+print("Loading libraries...")
 import os
-from dotenv import load_dotenv
+print("pre loading Flask")
 from flask import Flask, request, jsonify
+print("pre loading dotenv")
+from dotenv import load_dotenv
+print("pre loading ultraplus")
 from ultralyticsplus import YOLO
+print("pre loading cv")
 import cv2
 import numpy as np
 
@@ -11,7 +16,7 @@ app = Flask(__name__)
 cv2.setUseOptimized(True)
 cv2.setNumThreads(0)
 
-
+print("Loading YOLOv8 model...")
 model = YOLO('foduucom/stockmarket-pattern-detection-yolov8')
 
 
@@ -79,6 +84,7 @@ def hello():
 
 
 if __name__ == '__main__':
+    print("Starting server...")
     environment = os.environ.get("ENVIRONMENT", "development")
     debug = False if environment == "production" else True
 
