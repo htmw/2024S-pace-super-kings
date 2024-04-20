@@ -1,22 +1,14 @@
-# Use the official Python image as a parent image
-FROM python:3.9-slim
+# Use a minimal base image
+FROM debian:bullseye-slim
 
 # Set the working directory in the container
 WORKDIR /app
 
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# Install wget
-RUN apt-get update && apt-get install -y gcc python3-dev libsm6 libxext6
+# Expose the port on which Flask will run
+EXPOSE 3002
 
-
-# Copy the dependencies file to the working directory
-COPY requirements.txt .
-
-# Install any dependencies
-RUN pip install -r requirements.txt
-
-# Copy the content of the local src directory to the working directory
-COPY . .
-
-# Specify the command to run on container start
+# Run app.py when the container launches
 CMD ["python", "app.py"]
