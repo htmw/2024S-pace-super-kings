@@ -6,7 +6,7 @@ WORKDIR /app
 
 
 # Install wget
-RUN apt-get update && apt-get install -y gcc python3-dev ffmpeg libsm6 libxext6  -y
+RUN apt-get update && apt-get install -y gcc python3-dev libsm6 libxext6
 
 
 # Copy the dependencies file to the working directory
