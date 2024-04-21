@@ -121,10 +121,14 @@
 	text-align: center;
 	color: black;
 	font-weight: bold;
+	padding: 0.5rem;
+	border-radius: 10px;
   }
   .pending{
 	background-color: #FF5733;
 	text-align: center;
 	color: white;
 	font-weight: bold;
+	padding: 0.5rem;
+	border-radius: 10px;
   }

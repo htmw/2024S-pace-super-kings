@@ -47,7 +47,7 @@ const Orders = () => {
       };
 
   return (
-    <div className='orderss' style={{height:'15rem',overflowY:'auto',margin:'2rem'}}>
+    <div className='orderss' style={{}}>
         <div class="roww" style={{marginRight:'0rem !important', marginLeft:'0rem important'}}>
               <div class="col-xl-12" style={{padding:'0rem !important',margin:'0rem 0rem',overflowY:'hidden'}}>
                 <div class="card">

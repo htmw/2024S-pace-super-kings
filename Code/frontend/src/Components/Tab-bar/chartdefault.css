@@ -6,14 +6,23 @@
 
 
 
-.roww{
+.charRow{
     display:'flex';
     align-items:'center';
     justify-content:'center';
+    flex-direction: row;
+}
+
+.balance-charts{
+    background-color: lightgreen;
+    padding: 0.5rem;
+    color: #28292b;
+    font-weight: 600;
+    font-size: 1.3rem;
 }
 
 @media only screen and (max-width:950px){
-    .roww{
+    .charRow{
         display: flex;
         align-items: center;
         justify-content: center;

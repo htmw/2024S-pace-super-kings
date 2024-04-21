@@ -14,7 +14,7 @@ margin: 0rem 0rem;
 .tabBar { /* Updated class name */
     display: flex;
     justify-content: space-between;
-    background-color: pink;
+    background-color: #f6bd60;
     padding: 10px 10px;
     gap: 0.5rem;
 
@@ -29,13 +29,14 @@ margin: 0rem 0rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 5px;
   }
   
   .tab:hover {
-    background-color: #ddd;
+    background-color: #f7ede2;
   }
   
   .tab.active {
-    background-color: #ccc;
+    background-color:#faedcd ;
   }
   

@@ -18,6 +18,7 @@ import { useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TabBar from './TabBar.jsx';
+import './chartdefault.css';
 // import Orders from "../Components/Tab-bar/Orders.jsx";
 // import TopUpFunds from "../Components/TopUpFunds.js";
 
@@ -259,7 +260,7 @@ const handleOrderForm = async (event) => {
 
   return (
     <div>
-                    <div class="roww" >
+                    <div class="row charRow"  >
               <div class="col-xl-8">
                 <div class="card">
                   <div
@@ -272,7 +273,7 @@ const handleOrderForm = async (event) => {
                       textAlign: "right",
                     }}
                   >
-                    <span> Balance : USD {accountMoney}</span>
+                    <span className='balance-charts'> Balance : USD {accountMoney}$</span>
                   </div>
                   <div class="card-body">
                     <input
@@ -401,7 +402,7 @@ const handleOrderForm = async (event) => {
 										<a href="javascript:void(0)" class="btn btn-danger btn-sm light text-uppercase btn-block">Sell</a>
 									</div> */}
 
-                      <div className="roww" >
+                      <div className="row charRow"  >
                         <div className="col-8">
                           <input
                             className="askinput form-control"
