@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from ultralytics import YOLO
 import cv2
 import numpy as np
+import base64
 
 load_dotenv()
 
@@ -35,6 +36,8 @@ def detect_pattern():
 
     cust = []
     boxes = []
+    encoded_image = ""
+
     # Run YOLOv8 inference on the image
     results = model(frame)
 
@@ -43,8 +46,11 @@ def detect_pattern():
     for result in results:
         
           # Probs object for classification outputs
-        result.show()  # display to screen
+        #result.show()  # display to screen
         result.save(filename='result.jpg')
+        with open("result.jpg", "rb") as image_file:
+            encoded_image = base64.b64encode(image_file.read())
+            print(encoded_image)
         
     # Extract pattern information and bounding box data
     pattern_info = {'pattern': results[0].names,
@@ -77,7 +83,8 @@ def detect_pattern():
     # Prepare JSON response
     response = {
         'pattern_info': pattern_info,
-        'bounding_boxes': boxes
+        'bounding_boxes': boxes,
+        'image_data' : str(encoded_image)
     }
 
     return jsonify(response)
