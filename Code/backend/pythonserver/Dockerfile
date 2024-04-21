@@ -4,6 +4,8 @@ FROM python:3.9-slim
 # Set the working directory in the container
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y gcc python3-dev
+
 ADD https://huggingface.co/foduucom/stockmarket-pattern-detection-yolov8/resolve/main/best.pt /app/best.pt
 
 # Copy the current directory contents into the container at /app
