@@ -14,13 +14,13 @@ cv2.setNumThreads(0)
 
 
 
-
+print("Loading YOLOv8 model...")
+model = YOLO('best.pt')
+print("Done, model loaded")
 
 @app.route('/detect_pattern', methods=['POST'])
 def detect_pattern():
-    print("Loading YOLOv8 model...")
-    model = YOLO('best.pt')
-    print("Done, model loaded")
+
     # Check if an image file is present in the request
     if 'image' not in request.files:
         return jsonify({'error': 'No image provided'})
