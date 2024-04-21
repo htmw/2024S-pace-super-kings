@@ -1,12 +1,7 @@
-print("Loading libraries...")
 import os
-print("pre loading Flask")
 from flask import Flask, request, jsonify
-print("pre loading dotenv")
 from dotenv import load_dotenv
-print("pre loading ultraplus")
-from ultralyticsplus import YOLO
-print("pre loading cv")
+from ultralytics import YOLO
 import cv2
 import numpy as np
 
@@ -16,13 +11,15 @@ app = Flask(__name__)
 cv2.setUseOptimized(True)
 cv2.setNumThreads(0)
 
-print("Loading YOLOv8 model...")
-model = YOLO('foduucom/stockmarket-pattern-detection-yolov8')
+
 
 
 
 @app.route('/detect_pattern', methods=['POST'])
 def detect_pattern():
+    print("Loading YOLOv8 model...")
+    model = YOLO('best.pt')
+    print("Done, model loaded")
     # Check if an image file is present in the request
     if 'image' not in request.files:
         return jsonify({'error': 'No image provided'})
@@ -36,13 +33,25 @@ def detect_pattern():
     # Decode image
     frame = cv2.imdecode(image_np, cv2.IMREAD_COLOR)
 
+    cust = []
+    boxes = []
     # Run YOLOv8 inference on the image
     results = model(frame)
 
-    # Extract pattern information and bounding box data
-    pattern_info = {'pattern': str(results[0].names)}
 
-    boxes = []
+
+    for result in results:
+        
+          # Probs object for classification outputs
+        result.show()  # display to screen
+        result.save(filename='result.jpg')
+        
+    # Extract pattern information and bounding box data
+    pattern_info = {'pattern': results[0].names,
+                    'boxes' : cust 
+                    }
+
+    
 
     for box in results[0].boxes.xyxyn:
         label_index = int(box[-1])
@@ -86,7 +95,7 @@ def hello():
 if __name__ == '__main__':
     print("Starting server...")
     environment = os.environ.get("ENVIRONMENT", "development")
-    debug = False if environment == "production" else True
+    debug = False if environment == "development" else True
 
     port = int(os.environ.get("PORT", 3002))
     app.run(host='0.0.0.0', port=port, debug=debug)

@@ -12,6 +12,7 @@ const { default: axios } = require('axios');
 
 
 
+
 router.get('/search', async (req, res) => {
     try {
       const { keyword } = req.query;
@@ -47,5 +48,8 @@ router.get('/search', async (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     }
   });
+
+
+
 
   module.exports = router;
