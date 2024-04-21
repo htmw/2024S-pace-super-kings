@@ -15,6 +15,12 @@ const TabBar = ({activeTab, onTabChange}) => {
         <button id='tabBarBTN' onClick={()=> onTabChange('topup')} className={activeTab === 'topup' ? 'active': ''} >Top Up</button> */}
         
 
+        <div
+        className={`tab ${activeTab === 'chart' ? 'active' : ''}`}
+        onClick={() => handleTabClick('chart')}
+      >
+        Charts
+      </div>
       <div
         className={`tab ${activeTab === 'orders' ? 'active' : ''}`}
         onClick={() => handleTabClick('orders')}

@@ -22,6 +22,7 @@ import Tv from './Tv';
 import Dashboard from './Tv/dashboard';
 import SignUp from './Components/Signup/SignUp';
 import TopUpFunds from './Components/TopUpFunds';
+import ChartDefault from './Components/Tab-bar/ChartDefault';
 
 
 function App() {
@@ -124,6 +125,11 @@ function App() {
     {
       path: "/signup",
       element: <SignUp />,
+      
+    },
+    {
+      path: "/chart",
+      element: <ChartDefault />,
       
     },
   ]);

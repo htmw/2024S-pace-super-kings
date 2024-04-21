@@ -75,7 +75,7 @@ background:rgba(0, 0, 0, 0.47);
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        height: 18rem;
         flex-direction: column;
         /* background-color:#f7ede2; */
         background-color: #dad7cd;
