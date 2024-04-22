@@ -4,6 +4,7 @@ import './profile.css';
 import { useState ,useEffect} from 'react';
 import defaultCover from '../assets/profile-cover/default-cover.jpg'
 import axios from '../network/networkInterceptor';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Profile = () => {
 
@@ -73,9 +74,12 @@ const Profile = () => {
     const handleSave = async () => {
       try {
         await axios.put('/user/profile', { email, firstName }); // Replace with your API endpoint
-        alert('Data saved successfully!');
+        // alert('Data saved successfully!');
+        toast.warn('Could not add funds. Please try again.');
+        window.location.href = "/trading";
       } catch (error) {
-        console.error('Error saving data:', error);
+        // console.error('Error saving data:', error);
+        toast.success('Could not saved data! try again')
       }
     };
   
@@ -85,6 +89,7 @@ const Profile = () => {
     <div className="profile-cover-photo">
         <img className='coverImage' src={profileCoverImage} alt="" />
     </div>
+    <ToastContainer />
     <div className="profile-section">
       <div className="profile-photo">
         <img src={profilePhoto} alt="User Profile" />
@@ -100,6 +105,8 @@ const Profile = () => {
         onChange={handleFileChange}
       />
     </div>
+    <div className="user-name"><center><h2>Ankit Mahtre</h2></center></div>
+    
     <div className="user-profile">
     <div>
       <h5>Edit User Information</h5>
