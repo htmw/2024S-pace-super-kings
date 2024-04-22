@@ -44,7 +44,7 @@ justify-content: flex-start;
 
 }
 .getStarted a{
-text-decoration: none;
+text-decoration: none !important;
 color: #28292b;
 font-weight: 700;
 display: flex;

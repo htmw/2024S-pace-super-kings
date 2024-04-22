@@ -37,12 +37,20 @@
   }
   .navbar-2 ul li a {
     color: #28292b;
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 1rem;
     font-weight: 600;
   }
 
+  .signupLogin{
+text-decoration: none !important;
+color: #000 !important;
+  }
 
+  .LogoTitle{
+    text-decoration: none !important;
+    /* color: #000 !important; */
+  }
 
 
 

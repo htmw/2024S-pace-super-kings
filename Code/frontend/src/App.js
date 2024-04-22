@@ -23,6 +23,7 @@ import Dashboard from './Tv/dashboard';
 import SignUp from './Components/Signup/SignUp';
 import TopUpFunds from './Components/TopUpFunds';
 import ChartDefault from './Components/Tab-bar/ChartDefault';
+import Profile from './Components/Profile';
 
 
 function App() {
@@ -130,6 +131,11 @@ function App() {
     {
       path: "/chart",
       element: <ChartDefault />,
+      
+    },
+    {
+      path: "/myprofile",
+      element: <Profile />,
       
     },
   ]);

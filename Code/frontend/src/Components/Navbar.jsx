@@ -7,25 +7,24 @@ import axios from "../network/networkInterceptor";
 
 
 
-
-
-
 const Navbar = () => {
 
   const [userData, setUserData] = useState(null);
 
-  useEffect(()=>{
-    const fetchUserData = async ()=> {
+  useEffect(() => {
+    const fetchUserData = async () => {
       try {
-        const response = await axios.get("/user/profile");
-        setUserData(response.data);
-      }
-      catch(error){
-        console.error("Error fetching userdata")
+        const response = await axios.get('/user/profile'); // Use the custom Axios instance
+        setUserData(response.data); // Store user data
+        console.log(response);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
       }
     };
-    fetchUserData();
-  },[]);
+
+    fetchUserData(); // Fetch user data on component mount
+  }, []); // Run once when component mounts
+
 
 
   const location = useLocation();
@@ -40,12 +39,14 @@ const Navbar = () => {
   
     const token = localStorage.getItem('token');
 
+  
+
 
 
 
     return (
       <div className="navbar-2">
-       <a href="/">
+       <a className="LogoTitle" href="/">
        <div className="logo">
             <div className="img"></div>
             <div className="name"><span style={{fontWeight:'700',fontSize:'1.5rem',color:"#ff8773"}}>InvestMate</span></div>
@@ -85,7 +86,7 @@ const Navbar = () => {
 										<div class="header-info2 d-flex align-items-center justify-content-center" style={{display:'flex',alignItems:"center",justifyContent:'center', flexDirection:'column-reverse'}}>
 											<div class="d-flex align-items-center sidebar-info">
 												<div>
-													<h6 class="" style={{color:'#28292b', paddingTop:'0.5rem'}}>Hi, Ankit</h6>
+													<h6 class="" style={{color:'#28292b', paddingTop:'0.5rem'}}>Hi User</h6>
 												
 												</div>
 											</div>
@@ -93,7 +94,7 @@ const Navbar = () => {
 										</div>
 									</a>
 									<div class="dropdown-menu dropdown-menu-end" >
-										<a href="app-profile.html" class="dropdown-item ai-icon ">
+										<a href="/myprofile" class="dropdown-item ai-icon ">
 										
 											<span class="ms-2">Profile </span>
 										</a>
