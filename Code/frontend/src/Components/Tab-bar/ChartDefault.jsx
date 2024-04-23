@@ -39,7 +39,7 @@ const ChartDefault = () => {
     const [selectedStockData, setSelectedStockData] = useState(null);
     const [isStockLoading, setStockLoading] = useState(false);
     const [accountMoney, setAccountMoney] = useState(0);
-    const [currentPrice, setCurrentPrice] = useState(10);
+    const [currentPrice, setCurrentPrice] = useState(0);
 
 
      //ORDER RELATED VARIABLES
@@ -129,11 +129,7 @@ const handleOrderForm = async (event) => {
         }
       }
     
-      // Test cases
-      console.log(formatDateTime(new Date())); // Output: current hour and seconds
-      console.log(formatDateTime("2024-04-15T12:30:45")); // Output: 2024-4-15
-      console.log(formatDateTime("2024-04-16T08:15:30")); // Output: current hour and seconds
-    
+  
       //ORDER RELATED VARIABLES : END
     
       const handleDownloadClick = () => {
@@ -183,6 +179,7 @@ const handleOrderForm = async (event) => {
         try {
           const response = await axios.get(`/stocks/data/?ticker=` + stockTicker);
           console.log(response.data);
+          setCurrentPrice(response.data.historical[0].close)
           setSelectedStockData(response.data);
         } catch (error) {
           console.error("Error fetching stock data:", error.message);
@@ -204,6 +201,9 @@ const handleOrderForm = async (event) => {
     
           if (response.items !== null) {
             setSuggestions(response.items);
+
+console.log(response.items)
+            // setCurrentPrice(response.items[0].close)
           }
         } catch (error) {
           console.error("Error fetching suggestions:", error);
@@ -245,7 +245,7 @@ const handleOrderForm = async (event) => {
         setQuery("");
         try {
           const response = await axios.get(`/stocks/data/?ticker=${symbol}`);
-          console.log(response.data);
+          setCurrentPrice(response.data.historical[0].close)
           setSelectedStockData(response.data);
         } catch (error) {
           console.error("Error fetching stock data:", error.message);
