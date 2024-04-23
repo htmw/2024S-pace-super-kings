@@ -49,7 +49,7 @@ const Orders = () => {
   return (
     <div className='orderss' style={{}}>
         <div class="roww" style={{marginRight:'0rem !important', marginLeft:'0rem important'}}>
-              <div class="col-xl-12" style={{padding:'0rem !important',margin:'0rem 0rem',overflowY:'hidden'}}>
+              <div class="col-xl-12 order-card-box" style={{padding:'0rem !important',margin:'0rem 0rem',overflowY:'hidden'}}>
                 <div class="card">
                   <div class="card-header border-0 pb-0">
                     <h2 class="card-title mb-2">Orders</h2>

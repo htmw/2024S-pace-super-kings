@@ -72,6 +72,7 @@ const SignUp = () => {
         setError("Sign up failed. Please try again")
         //todo: handle error
       } else {
+        
         // Extract token from response data
         const token = response.data.token;
         // Save token to localStorage
@@ -81,7 +82,7 @@ const SignUp = () => {
         localStorage.setItem("email", email);
         localStorage.setItem("firstName", response.data.firstName);
 
-        // navigate("/login");
+        navigate("/login");
         // navigate("/dashboard");
       }
       // Redirect or perform other actions after successful login

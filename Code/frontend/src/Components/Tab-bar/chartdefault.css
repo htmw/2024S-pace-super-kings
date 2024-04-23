@@ -11,6 +11,8 @@
     align-items:'center';
     justify-content:'center';
     flex-direction: row;
+    width: 100%;
+    /* overflow-x: hidden; */
 }
 
 .balance-charts{
@@ -28,5 +30,6 @@
         align-items: center;
         justify-content: center;
         flex-direction: column !important;
+        width: auto;
     }
 }

@@ -120,7 +120,9 @@ const Login = () => {
   }, []);
   
   const [email, setEmail] = useState("ankitmhatre@hotmail.com");
+  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("test123");
+  // const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   
