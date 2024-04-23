@@ -1,5 +1,16 @@
 
+import React, { useEffect } from "react";
+
+
 function ChatScreen() {
+
+
+
+
+
+
+
+
     return (
       < >
                                        
@@ -54,7 +65,7 @@ function ChatScreen() {
       <li class="Chat_item Chat_item_r">
         <div class="Chat_msgs">
           <div class="msg">
-            <div class="msg-content">
+            <div class="msg-content" >
                Hammer
             </div>
           </div>

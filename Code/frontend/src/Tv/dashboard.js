@@ -119,10 +119,7 @@ function Tv() {
   }
 
   // Test cases
-  console.log(formatDateTime(new Date())); // Output: current hour and seconds
-  console.log(formatDateTime("2024-04-15T12:30:45")); // Output: 2024-4-15
-  console.log(formatDateTime("2024-04-16T08:15:30")); // Output: current hour and seconds
-
+  
   //ORDER RELATED VARIABLES : END
 
   const handleDownloadClick = () => {
@@ -171,7 +168,7 @@ function Tv() {
 
     try {
       const response = await axios.get(`/stocks/data/?ticker=` + stockTicker);
-      console.log(response.data);
+     
       setSelectedStockData(response.data);
     } catch (error) {
       console.error("Error fetching stock data:", error.message);
@@ -181,7 +178,7 @@ function Tv() {
   const getOrders = async () => {
     try {
       const response = await axios.get(`/orders`);
-      console.log(response.data);
+
       var ordersTemp = response.data;
 
       setOrders(ordersTemp.reverse());
@@ -264,7 +261,7 @@ setActiveTab(tab);
     <div>
       <ToastContainer />
       <div id="preloader">
-        <div class="lds-ripple">
+        <div className="lds-ripple">
           <div></div>
           <div></div>
         </div>

@@ -148,6 +148,7 @@ app.get('/pattern', (req, res) => {
     type: 'text',
     timeStamp: Date.now()
   });
+  
 
 
 

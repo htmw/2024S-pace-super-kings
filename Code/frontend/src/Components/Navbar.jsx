@@ -16,8 +16,7 @@ const Navbar = () => {
       try {
         const response = await axios.get('/profile'); // Use the custom Axios instance
         setUserData(response.data); // Store user data
-        console.log(response);
-       
+    
         
       } catch (error) {
         console.error("Error fetching user data:", error);
