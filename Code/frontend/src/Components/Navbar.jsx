@@ -14,9 +14,11 @@ const Navbar = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('/user/profile'); // Use the custom Axios instance
+        const response = await axios.get('/profile'); // Use the custom Axios instance
         setUserData(response.data); // Store user data
         console.log(response);
+       
+        
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -39,7 +41,8 @@ const Navbar = () => {
   
     const token = localStorage.getItem('token');
 
-  
+    console.log(userData);
+    // console.log(userData.firstName);
 
 
 
@@ -86,7 +89,8 @@ const Navbar = () => {
 										<div class="header-info2 d-flex align-items-center justify-content-center" style={{display:'flex',alignItems:"center",justifyContent:'center', flexDirection:'column-reverse'}}>
 											<div class="d-flex align-items-center sidebar-info">
 												<div>
-													<h6 class="" style={{color:'#28292b', paddingTop:'0.5rem'}}>Hi User</h6>
+													<h6 class="" style={{color:'#28292b', paddingTop:'0.5rem'}}>{'Hii' + " " + userData.firstName}</h6>
+                          {/* <h6 class="" style={{color:'#28292b', paddingTop:'0.5rem'}}>{'Hii' + " " + userData}</h6> */}
 												
 												</div>
 											</div>
@@ -104,7 +108,7 @@ const Navbar = () => {
 										</a>
 										<a href="/dashboard" class="dropdown-item ai-icon">
 											<svg class="logout" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fd5353" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-											<span class="ms-2 text-danger">Logout </span>
+											<span class="ms-2 text-danger" onClick={handleLogout}>Logout </span>
 										</a>
 									</div>
 								</div>

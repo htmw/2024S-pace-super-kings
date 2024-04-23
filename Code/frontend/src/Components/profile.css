@@ -40,6 +40,7 @@ height:auto;
     border: 5px solid #ccc;
     border-radius: 50%;
     padding: 5px;
+    /* width: 10px; */
     cursor: pointer;
   }
 
@@ -104,8 +105,20 @@ height:auto;
 
 
   }
+  .backbutton{
+    position: absolute;
+    background-color: #ccc;
+    top: 2.5rem;
+    left: 1rem;
+    border-radius: 10px;
+}
+
+.backbutton a{
+    text-decoration: none;
+    color: #28292b;
+}
 body{
-    background-color: bisque;
+    /* background-color: bisque; */
 }
   @media only screen and (max-width:950px){
     .coverImage{
@@ -117,4 +130,38 @@ body{
             padding: 20px;
             margin: 0rem 2rem;
           }
+          .backbutton{
+            position: absolute;
+            background-color: grey;
+            /* top: 0.2rem; */
+            left: 0.3rem;
+            margin-top: 0.3rem;
+            border-radius: 10px;
+            font-size: 0.5rem;
+        }
+}
+
+
+@media only screen and (max-width:768px){
+    .backbutton{
+        position: absolute;
+        background-color: grey;
+        top: 0.5rem;
+        left: 0.5rem;
+        /* margin-top: 0.3rem; */
+        border-radius: 10px;
+        font-size: 0.5rem;
+    }
+}
+
+@media only screen and (max-width:450px){
+    .backbutton{
+        position: absolute;
+        background-color: grey;
+        top: 2.5rem;
+        left: 0.5rem;
+        margin-top: 0.3rem;
+        border-radius: 10px;
+        font-size: 0.5rem;
+    }
 }

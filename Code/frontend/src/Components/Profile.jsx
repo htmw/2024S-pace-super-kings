@@ -5,6 +5,7 @@ import { useState ,useEffect} from 'react';
 import defaultCover from '../assets/profile-cover/default-cover.jpg'
 import axios from '../network/networkInterceptor';
 import { toast, ToastContainer } from 'react-toastify';
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Profile = () => {
 
@@ -29,7 +30,7 @@ const Profile = () => {
   const saveProfile = () => {
     // Make an HTTP POST/PUT request to update the profile in the backend
     axios
-      .post('/user-profile', userData) // Adjust the endpoint based on your backend API
+      .post('/profile', userData) // Adjust the endpoint based on your backend API
       .then((response) => {
         console.log('Profile updated:', response.data);
       })
@@ -52,16 +53,19 @@ const Profile = () => {
       }
     };
 
-    const [email, setEmail] = useState('user@gmail.com');
-    const [firstName, setFirstName] = useState('user');
+    const [email, setEmail] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName]= useState('');
   
     // Fetch data from the API on component mount
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('/user/profile'); // Replace with your API endpoint
+          const response = await axios.get('/profile'); // Replace with your API endpoint
           setEmail(response.data.email);
           setFirstName(response.data.firstName);
+          setLastName(response.data.lastName);
+          console.log(response.data);
         } catch (error) {
           console.error('Error fetching data:', error);
         }
@@ -73,20 +77,21 @@ const Profile = () => {
     // Handle save button click
     const handleSave = async () => {
       try {
-        await axios.put('/user/profile', { email, firstName }); // Replace with your API endpoint
+        await axios.put('/profile', { email, firstName }); // Replace with your API endpoint
         // alert('Data saved successfully!');
-        toast.warn('Could not add funds. Please try again.');
+        toast.success('Data Saved Successfully');
         window.location.href = "/trading";
       } catch (error) {
         // console.error('Error saving data:', error);
-        toast.success('Could not saved data! try again')
+        toast.warn('Could not saved data! try again')
       }
     };
   
   return (
     <>
-    
     <div className="profile-cover-photo">
+    <div className="backbutton"><a href="/trading"><IoMdArrowRoundBack size={35} /></a></div>
+    
         <img className='coverImage' src={profileCoverImage} alt="" />
     </div>
     <ToastContainer />
@@ -105,7 +110,8 @@ const Profile = () => {
         onChange={handleFileChange}
       />
     </div>
-    <div className="user-name"><center><h2>Ankit Mahtre</h2></center></div>
+    <div className="user-name"><center><h2>{firstName +" "+ lastName}</h2></center></div>
+    {/* <div className="user-name"><center><h2>Ankit Mhatre</h2></center></div> */}
     
     <div className="user-profile">
     <div>
