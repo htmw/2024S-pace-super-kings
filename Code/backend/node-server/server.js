@@ -48,6 +48,8 @@ if (process.env.NODE_ENV === "production") {
     });
 }
 
+
+var msocket;
 const io = new Server(server, {
   cors: {
     origin: ["http://localhost:3000", "https://investmatefinance.tech"]
@@ -56,12 +58,12 @@ const io = new Server(server, {
 });
 
 io.on('connection', (socket) => {
+  msocket = socket;
   console.log('New client connected');
 
   // Listen for user joining
   socket.on('join', (userId) => {
     console.log(`User ${userId} joined`);
-    
     // Join a unique room based on user ID
     socket.join(userId);
   });
@@ -70,13 +72,18 @@ io.on('connection', (socket) => {
   socket.on('chat', (message) => {
     console.log('Received message:', message);
      const { userId, data, type, timeStamp } = message;
-      socket.to(userId).emit(data);
+      io.to(userId).emit(userId, data);
 
+
+     
   });
 
   socket.on('disconnect', () => {
     console.log('Client disconnected');
   });
+
+
+
 });
 
 
@@ -132,6 +139,21 @@ app.use('/stocks', stockRoutes);
 app.use('/account',checkToken,  accountRoutes);
 app.use('/extra', extraRoutes);
 app.use('/orders', checkToken, ordersRoutes);
+app.get('/pattern', (req, res) => {
+
+  if(msocket)
+  msocket.emit("chat", {
+    userId: "asdnand",
+    data: "oaskdaokdok",
+    type: 'text',
+    timeStamp: Date.now()
+  });
+  
+
+
+
+  res.json({msg : 'Investmate API'});
+});
 
 // Start the server
 

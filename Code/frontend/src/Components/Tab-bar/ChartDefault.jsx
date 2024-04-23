@@ -23,6 +23,15 @@ import './chartdefault.css';
 // import TopUpFunds from "../Components/TopUpFunds.js";
 
 // import ChartDefault from "../Components/Tab-bar/ChartDefault.jsx";
+import { Manager } from "socket.io-client";
+import { base } from '../../variables.js';
+
+var socket = null;
+
+
+
+
+
 
 
 const ChartDefault = () => {
@@ -40,6 +49,7 @@ const ChartDefault = () => {
     const [isStockLoading, setStockLoading] = useState(false);
     const [accountMoney, setAccountMoney] = useState(0);
     const [currentPrice, setCurrentPrice] = useState(0);
+    const [userMessage, setUserMessage] = useState("");
 
 
      //ORDER RELATED VARIABLES
@@ -60,6 +70,57 @@ const ChartDefault = () => {
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
   };
+
+
+  useEffect(()=>{
+    const manager = new Manager(base, {
+      autoConnect: true
+    });
+    
+    socket = manager.socket("/");
+    socket.on("connect", () => {
+      console.log("connected");
+      const roomId = window.localStorage.getItem('email');
+      socket.emit("join", roomId);
+       });
+
+
+
+       socket.on('chat', (data) => {
+       console.log(data);
+      });
+
+    manager.open((err) => {
+      if (err) {
+        // an error has occurred
+      } else {
+        // the connection was successfully established
+      }
+    });
+
+
+
+  },[]);
+
+
+
+  function sendMessage(message){
+
+
+    const roomId = window.localStorage.getItem('email');
+
+    if(socket && roomId){
+
+      socket.emit("chat", {
+        userId: roomId,
+        data: message,
+        type: 'text',
+        timeStamp: Date.now()
+      });
+
+    
+  }
+  }
 
 
 
@@ -178,7 +239,7 @@ const handleOrderForm = async (event) => {
     
         try {
           const response = await axios.get(`/stocks/data/?ticker=` + stockTicker);
-          console.log(response.data);
+          //console.log(response.data);
           setCurrentPrice(response.data.historical[0].close)
           setSelectedStockData(response.data);
         } catch (error) {
@@ -281,9 +342,9 @@ console.log(response.items)
                         width: "100%",
                         height: "45px",
                         border: "1px solid #B3C0CD",
-                        "margin-bottom": "15px",
-                        "border-radius": "5px",
-                        "padding-left": "10px",
+                        marginBottom: "15px",
+              borderRadius: "5px",
+                        paddingLeft: "10px",
                       }}
                       type="text"
                       placeholder="Search Stock Name.."
@@ -409,12 +470,19 @@ console.log(response.items)
                             id="prompt_text"
                             type="text"
                             placeholder="ASk.."
+                            value={userMessage}
+                            onChange={e => setUserMessage(e.target.value)}
                           />
                         </div>
                         <div className="col-4">
                           <button
                             className="btn btn-success btn-sm light text-uppercase btn-block"
-                            onClick={demo}
+                            onClick={e=>{
+                              e.preventDefault();
+                              sendMessage(userMessage);
+                              setUserMessage("");
+                            
+                            }}
                           >
                             Send
                           </button>

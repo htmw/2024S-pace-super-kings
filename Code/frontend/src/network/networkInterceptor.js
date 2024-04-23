@@ -28,7 +28,7 @@ import { base } from '../variables';
       // Modify request config here (e.g., add headers, handle authentication)
       // Example: add an authorization header with a token
       const token = localStorage.getItem('token');
-      console.log(token);
+      
       if (token) {
         config.headers.authorization = `${token}`;
            }
