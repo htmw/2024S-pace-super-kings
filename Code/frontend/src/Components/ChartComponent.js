@@ -78,7 +78,7 @@ const saveImage = () => {
     <div>
    
       <Chart options={options} series={series} type="candlestick" height={350}  ref={chartRef} />
-      <button onClick={saveImage} className='saveBtn'>Save Image</button>
+      <button onClick={saveImage} className='saveBtn'>Analyze wiht AI</button>
     </div>
   );
 };

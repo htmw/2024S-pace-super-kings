@@ -89,7 +89,7 @@ const Navbar = () => {
 										<div class="header-info2 d-flex align-items-center justify-content-center" style={{display:'flex',alignItems:"center",justifyContent:'center', flexDirection:'column-reverse'}}>
 											<div class="d-flex align-items-center sidebar-info">
 												<div>
-													<h6 class="" style={{color:'#28292b', paddingTop:'0.5rem'}}>{'Hii' + " " + userData.firstName}</h6>
+													{/* <h6 class="" style={{color:'#28292b', paddingTop:'0.5rem'}}>{'Hii' + " " + userData.firstName}</h6> */}
                           {/* <h6 class="" style={{color:'#28292b', paddingTop:'0.5rem'}}>{'Hii' + " " + userData}</h6> */}
 												
 												</div>
