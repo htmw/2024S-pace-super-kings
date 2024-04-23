@@ -10,8 +10,6 @@ import { base } from '../variables';
 
 
 
-const setupInterceptors = () => {
-
   const axiosHandler = axios.create({
     baseURL: base,
     headers: {
@@ -30,9 +28,10 @@ const setupInterceptors = () => {
       // Modify request config here (e.g., add headers, handle authentication)
       // Example: add an authorization header with a token
       const token = localStorage.getItem('token');
+      
       if (token) {
         config.headers.authorization = `${token}`;
-      }
+           }
       return config;
     },
     (error) => {
@@ -52,11 +51,10 @@ const setupInterceptors = () => {
       // Example: handle unauthorized errors (e.g., redirect to login page)
       if (error.response && error.response.status === 401) {
         // Redirect to login page
-        window.location.href = '/login';
+        //window.location.href = '/login';
       }
       return Promise.reject(error);
     }
   );
-};
 
-export default setupInterceptors;
+export default axiosHandler;

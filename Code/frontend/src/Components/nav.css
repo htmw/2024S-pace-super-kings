@@ -8,13 +8,16 @@
 
   .navbar-2 {
     background-color: white;
-    height: 5rem;
+    /* height: 5rem; */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0rem 2rem;
   }
   
+  ul, h6{
+    margin-bottom: 0rem !important;
+  }
   .navbar-2 ul {
     display: flex;
     align-items: center;
@@ -29,15 +32,25 @@
     justify-content: center;
     padding: 1.5rem;
   }
-  
+  .prfileImage{
+    padding: 0rem !important;
+  }
   .navbar-2 ul li a {
     color: #28292b;
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 1rem;
     font-weight: 600;
   }
 
+  .signupLogin{
+text-decoration: none !important;
+color: #000 !important;
+  }
 
+  .LogoTitle{
+    text-decoration: none !important;
+    /* color: #000 !important; */
+  }
 
 
 
@@ -51,6 +64,17 @@
     display: none;
   }
   
+.signupLogin{
+  /* padding: 0.7rem; */
+  /* background: #ff8773; */
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
   @media screen and (max-width: 950px) {
     .nav-menu {
       display: flex;
@@ -67,6 +91,7 @@
       background-color: #003049;
       z-index: 3;
       transition: 0.3s;
+      /* padding-top: 0.5rem !important; */
     }
     .navbar-2 ul li {
       padding-top: 3rem;

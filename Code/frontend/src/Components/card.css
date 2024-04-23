@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -16,11 +21,20 @@
     margin: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-shadow: 2px 4px 8px #ddd;
     transition: transform 0.3s ease; 
   }
   
+  .card-body{
+    padding: 0rem 15px;
+    overflow-x: auto;
+  }
+.order-card-box{
+  overflow-y: visible;
+  overflow-x: visible;
+  padding: 0;
+}
   .card:hover {
     transform: translateY(-10px); /* Move card up slightly on hover */
   }
@@ -69,6 +83,8 @@
         display: flex; /* Set display to flex */
         justify-content: center; /* Distribute items evenly along the main axis */
         flex-direction: column;
+        align-items: center;
+        overflow-y: visible;
       }
       
   .upper-container {
@@ -83,5 +99,8 @@
     background-color: #f9f9f9;
     text-align: left;
     padding-left: 1.5rem;
+  }
+  .table{
+    width: auto;
   }
   }

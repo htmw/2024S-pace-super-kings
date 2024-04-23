@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.charRow{
+    display:'flex';
+    align-items:'center';
+    justify-content:'center';
+    flex-direction: row;
+    width: 100%;
+    /* overflow-x: hidden; */
+}
+
+.balance-charts{
+    background-color: #f4a261;
+    padding: 0.5rem;
+    color: #28292b;
+    font-weight: 600;
+    font-size: 1.3rem;
+    border-bottom-right-radius: 10px;
+}
+
+@media only screen and (max-width:950px){
+    .charRow{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column !important;
+        width: auto;
+    }
+}

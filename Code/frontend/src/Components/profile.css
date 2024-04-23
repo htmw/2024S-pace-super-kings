@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.coverImage{
+max-width:100% !important;
+height:auto;
+/* object-fit: cover; */
+}
+
+
+
+
+.profile-section {
+    text-align: center;
+    padding: 20px;
+    /* margin-top: -1.5rem; */
+  }
+  
+  .profile-photo {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .profile-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 10px solid #343a40; /* Optional border */
+  }
+  
+  .edit-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: #F4644D;
+    border: 5px solid #ccc;
+    border-radius: 50%;
+    padding: 5px;
+    /* width: 10px; */
+    cursor: pointer;
+  }
+
+
+  .profile-section {
+    padding: 20px;
+  }
+  
+  .field {
+    margin-bottom: 10px;
+  }
+  
+  .field label {
+    font-weight: bold;
+  }
+  
+  .field span {
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .field input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+
+  .user-profile {
+    padding: 20px;
+    margin: 0rem 20rem;
+  }
+  
+  .user-profile-field {
+    margin-bottom: 10px;
+  }
+  
+  .user-profile-label {
+    font-weight: bold;
+  }
+  
+  .user-profile-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; 
+  }
+  
+  .user-profile-input:focus {
+    border-color: #007bff; 
+    outline: none;
+  }
+  
+  .saveInfoBtn{
+    margin-top:0.5rem ;
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: lightcoral;
+    color: #000;
+    font-weight: 600;
+    border: none;
+
+
+  }
+  .backbutton{
+    position: absolute;
+    background-color: #ccc;
+    top: 2.5rem;
+    left: 1rem;
+    border-radius: 10px;
+}
+
+.backbutton a{
+    text-decoration: none;
+    color: #28292b;
+}
+body{
+    /* background-color: bisque; */
+}
+  @media only screen and (max-width:950px){
+    .coverImage{
+        width:100% !important;
+        height:auto;
+        object-fit: cover;
+        }
+        .user-profile {
+            padding: 20px;
+            margin: 0rem 2rem;
+          }
+          .backbutton{
+            position: absolute;
+            background-color: grey;
+            /* top: 0.2rem; */
+            left: 0.3rem;
+            margin-top: 0.3rem;
+            border-radius: 10px;
+            font-size: 0.5rem;
+        }
+}
+
+
+@media only screen and (max-width:768px){
+    .backbutton{
+        position: absolute;
+        background-color: grey;
+        top: 0.5rem;
+        left: 0.5rem;
+        /* margin-top: 0.3rem; */
+        border-radius: 10px;
+        font-size: 0.5rem;
+    }
+}
+
+@media only screen and (max-width:450px){
+    .backbutton{
+        position: absolute;
+        background-color: grey;
+        top: 2.5rem;
+        left: 0.5rem;
+        margin-top: 0.3rem;
+        border-radius: 10px;
+        font-size: 0.5rem;
+    }
+}

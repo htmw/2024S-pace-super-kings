@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.saveBtn{
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #0077b6;
+    font-weight: 700;
+    color: #FFF;
+    border: NONE;
+}

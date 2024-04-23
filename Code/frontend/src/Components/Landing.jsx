@@ -21,6 +21,7 @@ const Landing = () => {
   return (
     <>
       <Navbar />
+      
       <div className="mainContainer">
         <div className="text">
           <h1>Free and Open</h1>

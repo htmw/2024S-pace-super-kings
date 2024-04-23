@@ -6,7 +6,7 @@
 
 
 .introstocks{
-    margin: 5rem;
+    margin: 5rem 15rem !important;
     line-height: 1.5;
     color: #28292b;
 }
@@ -18,6 +18,10 @@ padding: 0.5rem 0rem;
     height: 5px;
     width: 20rem;
     margin: 0rem 0.5rem !important;
+  }
+
+  .heading h1 {
+font-size: 2rem;
   }
 
   .num-Line {
@@ -40,14 +44,19 @@ padding: 0.5rem 0rem;
     gap: 20px;
     padding:1rem 1rem;
     /* background-color: #64b2ff; */
-    background-color: #f8e4e4; 
+    background-color: #90a955 !important; 
     width: 30% !important;
     border-radius: 10px;
   }
   .linksOfItS a{
     text-decoration: none;
-    color: #64b2ff;
+    /* color: #64b2ff; */
+    color: #28292b !important;
     font-weight: 400;
+  }
+
+  .linksOfItS a:hover{
+    color: #64b2ff !important;
   }
 
   .linksandpara{

@@ -17,17 +17,18 @@ import StockResearch from './Components/ModulesPages/StockResearch/StockResearch
 import OptionsStrategies from './Components/ModulesPages/OptionsStrategies/OptionsStrategies'
 import ManagePortfolio from "./Components/ModulesPages/ManagePortfolio/ManagePortfolio"
 import IntroToOptions from './Components/ModulesPages/IntroToOptions/IntroToOptions'
+
 import Tv from './Tv';
 import Dashboard from './Tv/dashboard';
+import SignUp from './Components/Signup/SignUp';
+import TopUpFunds from './Components/TopUpFunds';
+import ChartDefault from './Components/Tab-bar/ChartDefault';
+import Profile from './Components/Profile';
 
 
 function App() {
 
-  useEffect(() => {
-    setupInterceptors();
-//checkForToken()
 
-  }, []);
 
 
   const router = createBrowserRouter([
@@ -55,6 +56,11 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+      
+    },
+    {
+      path: "/topup",
+      element: <TopUpFunds />,
       
     },
     // {
@@ -115,6 +121,21 @@ function App() {
     {
       path: "/stocktradingbasics",
       element: <StockTradingBasics />,
+      
+    },
+    {
+      path: "/signup",
+      element: <SignUp />,
+      
+    },
+    {
+      path: "/chart",
+      element: <ChartDefault />,
+      
+    },
+    {
+      path: "/myprofile",
+      element: <Profile />,
       
     },
   ]);

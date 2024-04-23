@@ -8,7 +8,7 @@ const ModuleHome = () => {
     <>
      <Navbar />
     <div className="modules-title">
-    <h1 style={{fontSize:'4rem'}}>Modules</h1>
+    <h1 style={{fontSize:'2.5rem'}}>Learning Modules</h1>
     </div>
     <div className="modules-row-1">
 

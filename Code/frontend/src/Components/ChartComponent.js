@@ -3,6 +3,7 @@
 import React, {useRef} from 'react';
 import Chart from 'react-apexcharts';
 import html2canvas from 'html2canvas';
+import './chartComponent.css';
 
 
 const ChartComponent = ({ stockData }) => {
@@ -77,7 +78,7 @@ const saveImage = () => {
     <div>
    
       <Chart options={options} series={series} type="candlestick" height={350}  ref={chartRef} />
-      <button onClick={saveImage}>Save Image</button>
+      <button onClick={saveImage} className='saveBtn'>Analyze wiht AI</button>
     </div>
   );
 };

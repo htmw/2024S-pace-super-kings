@@ -12,6 +12,7 @@ const { default: axios } = require('axios');
 
 
 
+
 router.get('/search', async (req, res) => {
     try {
       const { keyword } = req.query;
@@ -40,12 +41,18 @@ router.get('/search', async (req, res) => {
       }
   
       const response = await axios.get(`https://financialmodelingprep.com/api/v3/historical-price-full/${ticker}?timeseries=180&apikey=${FMP_API}`);
+      
       const data = response.data;
       res.json(data);
     } catch (error) {
-      console.error('Error fetching stock charts:', error.message);
+   
+      console.log("error")
+      console.error('Error fetching stock charts:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
   });
+
+
+
 
   module.exports = router;

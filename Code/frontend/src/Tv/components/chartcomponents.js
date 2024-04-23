@@ -6,6 +6,9 @@ import html2canvas from 'html2canvas';
 
 
 const ChartComponent = ({ stockData }) => {
+
+
+  
   const chartRef = useRef(null);
 
       const options = {
@@ -91,6 +94,8 @@ const saveImage = () => {
    
       <Chart options={options} series={series} type="candlestick" height={350}  ref={chartRef} />
       <button className='saveImagebtn' onClick={saveImage}>Analyze with AI</button>
+ 
+
     </div>
   );
 };

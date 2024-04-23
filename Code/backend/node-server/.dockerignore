@@ -4,3 +4,5 @@ node_modules
 .git
 .eslintrc.yml
 .prettierrc.yml
+npm-debug.log
+.env
