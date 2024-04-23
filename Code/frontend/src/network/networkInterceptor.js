@@ -51,7 +51,7 @@ import { base } from '../variables';
       // Example: handle unauthorized errors (e.g., redirect to login page)
       if (error.response && error.response.status === 401) {
         // Redirect to login page
-        window.location.href = '/login';
+        //window.location.href = '/login';
       }
       return Promise.reject(error);
     }

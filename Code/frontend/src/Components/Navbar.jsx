@@ -1,13 +1,19 @@
 import "./nav.css";
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation , useNavigate} from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import profileimg from "../Tv/assets/images/1.png";
 import axios from "../network/networkInterceptor";
 
 const Navbar = () => {
   const [userData, setUserData] = useState(null);
-
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    // Remove token from localStorage or perform any other necessary cleanup
+    localStorage.removeItem("token");
+    // Redirect or perform other actions after logout if needed
+   navigate('/')
+  };
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -70,7 +76,7 @@ const { hash, pathname, search } = location;
         {token ? (
           <span onClick={handleLogout}>Signout</span>
         ) : (
-          <Link className="signupLogin" to="/">
+          <Link className="signupLogin" to="/signup">
             Signup / Login
           </Link>
         )}
@@ -114,15 +120,15 @@ const { hash, pathname, search } = location;
                 />
               </div>
             </a>
-            {/* <div class="dropdown-menu dropdown-menu-end"> */}
-              {/* <a href="/myprofile" class="dropdown-item ai-icon ">
+            <div class="dropdown-menu dropdown-menu-end">
+              <a href="/myprofile" class="dropdown-item ai-icon ">
                 <span class="ms-2">Profile </span>
               </a>
 
               <a href="javascript:void(0);" class="dropdown-item ai-icon ">
                 <span class="ms-2">Settings </span>
-              </a> */}
-              {/* <a href="/dashboard" class="dropdown-item ai-icon">
+              </a>
+              <a href="/dashboard" class="dropdown-item ai-icon">
                 <svg
                   class="logout"
                   xmlns="http://www.w3.org/2000/svg"
@@ -140,8 +146,8 @@ const { hash, pathname, search } = location;
                   <line x1="21" y1="12" x2="9" y2="12"></line>
                 </svg>
                 <span class="ms-2 text-danger">Logout </span>
-              </a> */}
-            {/* </div> */}
+              </a>
+            </div>
           </div>
         </li>
       </ul>
@@ -156,11 +162,6 @@ const { hash, pathname, search } = location;
     </div>
   );
 };
-const handleLogout = () => {
-  // Remove token from localStorage or perform any other necessary cleanup
-  localStorage.removeItem("token");
-  // Redirect or perform other actions after logout if needed
-  window.location.href = "/";
-};
+
 
 export default Navbar;
