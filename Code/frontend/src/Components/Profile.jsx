@@ -66,6 +66,7 @@ const Profile = () => {
           setFirstName(response.data.firstName);
           setLastName(response.data.lastName);
           console.log(response.data);
+          console.log(lastName);
         } catch (error) {
           console.error('Error fetching data:', error);
         }
