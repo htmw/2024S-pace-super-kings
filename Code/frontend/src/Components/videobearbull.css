@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.video{
+    
+    width: 30rem;
+    height: auto;
+}
+
+@media only screen and (max-width:950px){
+    .video{
+    
+        width: 100%;
+        height: auto;
+    }
+}

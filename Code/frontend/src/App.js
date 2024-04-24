@@ -89,7 +89,7 @@ function App() {
       
     },
     {
-      path: "/module-page",
+      path: "/learn",
       element: <ModuleHome />,
       
     },

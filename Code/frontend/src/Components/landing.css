@@ -4,15 +4,38 @@
     box-sizing: border-box;
 }
 
-.mainContainer{
-    margin: 2rem 5rem 0rem 5rem;
+.videoBearBull{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+
+}
+
+.brand-container{
+    position: relative;
+    margin-bottom: 0px !important; 
+}
+
+.BrandName{
+display: flex;
+margin: 2rem 4rem 0rem 5rem;
+font-weight: 700;
+font-size: 4rem;
+color: #669bbc;
+}
+
+.mainContainer{
+    margin: 0rem 5rem 0rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* flex-direction: column-reverse; */
 }
 
 .text h1{
-    font-size: 4rem;
+    font-size: 2.5rem;
     color: #28292b;
 }
 
@@ -37,7 +60,7 @@ padding: 0.5rem 0.5rem 2rem 0.5rem;
 }
 
 .getStarted {
-margin: 0rem 5rem;
+margin: 2rem 0rem 0rem 0rem;
 display: flex;
 align-items: center;
 justify-content: flex-start;
@@ -71,7 +94,7 @@ border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     .explore-section{
         margin: 1rem 1rem;
@@ -85,10 +108,24 @@ border-radius: 10px;
         color: #28292b;
     }
     .getStarted {
-        margin: 0rem 1rem;
+        margin: 0rem 0rem;
         display: flex;
         align-items: center;
         justify-content: flex-start;
         
         }
+        .BrandName{
+            display: flex;
+            /* align-items: center; */
+            /* justify-content: center; */
+            margin: 1rem;
+            
+            font-weight: 700;
+            font-size: 3rem;
+            color: #669bbc;
+            
+            
+            
+            }
+       
 }

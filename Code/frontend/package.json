@@ -10,6 +10,7 @@
     "axios": "^1.6.8",
     "cors": "^2.8.5",
     "file-saver": "^2.0.5",
+    "framer-motion": "^11.1.7",
     "html2canvas": "^1.4.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",

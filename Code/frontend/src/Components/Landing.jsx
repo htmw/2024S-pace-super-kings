@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Navbar from "./Navbar";
 import "./landing.css";
 import varsityImg from "../assets/zerodhaimg.png";
@@ -12,17 +12,148 @@ import finance from "../assets/cards/finance.svg";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import setupInterceptors from "../network/networkInterceptor";
+import VideoBearBull from "./VideoBearBull";
+import {motion} from 'framer-motion'
 
 
 const Landing = () => {
 
+  const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 500); // Adjust the delay as needed
+    return () => clearTimeout(timer);
+  }, []);
     
   return (
     <>
-      <Navbar />
-      
-      <div className="mainContainer">
+    {/* <div>
+    <motion.h1 
+     initial={{ opacity: 0, x: -50 }}
+     animate={{ opacity: 1, x: 0 }}
+     transition={{ duration: 1.5 }}
+     whileHover={{ scale: 1.1, color: '#0077b6' }}
+     whileTap={{ scale: 0.9 }}
+    className="BrandName">
+      INVESTMATE
+      </motion.h1>
+      </div> */}
+     {/* //////////////////////////////////////////////////////////////////////////////// */}
+     <div className="brand-container">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.5 }}
+          className="BrandName"
+        >
+          {isVisible && (
+            <motion.span
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              I
+            </motion.span>
+          )}
+          {isVisible && (
+            <motion.span
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              N
+            </motion.span>
+          )}
+          {isVisible && (
+            <motion.span
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              V
+            </motion.span>
+          )}
+          {isVisible && (
+            <motion.span
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              E
+            </motion.span>
+          )}
+          {isVisible && (
+            <motion.span
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              S
+            </motion.span>
+          )}
+          {isVisible && (
+            <motion.span
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              T
+            </motion.span>
+          )}
+          {isVisible && (
+            <motion.span
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+            >
+              M
+            </motion.span>
+          )}
+          {isVisible && (
+            <motion.span
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
+              A
+            </motion.span>
+          )}
+          {isVisible && (
+            <motion.span
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+            >
+              T
+            </motion.span>
+          )}
+          {isVisible && (
+            <motion.span
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5, delay: 1 }}
+            >
+              E
+            </motion.span>
+          )}
+        </motion.div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+     {/* ////////////////////////////////////////////////////////////////////////////// */}
+      <div className="mainContainer" style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
         <div className="text">
           <h1>Free and Open</h1>
           <h4>stock market and financial education</h4>
@@ -35,46 +166,48 @@ const Landing = () => {
             to navigate the financial world confidently. Start your journey with
             InvestMate today!
           </p>
+          <div className="getStarted" style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
+       <Link to='/login'> <span>Get started  </span><FaLongArrowAltRight className="arrowRight" size={'30px'} /></Link>
+      </div>
         </div>
-        <div className="picture">
+        <div className="videoBearBull">
+      <VideoBearBull />
+      </div>
+        {/* <div className="picture">
           <img src={varsityImg} alt="" />
-        </div>
+        </div> */}
       </div>
-      <div className="getStarted">
-       <Link to='/dashboard'> <span>Get started  </span><FaLongArrowAltRight className="arrowRight" size={'30px'} /></Link>
-      </div>
-      <div className="explore-section">
-        <div className="exploreSecHead">
-          <span>Explore InvestMate</span>
-        </div>
-        <div className="cards">
-          <Card
-            imageUrl={module}
-            heading="Learn"
-            imageSize="2rem"
-            upperContainerColor="#77b4f2"
-            link="/module-page"
-          />
-       
-         
-
-          <Card
-            imageUrl={certified}
-            heading="Stock Simulator"
-            upperContainerColor="#b6adf4"
-            link="/trading"
-          />
-          
-          <Card
-            imageUrl={finance}
-            heading="Risk Calculator"
-            upperContainerColor="#a5cc65"
-            link="/live-details"
-          />
-        </div>
-      </div>
+      
+      
     </>
   );
 };
 
 export default Landing;
+
+
+
+
+{/* <Card
+            imageUrl={module}
+            heading="Learn"
+            imageSize="2rem"
+            upperContainerColor="#77b4f2"
+            link="/module-page"
+          /> */}
+       
+         
+{/* 
+          <Card
+            imageUrl={certified}
+            heading="Stock Simulator"
+            upperContainerColor="#b6adf4"
+            link="/trading"
+          /> */}
+          
+          {/* <Card
+            imageUrl={finance}
+            heading="Risk Calculator"
+            upperContainerColor="#a5cc65"
+            link="/live-details"
+          /> */}
