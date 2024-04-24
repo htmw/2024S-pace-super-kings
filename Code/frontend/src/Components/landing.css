@@ -65,6 +65,7 @@ display: flex;
 align-items: center;
 justify-content: flex-start;
 
+
 }
 .getStarted a{
 text-decoration: none !important;
@@ -76,6 +77,7 @@ justify-content: center;
 padding: 10px 40px;
 background-color: #69c969;
 border-radius: 10px;
+border: 2px solid black;
 }
 .getStarted a span{
     text-decoration: none;  
