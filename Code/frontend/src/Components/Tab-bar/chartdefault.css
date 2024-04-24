@@ -30,6 +30,6 @@
         align-items: center;
         justify-content: center;
         flex-direction: column !important;
-        width: auto;
+        width: 100% !important;
     }
 }

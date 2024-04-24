@@ -18,12 +18,13 @@ import OptionsStrategies from './Components/ModulesPages/OptionsStrategies/Optio
 import ManagePortfolio from "./Components/ModulesPages/ManagePortfolio/ManagePortfolio"
 import IntroToOptions from './Components/ModulesPages/IntroToOptions/IntroToOptions'
 
-import Tv from './Tv';
+import Tv from './Features';
 import Dashboard from './Tv/dashboard';
 import SignUp from './Components/Signup/SignUp';
 import TopUpFunds from './Components/TopUpFunds';
 import ChartDefault from './Components/Tab-bar/ChartDefault';
 import Profile from './Components/Profile';
+import Features from "./Features"
 
 
 function App() {
@@ -33,11 +34,11 @@ function App() {
 
   const router = createBrowserRouter([
 
-    {
-      path: "/trading",
-      element: <Tv />,
+    // {
+    //   path: "/trading",
+    //   element: <Tv />,
       
-    },
+    // },
     {
       path: "/",
       element: <Landing />,
@@ -49,7 +50,7 @@ function App() {
       
     },
     {
-      path: "/module-page",
+      path: "/learn",
       element: <ModuleHome />,
       
     },
@@ -73,9 +74,14 @@ function App() {
   element : <TestChart />
 }
 ,
+    // {
+    //   path: "/trading",
+    //   element: <Tv />,
+      
+    // },
     {
-      path: "/trading",
-      element: <Tv />,
+      path: "/features",
+      element: <Features />,
       
     },
     {

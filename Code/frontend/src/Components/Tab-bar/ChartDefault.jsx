@@ -320,7 +320,7 @@ console.log(response.items)
 
 
   return (
-    <div>
+    <>
                     <div class="row charRow"  >
               <div class="col-xl-8">
                 <div class="card">
@@ -493,7 +493,7 @@ console.log(response.items)
                 </div>
               </div>
             </div>
-    </div>
+    </>
   )
 }
 

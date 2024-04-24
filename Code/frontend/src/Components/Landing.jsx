@@ -4,11 +4,9 @@ import Navbar from "./Navbar";
 import "./landing.css";
 import varsityImg from "../assets/zerodhaimg.png";
 import Card from "./Card";
-import module from "../assets/cards/modules.svg";
+
 import video from "../assets/cards/videos.svg";
-import certified from "../assets/cards/certified.svg";
-import live from "../assets/cards/live.svg";
-import finance from "../assets/cards/finance.svg";
+
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import setupInterceptors from "../network/networkInterceptor";
@@ -188,26 +186,3 @@ export default Landing;
 
 
 
-{/* <Card
-            imageUrl={module}
-            heading="Learn"
-            imageSize="2rem"
-            upperContainerColor="#77b4f2"
-            link="/module-page"
-          /> */}
-       
-         
-{/* 
-          <Card
-            imageUrl={certified}
-            heading="Stock Simulator"
-            upperContainerColor="#b6adf4"
-            link="/trading"
-          /> */}
-          
-          {/* <Card
-            imageUrl={finance}
-            heading="Risk Calculator"
-            upperContainerColor="#a5cc65"
-            link="/live-details"
-          /> */}

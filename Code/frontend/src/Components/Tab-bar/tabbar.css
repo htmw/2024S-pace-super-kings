@@ -39,4 +39,15 @@ margin: 0rem 0rem;
   .tab.active {
     background-color:#faedcd ;
   }
+
+  @media only screen and (max-width:950px){
+    .tabBar { /* Updated class name */
+      display: flex;
+      justify-content: space-between;
+      background-color: #f6bd60;
+      padding: 7px 7px;
+      gap: 0.2rem;
+  
+    }
+  }
   

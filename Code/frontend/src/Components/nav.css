@@ -42,6 +42,13 @@
     font-weight: 600;
   }
 
+  .navbar-2 ul li span {
+    color: #28292b;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
   .signupLogin{
 text-decoration: none !important;
 color: #000 !important;
@@ -89,7 +96,7 @@ color: #000 !important;
       color: #ffffff;
       /* color: #; */
       background-color: #003049;
-      z-index: 3;
+      z-index: 33;
       transition: 0.3s;
       /* padding-top: 0.5rem !important; */
     }
@@ -102,10 +109,11 @@ color: #000 !important;
     }
     .hamburger {
       display: block;
-      z-index: 3;
+      z-index: 33;
+      right: 1rem;
     }
     .navbar-2{
-        padding: 0rem 0.5rem;
+        padding: 1rem 0.5rem;
     }
   }
   
