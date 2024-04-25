@@ -1,0 +1,48 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.tableContent-mainContainer{
+    /* background-color: lightpink; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 2rem 5rem;
+    padding: 1rem;
+}
+.stockpagetitle{
+    margin: 1rem 5rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 4rem;
+}
+.content{
+    width: 68%;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+@media only screen and (max-width:950px){
+    .stockpagetitle{
+        margin: 1rem;
+        text-align: center;
+        font-weight: 700;
+        font-size: 2rem;
+    }
+    .tableContent-mainContainer{
+        /* background-color: lightpink; */
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        margin: 1rem;
+        padding: 1rem;
+    }
+    .content{
+        width: 100%;
+        overflow-y: auto;
+        padding: 1rem;
+    }
+}

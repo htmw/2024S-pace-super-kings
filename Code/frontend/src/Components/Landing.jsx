@@ -170,7 +170,7 @@ const Landing = () => {
             InvestMate today!
           </p>
           <div className="getStarted" style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
-       { token ? <Link to='/features'> <span>Get started  </span><FaLongArrowAltRight className="arrowRight" size={'30px'} /></Link> : <Link to='/login'> <span>Get started  </span><FaLongArrowAltRight className="arrowRight" size={'30px'} /></Link> }
+       { token ? <Link to='/features'> <span > Get started  </span><FaLongArrowAltRight className="arrowRight" size={'30px'} /></Link> : <Link to='/login'> <span>Get started  </span><FaLongArrowAltRight className="arrowRight" size={'30px'} /></Link> }
       </div>
         </div>
         <div className="videoBearBull">

@@ -21,23 +21,23 @@ const IntroToStocks = () => {
           <h1>Introduction to Stocks</h1>
           <div className="linksandpara">
             <div className="linksOfItS">
-              <h4>Quick Links</h4>
-              <Link to="/thestockmarket">
-                <span>The stock market</span>
+              <h4>&#128970; Quick Links</h4>
+              <Link to="/stockmarket">
+                <span> The stock market</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/marketwork">
                 <span>How does the stock market work</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/stockexchanges">
                 <span>Getting to know the stock exchanges</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/buysell">
                 <span>How to buy and sell stocks</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/owningstocks">
                 <span>What owning a stock means</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/pennystocks">
                 <span>What is a penny stock?</span>
               </Link>
             </div>

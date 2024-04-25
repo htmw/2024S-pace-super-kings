@@ -18,6 +18,7 @@ const ManagePortfolio = () => {
           <h2>Manage Portfolio</h2>
           <div className="linksandpara">
             <div className="linksOfItS">
+            <h4>Quick Links</h4>
               <Link to="/thestockmarket">
                 <span>The stock market</span>
               </Link>

@@ -25,6 +25,12 @@ import TopUpFunds from './Components/TopUpFunds';
 import ChartDefault from './Components/Tab-bar/ChartDefault';
 import Profile from './Components/Profile';
 import Features from "./Features"
+import StockMarket from './Components/ModulesPages/IntroToStocks/Quick Links/StockMarket';
+import StockMarketWork from './Components/ModulesPages/IntroToStocks/Quick Links/StockMarketWork';
+import KnowTheStockExchanges from './Components/ModulesPages/IntroToStocks/Quick Links/KnowTheStockExchanges';
+import HowToBuySell from './Components/ModulesPages/IntroToStocks/Quick Links/HowToBuySell';
+import OwningAStockMeans from './Components/ModulesPages/IntroToStocks/Quick Links/OwningAStockMeans';
+import WhatIsPennyStocks from './Components/ModulesPages/IntroToStocks/Quick Links/WhatIsPennyStocks';
 
 
 function App() {
@@ -143,6 +149,33 @@ function App() {
       path: "/myprofile",
       element: <Profile />,
       
+    },
+    // /////////////////////////////////////// Learining Modules ////////////////////////////////
+   
+    // **************************************** introduction to stocks quick links *****************************
+    {
+      path: "/stockmarket",
+      element: <StockMarket />,
+    },
+    {
+      path: "/marketwork",
+      element: <StockMarketWork />,
+    },
+    {
+      path: "/stockexchanges",
+      element: <KnowTheStockExchanges />,
+    },
+    {
+      path: "/buysell",
+      element: <HowToBuySell />,
+    },
+    {
+      path: "/owningstocks",
+      element: <OwningAStockMeans />,
+    },
+    {
+      path: "/pennystocks",
+      element: <WhatIsPennyStocks />,
     },
   ]);
 
