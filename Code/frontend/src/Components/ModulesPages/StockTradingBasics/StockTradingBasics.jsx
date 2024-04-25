@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./stocktradingbasic.css";
+import Navbar from "../../Navbar";
 
 const StockTradingBasics = () => {
   return (
     <>
+    <Navbar />
       <div className="introstocks">
         <div className="heading">
           <div className="num-Line">

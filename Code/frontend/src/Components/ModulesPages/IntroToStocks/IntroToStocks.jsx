@@ -1,11 +1,13 @@
 import React from "react";
 import "./introToStocks.css";
 import { Link } from "react-router-dom";
+import Navbar from "../../Navbar";
 // import "./introToStocks.css"
 
 const IntroToStocks = () => {
   return (
     <>
+    <Navbar />
       <div className="introstocks">
         <h1><center>Introduction to Stocks</center></h1>
         <div className="heading">

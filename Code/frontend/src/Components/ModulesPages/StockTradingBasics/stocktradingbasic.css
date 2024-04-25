@@ -41,7 +41,7 @@ padding: 0.5rem 0rem;
     gap: 20px;
     padding:1rem 1rem;
     /* background-color: #64b2ff; */
-    background-color: #f8e4e4; 
+    background-color: #f8e4e4 !important; 
     width: 30% !important;
     border-radius: 10px;
   }

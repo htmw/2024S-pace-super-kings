@@ -1,28 +1,24 @@
 *{
-    margin:0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+.line1345{
+    background-color: #FFB05A !important;
+    height: 5px !important;
+    width: 20rem !important;
+    margin: 0rem 0.5rem !important;
+}
 
 .introstocks{
-    margin: 5rem 15rem !important;
+    margin: 5rem;
     line-height: 1.5;
     color: #28292b;
 }
 .introstocks p{
 padding: 0.5rem 0rem;
 }
-.line1 {
-    background-color: #69c969;
-    height: 5px;
-    width: 20rem;
-    margin: 0rem 0.5rem !important;
-  }
-
-  .heading h1 {
-font-size: 2rem;
-  }
 
   .num-Line {
     display: flex;
@@ -44,20 +40,16 @@ font-size: 2rem;
     gap: 20px;
     padding:1rem 1rem;
     /* background-color: #64b2ff; */
-    /* background-color: #90a955 !important;  */
-    background-color: #f8e4e4 !important; ;
+    background-color: #f8e4e4 !important; 
     width: 30% !important;
     border-radius: 10px;
+    border: 1px solid #fb6f92;
+    /* box-shadow: 0px 4px 10px rgba(0,0,0,0.1) ; */
   }
   .linksOfItS a{
     text-decoration: none;
-    /* color: #64b2ff; */
-    color: #28292b !important;
+    color: #64b2ff;
     font-weight: 400;
-  }
-
-  .linksOfItS a:hover{
-    color: #64b2ff !important;
   }
 
   .linksandpara{

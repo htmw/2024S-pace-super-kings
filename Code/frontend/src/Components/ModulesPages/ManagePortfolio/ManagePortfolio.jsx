@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './managePortfolio.css'
+import Navbar from '../../Navbar'
 const ManagePortfolio = () => {
   return (
     <>
+    <Navbar />
     <div className="introstocks">
         <div className="heading">
           <div className="num-Line">
