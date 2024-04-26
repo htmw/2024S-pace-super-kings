@@ -19,24 +19,24 @@ const ManagePortfolio = () => {
           <div className="linksandpara">
             <div className="linksOfItS">
             <h4>&#128970; Quick Links &#128970;</h4>
-              <Link to="/thestockmarket">
-                <span>The stock market</span>
+              <Link to="/investingintro">
+                <span>Investing: An Introduction</span>
               </Link>
-              <Link to="/thestockmarket">
-                <span>How does the stock market work</span>
+              <Link to="/measuringreturns">
+                <span>Measuring Investment Returns</span>
               </Link>
-              <Link to="/thestockmarket">
-                <span>Getting to know the stock exchanges</span>
+              <Link to="/diversification">
+                <span> Diversification</span>
               </Link>
-              <Link to="/thestockmarket">
-                <span>How to buy and sell stocks</span>
+              <Link to="/etf">
+                <span>What Is An ETF?</span>
               </Link>
-              <Link to="/thestockmarket">
+              {/* <Link to="/thestockmarket">
                 <span>What owning a stock means</span>
               </Link>
               <Link to="/thestockmarket">
                 <span>What is a penny stock?</span>
-              </Link>
+              </Link> */}
             </div>
             <div className="sideContainer">
               <p>

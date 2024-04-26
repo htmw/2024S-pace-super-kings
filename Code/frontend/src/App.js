@@ -35,6 +35,10 @@ import BasicsOfOrderType from './Components/ModulesPages/StockTradingBasics/Quic
 import ShortSell from './Components/ModulesPages/StockTradingBasics/Quick Links/ShortSell';
 import IncomeValueGrowth from './Components/ModulesPages/StockTradingBasics/Quick Links/IncomeValueGrowth';
 import InvestingVTrading from './Components/ModulesPages/StockTradingBasics/Quick Links/InvestingVTrading';
+import InvestingAnIntro from './Components/ModulesPages/ManagePortfolio/Quick Links/InvestingAnIntro';
+import WhatIsEtf from './Components/ModulesPages/ManagePortfolio/Quick Links/WhatIsEtf';
+import Diversification from './Components/ModulesPages/ManagePortfolio/Quick Links/Diversification';
+import MeasuringInvestmentReturns from './Components/ModulesPages/ManagePortfolio/Quick Links/MeasuringInvestmentReturns';
 
 
 function App() {
@@ -198,6 +202,29 @@ function App() {
     path: "/investingvstrading",
     element: <InvestingVTrading />,
   },
+  // **************************************** Manage Portfolio(Quick Links)************************
+  {
+    path: "/investingintro",
+    element: <InvestingAnIntro />,
+  },
+  {
+    path: "/etf",
+    element: <WhatIsEtf />,
+  },
+  {
+    path: "/diversification",
+    element: <Diversification />,
+  },
+  {
+    path: "/measuringreturns",
+    element: <MeasuringInvestmentReturns />,
+  },
+
+
+
+
+
+
 ]);
 
   
