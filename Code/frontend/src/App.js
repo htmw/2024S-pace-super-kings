@@ -30,7 +30,11 @@ import StockMarketWork from './Components/ModulesPages/IntroToStocks/Quick Links
 import KnowTheStockExchanges from './Components/ModulesPages/IntroToStocks/Quick Links/KnowTheStockExchanges';
 import HowToBuySell from './Components/ModulesPages/IntroToStocks/Quick Links/HowToBuySell';
 import OwningAStockMeans from './Components/ModulesPages/IntroToStocks/Quick Links/OwningAStockMeans';
-import WhatIsPennyStocks from './Components/ModulesPages/IntroToStocks/Quick Links/WhatIsPennyStocks';
+import WhenToSellAStock from './Components/ModulesPages/StockTradingBasics/Quick Links/WhenToSellAStock';
+import BasicsOfOrderType from './Components/ModulesPages/StockTradingBasics/Quick Links/BasicsOfOrderType';
+import ShortSell from './Components/ModulesPages/StockTradingBasics/Quick Links/ShortSell';
+import IncomeValueGrowth from './Components/ModulesPages/StockTradingBasics/Quick Links/IncomeValueGrowth';
+import InvestingVTrading from './Components/ModulesPages/StockTradingBasics/Quick Links/InvestingVTrading';
 
 
 function App() {
@@ -173,11 +177,28 @@ function App() {
       path: "/owningstocks",
       element: <OwningAStockMeans />,
     },
-    {
-      path: "/pennystocks",
-      element: <WhatIsPennyStocks />,
-    },
-  ]);
+  //  ***************************************** Basics of Stock Trading (quick links) *****************************
+  {
+    path: "/whentosellstock",
+    element: <WhenToSellAStock />,
+  },
+  {
+    path: "/basicsofordertype",
+    element: <BasicsOfOrderType />,
+  },
+  {
+    path: "/shortselling",
+    element: <ShortSell />,
+  },
+  {
+    path: "/incomevaluegrowth",
+    element: <IncomeValueGrowth />,
+  },
+  {
+    path: "/investingvstrading",
+    element: <InvestingVTrading />,
+  },
+]);
 
   
   return (

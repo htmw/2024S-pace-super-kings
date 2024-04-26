@@ -20,7 +20,7 @@ const OptionsStrategies = () => {
           <h2>Options Strategies</h2>
           <div className="linksandpara">
             <div className="linksOfItS">
-            <h4>Quick Links</h4>
+            <h4>&#128970; Quick Links &#128970;</h4>
               <Link to="/thestockmarket">
                 <span> Beginner Options Trading Strategies</span>
               </Link>

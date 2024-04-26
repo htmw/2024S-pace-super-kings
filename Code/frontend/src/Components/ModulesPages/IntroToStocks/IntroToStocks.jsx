@@ -21,7 +21,7 @@ const IntroToStocks = () => {
           <h1>Introduction to Stocks</h1>
           <div className="linksandpara">
             <div className="linksOfItS">
-              <h4>&#128970; Quick Links</h4>
+              <h4>&#128970; Quick Links &#128970;</h4>
               <Link to="/stockmarket">
                 <span> The stock market</span>
               </Link>
@@ -37,9 +37,9 @@ const IntroToStocks = () => {
               <Link to="/owningstocks">
                 <span>What owning a stock means</span>
               </Link>
-              <Link to="/pennystocks">
+              {/* <Link to="/pennystocks">
                 <span>What is a penny stock?</span>
-              </Link>
+              </Link> */}
             </div>
             <div className="sideContainer">
               <p>

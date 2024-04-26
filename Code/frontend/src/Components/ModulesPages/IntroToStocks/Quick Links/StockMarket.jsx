@@ -2,6 +2,9 @@ import React from "react";
 import TableOfContent from "../../TableofContent";
 import "./stockmarket.css";
 import Navbar from "../../../Navbar";
+import ScrollToTop from "../../ScrollToTop";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const StockMarket = () => {
   const headings = [
@@ -28,8 +31,20 @@ const StockMarket = () => {
     // Add more headings as needed
   ];
 
+
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    if (!token) {
+      // Redirect to login page if token doesn't exist
+      navigate("/login");
+    }
+  }, [token, navigate]);
+
+
   return (
     <>
+    <ScrollToTop />
     <Navbar />
     <h1 className="stockpagetitle">The Stock Market</h1>
       <div className="tableContent-mainContainer">

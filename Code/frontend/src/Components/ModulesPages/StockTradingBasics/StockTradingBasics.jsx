@@ -19,25 +19,25 @@ const StockTradingBasics = () => {
           <h2>Stock Trading Basics</h2>
           <div className="linksandpara">
             <div className="linksOfItS">
-            <h4>Quick Links</h4>
-              <Link to="/thestockmarket">
-                <span>The stock market</span>
+            <h4>&#128970; Quick Links &#128970;</h4>
+              <Link to="/whentosellstock">
+                <span>When to Sell A Stock</span>
               </Link>
-              <Link to="/thestockmarket">
-                <span>How does the stock market work</span>
+              <Link to="/investingvstrading">
+                <span>Investing Vs. Trading</span>
               </Link>
-              <Link to="/thestockmarket">
-                <span>Getting to know the stock exchanges</span>
+              <Link to="/incomevaluegrowth">
+                <span>Income, Value, And Growth Stocks</span>
               </Link>
-              <Link to="/thestockmarket">
-                <span>How to buy and sell stocks</span>
+              <Link to="/shortselling">
+                <span> Short Selling</span>
               </Link>
-              <Link to="/thestockmarket">
-                <span>What owning a stock means</span>
+              <Link to="/basicsofordertype">
+                <span> Basics Of Order Types</span>
               </Link>
-              <Link to="/thestockmarket">
+              {/* <Link to="/thestockmarket">
                 <span>What is a penny stock?</span>
-              </Link>
+              </Link> */}
             </div>
             <div className="sideContainer">
               <p>

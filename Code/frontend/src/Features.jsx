@@ -8,8 +8,20 @@ import finance from "./assets/cards/finance.svg";
 import module from "./assets/cards/modules.svg";
 import './feature.css';
 import Navbar from './Components/Navbar';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Features() {
+
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    if (!token) {
+      // Redirect to login page if token doesn't exist
+      navigate("/login");
+    }
+  }, [token, navigate]);
+  
   return (
     <div className='featurePage'>
       <Navbar />
