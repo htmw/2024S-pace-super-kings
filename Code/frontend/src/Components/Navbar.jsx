@@ -40,7 +40,7 @@ const { hash, pathname, search } = location;
   };
 
   const token = localStorage.getItem("token");
-  console.log("Token:", token); 
+
 
   return (
     <div className="navbar-2">
