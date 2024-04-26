@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 
 
-function ChatScreen() {
+function ChatScreen({msgs}) {
 
 
 
@@ -12,61 +12,62 @@ function ChatScreen() {
 
 
     return (
-      < >
+      <>
                                        
   <div class="Chat__wrapper">
     <ul class="Chat">
+{
+
+msgs.map((msg) => {
+
+
+
+  if(msg.type === "image"){
+    return (
       <li class="Chat_item Chat_item_l">
+      <div class="ImageMessage"> 
+      <div class="i_man">
+          <img src="https://img.lovepik.com/free-png/20220125/lovepik-artificial-intelligence-png-image_401746343_wh1200.png" class="i_man-image" />
+        </div> 
+      </div>
+      <div class="Chat_msgs">
+        <div class="msg">
+          <div class="msg-content">
+          <img style={{"width":"100%"}} src={msg.data}/>
+          <br/><br/>
+          <label>{msg.title}</label>
+          </div>
+        </div>
+        </div>
+        </li>);
+}
+else if(msg.type === "text"){
+
+
+if(msg.from === "bot"){
+
+
+  return(  <li class="Chat_item Chat_item_l">
         <div class="i_man">
           <img src="https://img.lovepik.com/free-png/20220125/lovepik-artificial-intelligence-png-image_401746343_wh1200.png" class="i_man-image" />
         </div>
         <div class="Chat_msgs">
           <div class="msg">
             <div class="msg-content">
-            <img style={{"width":"100%"}} src={'https://www.amcharts.com/wp-content/uploads/2019/10/demo_14592_none-11.png'}/>
-            <br/><br/>
-            <label>Analyzing...</label>
+            {msg.title}
             </div>
           </div>
         </div>
-      </li>
-  
-      <li class="Chat_item Chat_item_l">
-        <div class="i_man">
-          <img src="https://img.lovepik.com/free-png/20220125/lovepik-artificial-intelligence-png-image_401746343_wh1200.png" class="i_man-image" />
-        </div>
-        <div class="Chat_msgs">
-          <div class="msg">
-            <div class="msg-content">
-             Q. What do you think does the current chart depicts?
-            </div>
-          </div>
-          <div class="msg">
-            <div class="msg-content answers">
-              1] Head and Shoulder
-            </div>
-          </div>
-          <div class="msg">
-            <div class="msg-content answers">
-             2] Hanging man
-            </div>
-          </div>
-          <div class="msg">
-            <div class="msg-content answers">
-              3] Hammer
-            </div>
-          </div>
-        </div>
-      </li>								
-  
-  
-  
-  
-      <li class="Chat_item Chat_item_r">
+      </li>	);
+ 
+
+}else{
+
+  return ( <li class="Chat_item Chat_item_r">
         <div class="Chat_msgs">
           <div class="msg">
             <div class="msg-content" >
-               Hammer
+            {msg.title}
             </div>
           </div>
           <div class="i_man">
@@ -74,20 +75,56 @@ function ChatScreen() {
         </div>
          
         </div>
-      </li>
+      </li>);
+}
   
-      <li class="Chat_item Chat_item_l">
+}else if(msg.type== "mcq"){
+  return(<li class="Chat_item Chat_item_l">
         <div class="i_man">
           <img src="https://img.lovepik.com/free-png/20220125/lovepik-artificial-intelligence-png-image_401746343_wh1200.png" class="i_man-image" />
         </div>
         <div class="Chat_msgs">
           <div class="msg">
             <div class="msg-content">
-             Oh Sorry, that was a wrong answer?
+             {msg.title}
             </div>
           </div>
-        </div>
-      </li>	
+          {
+            msg.options.map((option) => {
+              return(
+                <div class="msg">
+            <div class="msg-content answers">
+              {option}
+            </div>
+            </div>
+              );
+            })
+          }
+          </div>
+      </li>);
+}
+
+else{
+  return(<div />);
+}
+
+
+
+})
+}
+
+
+
+
+    
+      								
+  
+  
+  
+  
+      
+  
+      
    
   
   

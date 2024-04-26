@@ -44,6 +44,7 @@ const ChartDefault = () => {
     const [stockTitle, setStockTitle] = useState("Apple INC");
     const [stockTicker, setStockTicker] = useState("AAPL");
     const [suggestions, setSuggestions] = useState([]);
+    const [msgs, setMsgs] = useState([]);
     // const [orders, setOrders] = useState([]);
     const [selectedStockData, setSelectedStockData] = useState(null);
     const [isStockLoading, setStockLoading] = useState(false);
@@ -80,15 +81,21 @@ const ChartDefault = () => {
     socket = manager.socket("/");
     socket.on("connect", () => {
       console.log("connected");
-      const roomId = window.localStorage.getItem('email');
-      socket.emit("join", roomId);
+     // const roomId = window.localStorage.getItem('email');
+      // socket.emit("join", roomId);
+
+
+    
+
+
        });
 
-
-
+     
        socket.on('chat', (data) => {
-       console.log(data);
-      });
+        console.log("data", data);
+       });
+
+      
 
     manager.open((err) => {
       if (err) {
@@ -102,6 +109,42 @@ const ChartDefault = () => {
 
   },[]);
 
+  useEffect(()=>{
+    setMsgs([{
+      "type": "text", //for image add data
+      "from": "bot",
+      "title": "Hello, I am your personal assistant. How can I help you today?",
+      "timeStamp": 1647631200000,
+    
+    },{
+
+    "type": "image", //for image add data
+    "from": "bot",
+    "data": "https://www.amcharts.com/wp-content/uploads/2019/10/demo_14592_none-11.png" ,
+    "title": "Hello, I am your personal assistant. How can I help you today?",
+    "timeStamp": 1647631200000,
+  
+  },
+  {
+
+    "type": "mcq", //for image add data
+    "from": "bot",
+    "options" : ["1] Head and Shoulder", "2] Double Top", "3] Triple Top","4] Hanging man", "5] None of the above",],
+    "data": "https://www.amcharts.com/wp-content/uploads/2019/10/demo_14592_none-11.png" ,
+    "title": "Which pattern do you think the chart depicts?",
+    "timeStamp": 1647631200000,
+  
+  },
+  {
+    "type": "text", //for image add data
+    "from": "user",
+    "title": "Hammer",
+    "timeStamp": 1647631200000,
+  
+  }
+  
+  ]);
+  },[])
 
 
   function sendMessage(message){
@@ -228,7 +271,7 @@ const handleOrderForm = async (event) => {
       }
     
       useEffect(() => {
-        autofetchStock();
+      //  autofetchStock();
         getUserAccountMoney();
         // getOrders();
       }, []);
@@ -455,7 +498,7 @@ console.log(response.items)
                   </div>
                   <div class="card-body pt-2">
                     <div className="chat-content">
-                      <ChatScreen />
+                      <ChatScreen msgs={msgs} />
                     </div>
                     <form>
                       {/* <div class="mt-3 d-flex justify-content-between">

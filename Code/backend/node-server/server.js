@@ -70,6 +70,7 @@ io.on('connection', (socket) => {
 
   // Listen for incoming messages
   socket.on('chat', (message) => {
+    
     console.log('Received message:', message);
      const { userId, data, type, timeStamp } = message;
       io.to(userId).emit(userId, data);
