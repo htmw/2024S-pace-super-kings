@@ -39,7 +39,7 @@ const TableOfContent = ({ headings }) => {
 
   return (
     <div className="table-of-contents">
-      <h2>&#128970; Table of Contents</h2>
+      <h4>&#128970; Table of Contents &#128970;</h4>
       <ul>
         {headings.map((heading, index) => (
           <li key={index}>

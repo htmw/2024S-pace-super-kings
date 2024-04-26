@@ -238,6 +238,7 @@ export default KnowTheStockExchanges;
 // {
 //   return (
 //     <div>
+        // <ScrollToTop/>
 //      <Navbar />
 //      <h1 className="stockpagetitle">The Stock Market</h1>
 //     <div className="tableContent-mainContainer">
