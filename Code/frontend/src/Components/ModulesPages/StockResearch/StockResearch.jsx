@@ -20,16 +20,16 @@ const StockResearch = () => {
           <div className="linksandpara">
             <div className="linksOfItS">
             <h4>Quick Links</h4>
-              <Link to="/thestockmarket">
+              <Link to="/stockfundamentals">
                 <span> Stock Fundamentals</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/howtobecomeanalyst">
                 <span> How To Become Your Own Stock Analyst</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/essentialofanalyzingstock">
                 <span> Essentials Of Analyzing Stocks</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/fundamentalanalysis">
                 <span> Fundamental Analysis</span>
               </Link>
               {/* <Link to="/thestockmarket">

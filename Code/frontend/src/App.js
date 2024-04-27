@@ -39,6 +39,10 @@ import InvestingAnIntro from './Components/ModulesPages/ManagePortfolio/Quick Li
 import WhatIsEtf from './Components/ModulesPages/ManagePortfolio/Quick Links/WhatIsEtf';
 import Diversification from './Components/ModulesPages/ManagePortfolio/Quick Links/Diversification';
 import MeasuringInvestmentReturns from './Components/ModulesPages/ManagePortfolio/Quick Links/MeasuringInvestmentReturns';
+import FundamntalAnalysis from './Components/ModulesPages/StockResearch/Quick Links/FundamntalAnalysis';
+import EssentialOfAnalyzingStock from './Components/ModulesPages/StockResearch/Quick Links/EssentialOfAnalyzingStock';
+import HowToBecomeAnalyst from './Components/ModulesPages/StockResearch/Quick Links/HowToBecomeAnalyst';
+import StockFundamentals from './Components/ModulesPages/StockResearch/Quick Links/StockFundamentals';
 
 
 function App() {
@@ -220,10 +224,24 @@ function App() {
     element: <MeasuringInvestmentReturns />,
   },
 
+// *************************************** Stock Research ****************************************
 
-
-
-
+{
+  path: "/fundamentalanalysis",
+  element: <FundamntalAnalysis />,
+},
+{
+  path: "/essentialofanalyzingstock",
+  element: <EssentialOfAnalyzingStock />,
+},
+{
+  path: "/howtobecomeanalyst",
+  element: <HowToBecomeAnalyst />,
+},
+{
+  path: "/stockfundamentals",
+  element: <StockFundamentals />,
+},
 
 ]);
 
