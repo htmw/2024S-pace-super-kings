@@ -70,6 +70,7 @@ io.on('connection', (socket) => {
 
   // Listen for incoming messages
   socket.on('chat', (message) => {
+    
     console.log('Received message:', message);
      const { userId, data, type, timeStamp } = message;
       io.to(userId).emit(userId, data);
@@ -128,6 +129,7 @@ const stockRoutes = require('./routes/stocks');
 const extraRoutes = require('./routes/extra');
 const accountRoutes = require('./routes/account');
 const ordersRoutes = require('./routes/orders');
+const chatRoutes = require('./routes/chat');
 const User = require('./models/User');
 
 
@@ -138,6 +140,7 @@ app.use('/dashboard', dashboardRoutes);
 app.use('/stocks', stockRoutes);
 app.use('/account',checkToken,  accountRoutes);
 app.use('/extra', extraRoutes);
+app.use('/chat', chatRoutes);
 app.use('/orders', checkToken, ordersRoutes);
 app.get('/pattern', (req, res) => {
 

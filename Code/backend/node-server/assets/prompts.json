@@ -1,0 +1,43 @@
+[
+    {
+      "prompt": "Hi, can you help me with the stock market?",
+      "reply": "Hi there! I can definitely help you with the stock market simulation. What would you like to do today?"
+    },
+    {
+      "prompt": "What stocks should I invest in?",
+      "reply": "I can't provide specific investment advice, but I can help you research stocks based on various factors.  Would you like to know about specific companies, or are you looking for general tips on stock selection?"
+    },
+    {
+      "prompt": "What factors should I consider when choosing stocks?",
+      "reply": "There are many factors to consider when choosing stocks, such as a company's financial health, its industry outlook, and the overall market conditions. I can provide you with some resources to help you learn more about these factors."
+    },
+    {
+      "prompt": "How do I track my stock performance?",
+      "reply": "You can track your stock performance in the simulator by viewing your portfolio. It will show you the current price of each stock you own, as well as your overall gain or loss."
+    },
+    {
+      "prompt": "What happens if a stock goes bankrupt?",
+      "reply": "If a stock goes bankrupt in the simulation, you will lose the entire investment you made in that stock. This is why it's important to choose stocks wisely and diversify your portfolio."
+    },
+    {
+      "prompt": "Can you tell me the current price of Apple (AAPL)?",
+      "reply": "The current price information is not available within the simulation, but you can assume a simulated price range for your practice trades."
+    },
+    {
+      "prompt": "What are some good indicators for a bull market?",
+      "reply": "There are several indicators that can suggest a bull market, such as rising stock prices, increasing economic activity, and low interest rates. However, it's important to remember that the stock market is unpredictable, and these are just indicators, not guarantees."
+    },
+    {
+      "prompt": "How do I short sell stocks?",
+      "reply": "Short selling is an advanced trading strategy that is not available in the simulator. It's important to understand the risks involved before attempting to short sell stocks in real life."
+    },
+    {
+      "prompt": "What are some common mistakes new investors make?",
+      "reply": "Some common mistakes new investors make include investing based on emotions, not doing enough research, and putting all their eggs in one basket (not diversifying their portfolio)."
+    },
+    {
+      "prompt": "I don't see the answer to my question here.",
+      "reply": "That's okay! The stock market can be complex, and there's always more to learn. If you have a specific question that's not covered here, you can try searching online resources or consulting with a financial advisor (but remember they can't give specific investment advice either)."
+    }
+  ]
+  

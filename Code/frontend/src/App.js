@@ -18,12 +18,31 @@ import OptionsStrategies from './Components/ModulesPages/OptionsStrategies/Optio
 import ManagePortfolio from "./Components/ModulesPages/ManagePortfolio/ManagePortfolio"
 import IntroToOptions from './Components/ModulesPages/IntroToOptions/IntroToOptions'
 
-import Tv from './Tv';
+import Tv from './Features';
 import Dashboard from './Tv/dashboard';
 import SignUp from './Components/Signup/SignUp';
 import TopUpFunds from './Components/TopUpFunds';
 import ChartDefault from './Components/Tab-bar/ChartDefault';
 import Profile from './Components/Profile';
+import Features from "./Features"
+import StockMarket from './Components/ModulesPages/IntroToStocks/Quick Links/StockMarket';
+import StockMarketWork from './Components/ModulesPages/IntroToStocks/Quick Links/StockMarketWork';
+import KnowTheStockExchanges from './Components/ModulesPages/IntroToStocks/Quick Links/KnowTheStockExchanges';
+import HowToBuySell from './Components/ModulesPages/IntroToStocks/Quick Links/HowToBuySell';
+import OwningAStockMeans from './Components/ModulesPages/IntroToStocks/Quick Links/OwningAStockMeans';
+import WhenToSellAStock from './Components/ModulesPages/StockTradingBasics/Quick Links/WhenToSellAStock';
+import BasicsOfOrderType from './Components/ModulesPages/StockTradingBasics/Quick Links/BasicsOfOrderType';
+import ShortSell from './Components/ModulesPages/StockTradingBasics/Quick Links/ShortSell';
+import IncomeValueGrowth from './Components/ModulesPages/StockTradingBasics/Quick Links/IncomeValueGrowth';
+import InvestingVTrading from './Components/ModulesPages/StockTradingBasics/Quick Links/InvestingVTrading';
+import InvestingAnIntro from './Components/ModulesPages/ManagePortfolio/Quick Links/InvestingAnIntro';
+import WhatIsEtf from './Components/ModulesPages/ManagePortfolio/Quick Links/WhatIsEtf';
+import Diversification from './Components/ModulesPages/ManagePortfolio/Quick Links/Diversification';
+import MeasuringInvestmentReturns from './Components/ModulesPages/ManagePortfolio/Quick Links/MeasuringInvestmentReturns';
+import FundamntalAnalysis from './Components/ModulesPages/StockResearch/Quick Links/FundamntalAnalysis';
+import EssentialOfAnalyzingStock from './Components/ModulesPages/StockResearch/Quick Links/EssentialOfAnalyzingStock';
+import HowToBecomeAnalyst from './Components/ModulesPages/StockResearch/Quick Links/HowToBecomeAnalyst';
+import StockFundamentals from './Components/ModulesPages/StockResearch/Quick Links/StockFundamentals';
 
 
 function App() {
@@ -33,11 +52,11 @@ function App() {
 
   const router = createBrowserRouter([
 
-    {
-      path: "/trading",
-      element: <Tv />,
+    // {
+    //   path: "/trading",
+    //   element: <Tv />,
       
-    },
+    // },
     {
       path: "/",
       element: <Landing />,
@@ -49,7 +68,7 @@ function App() {
       
     },
     {
-      path: "/module-page",
+      path: "/learn",
       element: <ModuleHome />,
       
     },
@@ -73,9 +92,14 @@ function App() {
   element : <TestChart />
 }
 ,
+    // {
+    //   path: "/trading",
+    //   element: <Tv />,
+      
+    // },
     {
-      path: "/trading",
-      element: <Tv />,
+      path: "/features",
+      element: <Features />,
       
     },
     {
@@ -89,7 +113,7 @@ function App() {
       
     },
     {
-      path: "/module-page",
+      path: "/learn",
       element: <ModuleHome />,
       
     },
@@ -138,7 +162,88 @@ function App() {
       element: <Profile />,
       
     },
-  ]);
+    // /////////////////////////////////////// Learining Modules ////////////////////////////////
+   
+    // **************************************** introduction to stocks quick links *****************************
+    {
+      path: "/stockmarket",
+      element: <StockMarket />,
+    },
+    {
+      path: "/marketwork",
+      element: <StockMarketWork />,
+    },
+    {
+      path: "/stockexchanges",
+      element: <KnowTheStockExchanges />,
+    },
+    {
+      path: "/buysell",
+      element: <HowToBuySell />,
+    },
+    {
+      path: "/owningstocks",
+      element: <OwningAStockMeans />,
+    },
+  //  ***************************************** Basics of Stock Trading (quick links) *****************************
+  {
+    path: "/whentosellstock",
+    element: <WhenToSellAStock />,
+  },
+  {
+    path: "/basicsofordertype",
+    element: <BasicsOfOrderType />,
+  },
+  {
+    path: "/shortselling",
+    element: <ShortSell />,
+  },
+  {
+    path: "/incomevaluegrowth",
+    element: <IncomeValueGrowth />,
+  },
+  {
+    path: "/investingvstrading",
+    element: <InvestingVTrading />,
+  },
+  // **************************************** Manage Portfolio(Quick Links)************************
+  {
+    path: "/investingintro",
+    element: <InvestingAnIntro />,
+  },
+  {
+    path: "/etf",
+    element: <WhatIsEtf />,
+  },
+  {
+    path: "/diversification",
+    element: <Diversification />,
+  },
+  {
+    path: "/measuringreturns",
+    element: <MeasuringInvestmentReturns />,
+  },
+
+// *************************************** Stock Research ****************************************
+
+{
+  path: "/fundamentalanalysis",
+  element: <FundamntalAnalysis />,
+},
+{
+  path: "/essentialofanalyzingstock",
+  element: <EssentialOfAnalyzingStock />,
+},
+{
+  path: "/howtobecomeanalyst",
+  element: <HowToBecomeAnalyst />,
+},
+{
+  path: "/stockfundamentals",
+  element: <StockFundamentals />,
+},
+
+]);
 
   
   return (

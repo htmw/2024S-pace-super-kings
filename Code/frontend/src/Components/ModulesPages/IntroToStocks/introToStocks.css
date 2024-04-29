@@ -44,15 +44,23 @@ font-size: 2rem;
     gap: 20px;
     padding:1rem 1rem;
     /* background-color: #64b2ff; */
-    background-color: #90a955 !important; 
+    /* background-color: #90a955 !important;  */
+    background-color: #f8e4e4 !important; ;
     width: 30% !important;
     border-radius: 10px;
+  }
+  .linksOfItS h4{
+    /* text-decoration:underline !important; */
+    text-underline-offset: 0.5rem;
+    text-decoration-color: #ffafcc !important;
+   
+  
   }
   .linksOfItS a{
     text-decoration: none;
     /* color: #64b2ff; */
     color: #28292b !important;
-    font-weight: 400;
+    font-weight: 500 !important;
   }
 
   .linksOfItS a:hover{

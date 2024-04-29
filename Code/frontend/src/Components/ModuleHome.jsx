@@ -2,8 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
 import "./moduleHome.css"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ModuleHome = () => {
+
+    const navigate = useNavigate();
+    const token = localStorage.getItem("token");
+    useEffect(() => {
+      if (!token) {
+        // Redirect to login page if token doesn't exist
+        navigate("/login");
+      }
+    }, [token, navigate]);
+  
   return (
     <>
      <Navbar />

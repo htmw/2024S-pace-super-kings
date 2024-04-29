@@ -161,7 +161,7 @@ const Login = () => {
         localStorage.setItem('token', token);
         localStorage.setItem('email',data.email );
         localStorage.setItem('firstName', data.firstName);
-        navigate('/trading');
+        navigate('/features');
 
         console.log(token);
   

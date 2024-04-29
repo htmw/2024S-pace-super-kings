@@ -1,0 +1,48 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.featuesContainer{
+display: flex;
+align-items: center;
+justify-content: center;
+height: 80vh;
+}
+
+.featurePage{
+    /* height: 100vh; */
+}
+
+.explore-section{
+    margin: 2rem 5rem;
+}
+
+.exploreSecHead{
+font-size: 1.5rem;
+font-weight: 600;
+padding: 0.5rem 0.5rem 2rem 0.5rem;
+}
+
+@media only screen and (max-width:950px){
+    .featuesContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        flex-direction: column;
+        width: 100%;
+        }   
+        .picture img{
+            width: 100%;
+            height: auto;
+        }
+        .explore-section{
+            margin: 1rem 1rem;
+        }
+        .picture img{
+            width: 100%;
+            height: auto;
+        }
+}

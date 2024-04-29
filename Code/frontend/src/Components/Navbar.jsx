@@ -40,7 +40,7 @@ const { hash, pathname, search } = location;
   };
 
   const token = localStorage.getItem("token");
-  console.log("Token:", token); 
+
 
   return (
     <div className="navbar-2">
@@ -61,9 +61,17 @@ const { hash, pathname, search } = location;
         </div>
       </a>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
+      <li>
+          {" "}
+          <Link to="/dashboard">Trading</Link>{" "}
+        </li>
         <li>
           {" "}
-          <Link to="/module-page">Learning Modules</Link>{" "}
+          <Link to="/learn">Learning Modules</Link>{" "}
+        </li>
+        <li>
+          {" "}
+          <Link to="/">Risk Calculator</Link>{" "}
         </li>
         <li>
           <Link to="/myprofile">My Profile</Link>
@@ -72,7 +80,7 @@ const { hash, pathname, search } = location;
           <Link to="/">Settings</Link>
         </li>
        
-
+        <li>
         {token ? (
           <span onClick={handleLogout}>Signout</span>
         ) : (
@@ -80,6 +88,7 @@ const { hash, pathname, search } = location;
             Signup / Login
           </Link>
         )}
+        </li>
 
         <li class="prfileImage">
           <div class="dropdown header-profile2">

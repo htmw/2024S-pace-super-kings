@@ -81,7 +81,7 @@ const Profile = () => {
         await axios.put('/profile', { email, firstName }); // Replace with your API endpoint
         // alert('Data saved successfully!');
         toast.success('Data Saved Successfully');
-        window.location.href = "/trading";
+        window.location.href = "/dashboard";
       } catch (error) {
         // console.error('Error saving data:', error);
         toast.warn('Could not saved data! try again')
