@@ -43,6 +43,10 @@ import FundamntalAnalysis from './Components/ModulesPages/StockResearch/Quick Li
 import EssentialOfAnalyzingStock from './Components/ModulesPages/StockResearch/Quick Links/EssentialOfAnalyzingStock';
 import HowToBecomeAnalyst from './Components/ModulesPages/StockResearch/Quick Links/HowToBecomeAnalyst';
 import StockFundamentals from './Components/ModulesPages/StockResearch/Quick Links/StockFundamentals';
+import BasicOfOptionsPrices from './Components/ModulesPages/IntroToOptions/Quick Links/BasicOfOptionsPrices';
+import OptionProfitability from './Components/ModulesPages/IntroToOptions/Quick Links/OptionProfitability';
+import EssentialOptionTradingGuide from './Components/ModulesPages/IntroToOptions/Quick Links/EssentialOptionTradingGuide';
+import KmowMoreAboutOptions from './Components/ModulesPages/IntroToOptions/Quick Links/KmowMoreAboutOptions';
 
 
 function App() {
@@ -242,6 +246,24 @@ function App() {
   path: "/stockfundamentals",
   element: <StockFundamentals />,
 },
+// //************************************* Intro to Options **************************************** */
+{
+  path: "/basicofoptionprices",
+  element: <BasicOfOptionsPrices />,
+},
+{
+  path: "/optionprofitability",
+  element: <OptionProfitability />,
+},
+{
+  path: "/essentialoptiontradingguide",
+  element: <EssentialOptionTradingGuide />,
+},
+{
+  path: "/knowmoreaboutoptions",
+  element: <KmowMoreAboutOptions />,
+},
+
 
 ]);
 
