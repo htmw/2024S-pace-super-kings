@@ -43,6 +43,14 @@ import FundamntalAnalysis from './Components/ModulesPages/StockResearch/Quick Li
 import EssentialOfAnalyzingStock from './Components/ModulesPages/StockResearch/Quick Links/EssentialOfAnalyzingStock';
 import HowToBecomeAnalyst from './Components/ModulesPages/StockResearch/Quick Links/HowToBecomeAnalyst';
 import StockFundamentals from './Components/ModulesPages/StockResearch/Quick Links/StockFundamentals';
+import BasicOfOptionsPrices from './Components/ModulesPages/IntroToOptions/Quick Links/BasicOfOptionsPrices';
+import OptionProfitability from './Components/ModulesPages/IntroToOptions/Quick Links/OptionProfitability';
+import EssentialOptionTradingGuide from './Components/ModulesPages/IntroToOptions/Quick Links/EssentialOptionTradingGuide';
+import KmowMoreAboutOptions from './Components/ModulesPages/IntroToOptions/Quick Links/KmowMoreAboutOptions';
+import StrategiesToKnow from './Components/ModulesPages/OptionsStrategies/Quick Links/StrategiesToKnow';
+import CreditDebitSpreads from './Components/ModulesPages/OptionsStrategies/Quick Links/CreditDebitSpreads';
+import CoveredCalls from './Components/ModulesPages/OptionsStrategies/Quick Links/CoveredCalls';
+import BeginnerStrategies from './Components/ModulesPages/OptionsStrategies/Quick Links/BeginnerStrategies';
 
 
 function App() {
@@ -242,7 +250,41 @@ function App() {
   path: "/stockfundamentals",
   element: <StockFundamentals />,
 },
+// //************************************* Intro to Options **************************************** */
+{
+  path: "/basicofoptionprices",
+  element: <BasicOfOptionsPrices />,
+},
+{
+  path: "/optionprofitability",
+  element: <OptionProfitability />,
+},
+{
+  path: "/essentialoptiontradingguide",
+  element: <EssentialOptionTradingGuide />,
+},
+{
+  path: "/knowmoreaboutoptions",
+  element: <KmowMoreAboutOptions />,
+},
 
+// //////////////////////////////////// Options Strategies ///////////////////////////////////////
+{
+  path: "/strategiestoknow",
+  element: <StrategiesToKnow />,
+},
+{
+  path: "/creditdebitspreads",
+  element: <CreditDebitSpreads />,
+},
+{
+  path: "/coveredcalls",
+  element: <CoveredCalls />,
+},
+{
+  path: "/beginnerstrategies",
+  element: <BeginnerStrategies />,
+},
 ]);
 
   

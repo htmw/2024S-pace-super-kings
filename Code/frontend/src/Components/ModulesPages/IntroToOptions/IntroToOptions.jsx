@@ -20,16 +20,16 @@ const IntroToOptions = () => {
           <div className="linksandpara">
             <div className="linksOfItS">
             <h4>&#128970; Quick Links &#128970;</h4>
-              <Link to="/thestockmarket">
+              <Link to="/knowmoreaboutoptions">
                 <span> Know More About Option</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/essentialoptiontradingguide">
                 <span> Essential Options Trading Guide</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/basicofoptionprices">
                 <span> Basics Of Option Prices</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/optionprofitability">
                 <span> Basics Of Options Profitability</span>
               </Link>
               {/* <Link to="/thestockmarket">

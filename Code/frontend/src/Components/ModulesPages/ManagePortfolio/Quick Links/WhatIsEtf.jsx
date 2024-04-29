@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../IntroToStocks/introToStocks.css";
 
+
+
 const WhatIsEtf = () => {
   const headings = [
     { id: "section1", title: "Introduction to Exchange-Traded Funds (ETFs)" },
