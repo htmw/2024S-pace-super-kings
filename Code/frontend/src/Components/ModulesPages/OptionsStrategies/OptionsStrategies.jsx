@@ -21,16 +21,16 @@ const OptionsStrategies = () => {
           <div className="linksandpara">
             <div className="linksOfItS">
             <h4>&#128970; Quick Links &#128970;</h4>
-              <Link to="/thestockmarket">
+              <Link to="/beginnerstrategies">
                 <span> Beginner Options Trading Strategies</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/strategiestoknow">
                 <span> 10 Options Strategies To Know</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/creditdebitspreads">
                 <span> Credit Spreads And Debit Spreads</span>
               </Link>
-              <Link to="/thestockmarket">
+              <Link to="/coveredcalls">
                 <span> Covered Call</span>
               </Link>
               {/* <Link to="/thestockmarket">

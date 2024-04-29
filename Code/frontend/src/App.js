@@ -47,6 +47,10 @@ import BasicOfOptionsPrices from './Components/ModulesPages/IntroToOptions/Quick
 import OptionProfitability from './Components/ModulesPages/IntroToOptions/Quick Links/OptionProfitability';
 import EssentialOptionTradingGuide from './Components/ModulesPages/IntroToOptions/Quick Links/EssentialOptionTradingGuide';
 import KmowMoreAboutOptions from './Components/ModulesPages/IntroToOptions/Quick Links/KmowMoreAboutOptions';
+import StrategiesToKnow from './Components/ModulesPages/OptionsStrategies/Quick Links/StrategiesToKnow';
+import CreditDebitSpreads from './Components/ModulesPages/OptionsStrategies/Quick Links/CreditDebitSpreads';
+import CoveredCalls from './Components/ModulesPages/OptionsStrategies/Quick Links/CoveredCalls';
+import BeginnerStrategies from './Components/ModulesPages/OptionsStrategies/Quick Links/BeginnerStrategies';
 
 
 function App() {
@@ -264,7 +268,23 @@ function App() {
   element: <KmowMoreAboutOptions />,
 },
 
-
+// //////////////////////////////////// Options Strategies ///////////////////////////////////////
+{
+  path: "/strategiestoknow",
+  element: <StrategiesToKnow />,
+},
+{
+  path: "/creditdebitspreads",
+  element: <CreditDebitSpreads />,
+},
+{
+  path: "/coveredcalls",
+  element: <CoveredCalls />,
+},
+{
+  path: "/beginnerstrategies",
+  element: <BeginnerStrategies />,
+},
 ]);
 
   
