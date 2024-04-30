@@ -11,7 +11,8 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import setupInterceptors from "../network/networkInterceptor";
 import VideoBearBull from "./VideoBearBull";
 import { motion } from "framer-motion";
-import logo from "../assets/images/logo.png"
+import logo from "../assets/images/logo.png";
+import heroimg from "../assets/images/hero.gif"
 
 const Landing = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +43,7 @@ const Landing = () => {
       {/* //////////////////////////////////////////////////////////////////////////////// */}
 
 
-      <div style={{display:"none"}} className="brand-container">
+      <div style={{ display: "none" }} className="brand-container">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -143,7 +144,7 @@ const Landing = () => {
       </div>
 
       <header
-        style={{"position": "fixed","width": "100%","background-color": "white","z-index": "1000"}}
+        style={{ "position": "fixed", "width": "100%", "background-color": "white", "z-index": "1000" }}
         id="desktop-header"
         class="header-container false false"
       >
@@ -171,22 +172,77 @@ const Landing = () => {
       </header>
 
       {/* ////////////////////////////////////////////////////////////////////////////// */}
-      <br/><br/><br/><br/>
+
+
+
+
+
+
+      <div class="container_div  Main-content-wraper">
+
+          <br/>
+  
+        <div class="container_div  Landing-First-Section-Container">
+          <div class="container_div  Landing-First-Section-Content">
+            <h2 style={{fontSize:"65px"}} class="text_h2__9Rct5  Landing-First-Section-Heading">AI-powered stock simulator</h2>
+            <p class="logo-text-p  Landing-First-Section-Paragraph">Welcome to our trading simulator platform! Practice trading risk-free with our chatbot and chart data analysis. Be constantly aware about your risk index in equity markets with our risk assessment tool and other learning resources.</p><a class="logo-text-a  cta-button" href="developer/docs.html">Get
+              started</a>
+          </div>
+          <div
+            class="container_div  Landing-First-Section-Images-Container">
+            <span style={{boxSizing:"border-box", display:"inline-block",overflow:"hidden", width:"initial", height:"initial", background:"none",opacity:"1",border:"0",margin:"0",padding:"0",position:"relative",maxwidth:"100%"}}>
+              
+              <span
+              style={{boxSizing:"border-box;", display:"block", width:"initial",height:"initial",background:"none",opacity:"1",border:"0",margin:"0",padding:"0",maxwidth:"100%"}}>
+                
+                <img
+                style={{display:"block",maxwidth:"100%",width:"initial",height:"initial", background:"none", opacity:"1",border:"0",margin:"0",padding:"0"}}
+                alt="" aria-hidden="true"
+                src="" /></span>
+
+
+
+              <img style={{width: "100%",marginTop: "-2%"}} src={heroimg} />
+
+
+            </span>
+          </div>
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div
         className="mainContainer"
-        style={{ visibility: isVisible ? "visible" : "hidden" }}
+        style={{ visibility: isVisible ? "visible" : "hidden", display:"none"}}
       >
         <div className="text">
           <h1>Free and Open</h1>
           <h4>stock market and financial education</h4>
           <p>
-            Welcome to InvestMate – your ultimate stock market companion! Dive
-            into a world of learning and simulation tailored for young minds
-            aged 18 to 25. Explore real-time market data, practice trading
-            strategies, and master pattern recognition with ease. Join our
-            vibrant community and empower yourself with the knowledge and skills
-            to navigate the financial world confidently. Start your journey with
-            InvestMate today!
+          Welcome to our platform for trading simulators! With the help of our cutting-edge chatbot learning tool and thorough chart data analysis, take your first steps into the trading industry. Gain experience with trading in a risk-free setting and learn from current market data. Become a member of our learning community and set yourself up for success in trading. Now is the time to explore!
           </p>
           <div
             className="getStarted"
