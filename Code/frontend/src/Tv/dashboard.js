@@ -60,7 +60,7 @@ function Tv() {
       return;
     }
     console.log(`Quantity: ${quantity}, Order Type: ${orderType}`);
-
+   
     try {
       const response = await axios.post("/orders/place", {
         ticker: stockTicker,

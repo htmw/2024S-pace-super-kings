@@ -1,5 +1,4 @@
-
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import "./landing.css";
 import varsityImg from "../assets/zerodhaimg.png";
@@ -11,11 +10,10 @@ import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import setupInterceptors from "../network/networkInterceptor";
 import VideoBearBull from "./VideoBearBull";
-import {motion} from 'framer-motion'
-
+import { motion } from "framer-motion";
+import logo from "../assets/images/logo.png"
 
 const Landing = () => {
-
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -24,15 +22,13 @@ const Landing = () => {
     }, 500); // Adjust the delay as needed
     return () => clearTimeout(timer);
   }, []);
-    
 
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   console.log(token);
-
 
   return (
     <>
-    {/* <div>
+      {/* <div>
     <motion.h1 
      initial={{ opacity: 0, x: -50 }}
      animate={{ opacity: 1, x: 0 }}
@@ -43,8 +39,10 @@ const Landing = () => {
       INVESTMATE
       </motion.h1>
       </div> */}
-     {/* //////////////////////////////////////////////////////////////////////////////// */}
-     <div className="brand-container">
+      {/* //////////////////////////////////////////////////////////////////////////////// */}
+
+
+      <div style={{display:"none"}} className="brand-container">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -144,19 +142,40 @@ const Landing = () => {
         </motion.div>
       </div>
 
+      <header
+        style={{"position": "fixed","width": "100%","background-color": "white","z-index": "1000"}}
+        id="desktop-header"
+        class="header-container false false"
+      >
+        <a class="logo-text-a  header-logo" href="">
+          <img
+            class=" undefined"
+            src={logo}
+            alt="INVESTMATE"
+            width="50"
+            height="50"
+          />
+          <p class="logo-text-p  header-logo-title">INVESTMATE</p>
+        </a>
+        <div class="container_div"></div>
+        <div class="container_div  undefined">
+          <div class=""></div>
+        </div>
+        <div class="container_div ">
+          <div class="">
+            <a class="logo-text-a  header-authbutton" href="login.html">
+              Sign In / Sing Up
+            </a>
+          </div>
+        </div>
+      </header>
 
-
-
-
-
-
-
-
-
-
-
-     {/* ////////////////////////////////////////////////////////////////////////////// */}
-      <div className="mainContainer" style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
+      {/* ////////////////////////////////////////////////////////////////////////////// */}
+      <br/><br/><br/><br/>
+      <div
+        className="mainContainer"
+        style={{ visibility: isVisible ? "visible" : "hidden" }}
+      >
         <div className="text">
           <h1>Free and Open</h1>
           <h4>stock market and financial education</h4>
@@ -169,25 +188,34 @@ const Landing = () => {
             to navigate the financial world confidently. Start your journey with
             InvestMate today!
           </p>
-          <div className="getStarted" style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
-       { token ? <Link to='/features'> <span > Get started  </span><FaLongArrowAltRight className="arrowRight" size={'30px'} /></Link> : <Link to='/login'> <span>Get started  </span><FaLongArrowAltRight className="arrowRight" size={'30px'} /></Link> }
-      </div>
+          <div
+            className="getStarted"
+            style={{ visibility: isVisible ? "visible" : "hidden" }}
+          >
+            {token ? (
+              <Link to="/features">
+                {" "}
+                <span> Get started </span>
+                <FaLongArrowAltRight className="arrowRight" size={"30px"} />
+              </Link>
+            ) : (
+              <Link to="/login">
+                {" "}
+                <span>Get started </span>
+                <FaLongArrowAltRight className="arrowRight" size={"30px"} />
+              </Link>
+            )}
+          </div>
         </div>
         <div className="videoBearBull">
-      <VideoBearBull />
-      </div>
+          <VideoBearBull />
+        </div>
         {/* <div className="picture">
           <img src={varsityImg} alt="" />
         </div> */}
       </div>
-      
-      
     </>
   );
 };
 
 export default Landing;
-
-
-
-

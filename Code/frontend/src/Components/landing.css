@@ -131,3 +131,135 @@ border: 2px solid black;
             }
        
 }
+
+
+
+
+.header-container {
+    align-items: center;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 112px;
+  }
+  .header-container.styles_mobileHeader__iop_h {
+    padding: 16px 20px 16px 112px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  @media (max-width: 769px) {
+    .header-container.styles_mobileHeader__iop_h {
+      padding: 16px 20px 16px 24px;
+    }
+  }
+  .header-container.styles_dark__MLeRo {
+    background-color: #080808;
+  }
+  
+  
+  .logo-text-a {
+    color: #0d084d;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    text-decoration: none;
+  }
+  .logo-text-a.text_dark__C_WEu {
+    color: #dedede;
+  }  
+
+  a.header-logo {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+  }
+  a.header-logo:hover {
+    cursor: pointer;
+  }
+  a.header-logo img {
+    max-height: 50px;
+    max-width: 43px;
+  }
+  
+  
+  
+  
+  p.header-logo-title {
+    color: #0d084d;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 32px;
+    margin-left: 8px;
+    margin-top: 10px;
+  }
+  p.header-logo-title.LogoComponent_dark__okIHg {
+    color: #6f97ff;
+  }
+
+
+  .logo-text-p {
+    color: #0d084d;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+  }
+  .logo-text-p.text_dark__C_WEu {
+    color: #dedede;
+  }
+  p.header-logo-title {
+    color: #0d084d;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 32px;
+    margin-left: 8px;
+  }
+  p.header-logo-title.LogoComponent_dark__okIHg {
+    color: #6f97ff;
+  }
+  
+
+
+  .header-authbutton {
+    align-items: center;
+    color: #0d084d;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    justify-content: center;
+    letter-spacing: 0;
+    line-height: 40px;
+    min-width: 70px;
+    text-align: left;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .header-authbutton:hover {
+    color: #0d084d;
+  }
+  .header-authbutton.styles_dark__w2Xbc {
+    color: #6f97ff;
+  }
+  .header-authbutton.styles_dark__w2Xbc:hover {
+    color: #dedede;
+  }
+
+
+
+
+
+
+
+
+
+
+
