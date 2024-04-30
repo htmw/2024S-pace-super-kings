@@ -19,6 +19,7 @@ const verifyToken = (req, res, next) => {
     req.user = decoded; // Attach decoded user information to request object
     next(); // Move to next middleware
   } catch (error) {
+    console.log(error);
     return res.status(403).json({ message: 'Forbidden - Invalid token' });
   }
 };

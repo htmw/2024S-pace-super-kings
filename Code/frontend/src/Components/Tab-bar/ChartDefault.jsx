@@ -74,6 +74,7 @@ const ChartDefault = () => {
 
 
   useEffect(()=>{
+
     const manager = new Manager(base, {
       autoConnect: true
     });
@@ -92,7 +93,10 @@ const ChartDefault = () => {
 
      
        socket.on('chat', (data) => {
-        console.log("data", data);
+    console.log(data);
+        setMsgs([...msgs, data]);
+
+        
        });
 
       
@@ -109,42 +113,7 @@ const ChartDefault = () => {
 
   },[]);
 
-  useEffect(()=>{
-    setMsgs([{
-      "type": "text", //for image add data
-      "from": "bot",
-      "title": "Hello, I am your personal assistant. How can I help you today?",
-      "timeStamp": 1647631200000,
-    
-    },{
-
-    "type": "image", //for image add data
-    "from": "bot",
-    "data": "https://www.amcharts.com/wp-content/uploads/2019/10/demo_14592_none-11.png" ,
-    "title": "Hello, I am your personal assistant. How can I help you today?",
-    "timeStamp": 1647631200000,
   
-  },
-  {
-
-    "type": "mcq", //for image add data
-    "from": "bot",
-    "options" : ["1] Head and Shoulder", "2] Double Top", "3] Triple Top","4] Hanging man", "5] None of the above",],
-    "data": "https://www.amcharts.com/wp-content/uploads/2019/10/demo_14592_none-11.png" ,
-    "title": "Which pattern do you think the chart depicts?",
-    "timeStamp": 1647631200000,
-  
-  },
-  {
-    "type": "text", //for image add data
-    "from": "user",
-    "title": "Hammer",
-    "timeStamp": 1647631200000,
-  
-  }
-  
-  ]);
-  },[])
 
 
   function sendMessage(message){
@@ -152,14 +121,19 @@ const ChartDefault = () => {
 
     const roomId = window.localStorage.getItem('email');
 
-    if(socket && roomId){
+    if(socket){
 
-      socket.emit("chat", {
+      var userSideMessage = {
         userId: roomId,
-        data: message,
+        title: message,
         type: 'text',
         timeStamp: Date.now()
-      });
+      };
+      socket.emit("chat", userSideMessage);
+
+      setMsgs([...msgs, userSideMessage]);
+
+        
 
     
   }
@@ -541,3 +515,39 @@ console.log(response.items)
 }
 
 export default ChartDefault
+
+
+// [{
+//   "type": "text", //for image add data
+//   "from": "bot",
+//   "title": "Hello, I am your personal assistant. How can I help you today?",
+//   "timeStamp": 1647631200000,
+
+// },{
+
+// "type": "image", //for image add data
+// "from": "bot",
+// "data": "https://www.amcharts.com/wp-content/uploads/2019/10/demo_14592_none-11.png" ,
+// "title": "Hello, I am your personal assistant. How can I help you today?",
+// "timeStamp": 1647631200000,
+
+// },
+// {
+
+// "type": "mcq", //for image add data
+// "from": "bot",
+// "options" : ["1] Head and Shoulder", "2] Double Top", "3] Triple Top","4] Hanging man", "5] None of the above",],
+// "data": "https://www.amcharts.com/wp-content/uploads/2019/10/demo_14592_none-11.png" ,
+// "title": "Which pattern do you think the chart depicts?",
+// "timeStamp": 1647631200000,
+
+// },
+// {
+// "type": "text", //for image add data
+// "from": "user",
+// "title": "Hammer",
+// "timeStamp": 1647631200000,
+
+// }
+
+// ]

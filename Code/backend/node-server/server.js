@@ -14,11 +14,12 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const securePort = process.env.SECURE_PORT || 3002;
 app.use(morgan("tiny"));
+const stringSimilarity  = require("string-similarity-js").stringSimilarity;
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-
+const stockData = JSON.parse(fs.readFileSync('./assets/prompts.json', 'utf-8'));
 const  {Server} = require('socket.io');
 app.use(cors())
 
@@ -59,7 +60,18 @@ const io = new Server(server, {
 
 io.on('connection', (socket) => {
   msocket = socket;
-  console.log('New client connected');
+
+
+  socket.emit("chat", {
+    "type": "text", //for image add data
+    "from": "bot",
+    "title": "Hello, I am your personal assistant. How can I help you today?",
+    "timeStamp": Date.now(),
+  
+  });
+
+
+
 
   // Listen for user joining
   socket.on('join', (userId) => {
@@ -68,16 +80,16 @@ io.on('connection', (socket) => {
     socket.join(userId);
   });
 
+
+
+
+
   // Listen for incoming messages
   socket.on('chat', (message) => {
-    
-    console.log('Received message:', message);
-     const { userId, data, type, timeStamp } = message;
-      io.to(userId).emit(userId, data);
+if(message.type === "text"){
+    searchStockQuery(message.title)
 
-
-     
-  });
+}})
 
   socket.on('disconnect', () => {
     console.log('Client disconnected');
@@ -93,6 +105,45 @@ io.on('connection', (socket) => {
  */
 
 
+
+function searchStockQuery(query) {
+
+
+
+  stockData.map(stock => {
+
+    var similarityScore = stringSimilarity(stock.prompt.toLowerCase(),query.toLowerCase());
+    console.log(similarityScore);
+    if(stringSimilarity(stock.prompt.toLowerCase(),query.toLowerCase()) > 0.5){
+ if(msocket){
+  msocket.emit("chat", {
+    "type": "text", //for image add data
+    "from": "bot",
+    "title": stock.reply,
+    "timeStamp": Date.now(),
+  
+  
+  });
+ }
+    
+    }else{
+      if(msocket){
+        msocket.emit("chat", {
+          "type": "text", //for image add data
+          "from": "bot",
+          "title": "Sorry, I could not find any information on that. I am still in training phases, You can hop on to our learning module",
+          "timeStamp": Date.now(),
+        
+        
+        });
+       }
+    }
+  })
+
+
+
+
+}
 
 
 
@@ -162,6 +213,7 @@ app.get('/pattern', (req, res) => {
 
 
 server.listen(PORT, () => {
+  // console.log(searchStockQuery("stock inves"));
   console.log(`Server running on port ${PORT}`);
 });
 
@@ -172,7 +224,7 @@ async function checkToken(req, res, next) {
 
   // Get the token from the request headers
   const token = req.headers.authorization;
-  
+
   try{
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
     var user = await User.findOne({email:decoded.email});

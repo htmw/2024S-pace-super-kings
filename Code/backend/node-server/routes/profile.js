@@ -44,12 +44,13 @@ router.get('/', verifyToken, async (req, res) => {
 
       // Find the user by ID
       const user = await User.findOne({email : userEmail});
-
+console.log(user);
 
       if (!user) {
         return res.status(404).json({ message: 'User not found' });
       }
   
+
       // Return user profile details
       return res.status(200).json({
         id: user._id,
@@ -59,7 +60,7 @@ router.get('/', verifyToken, async (req, res) => {
         birthDate: user.birthDate
       });
   
-     return res.status(200).json({ message: 'Profile updated successfully' });
+   
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: 'Something went wrong' });
