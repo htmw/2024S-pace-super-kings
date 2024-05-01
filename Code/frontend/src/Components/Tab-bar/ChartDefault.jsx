@@ -268,24 +268,23 @@ const handleOrderForm = async (event) => {
 
 
       const fetchStockBySearch = async (event) => {
+
         setQuery(event.target.value);
-        if (event.target.value.length < 1) {
+        if (event.target.value===undefined) {
           setSuggestions([]);
           return;
         }
         try {
-          const response2 = await fetch(
-            `https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=${query}`
-          );
-          const response = await response2.json();
+          const response = await axios.get(`/stocks/search2?keyword=${query}` );
+         
     
           if (response.items !== null) {
-            setSuggestions(response.items);
+            setSuggestions(response.data.items);
 
-console.log(response.items)
             // setCurrentPrice(response.items[0].close)
           }
         } catch (error) {
+
           console.error("Error fetching suggestions:", error);
         }
       };
@@ -371,7 +370,7 @@ console.log(response.items)
                       onChange={fetchStockBySearch}
                     />
 
-                    {suggestions.length > 0 ? (
+                    { suggestions!==undefined && suggestions.length > 0 ? (
                       <ul className="stockSuggestionlist-ul">
                         {suggestions.map((stock) => (
                           <li

@@ -164,7 +164,7 @@ const Landing = () => {
         </div>
         <div class="container_div ">
           <div class="">
-            <a class="logo-text-a  header-authbutton" href="login.html">
+            <a class="logo-text-a  header-authbutton" href="/login">
               Sign In / Sing Up
             </a>
           </div>
