@@ -120,30 +120,7 @@ function Tv() {
 
   // Test cases
   
-  //ORDER RELATED VARIABLES : END
 
-  const handleDownloadClick = () => {
-    // Get the DOM node of the div
-    const divElement = divRef.current;
-
-    // Use html2canvas to capture the div as a canvas
-    html2canvas(divElement)
-      .then((canvas) => {
-        // Convert canvas to data URL
-        const imgData = canvas.toDataURL("image/png");
-
-        // Create a temporary link element
-        const link = document.createElement("a");
-        link.href = imgData;
-        link.download = "screenshot.png";
-
-        // Simulate click on the link to trigger download
-        link.click();
-      })
-      .catch((error) => {
-        console.error("Error generating screenshot:", error);
-      });
-  };
 
   async function getUserAccountMoney() {
     try {
@@ -187,68 +164,6 @@ function Tv() {
     }
   };
 
-  const fetchStockBySearch = async (event) => {
-    setQuery(event.target.value);
-    if (event.target.value.length < 1) {
-      setSuggestions([]);
-      return;
-    }
-    try {
-      const response2 = await fetch(
-        `https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=${query}`
-      );
-      const response = await response2.json();
-
-      if (response.items !== null) {
-        setSuggestions(response.items);
-      }
-    } catch (error) {
-      console.error("Error fetching suggestions:", error);
-    }
-  };
-
-  const getImage = (e) => {
-    if (this.TradingWidget) {
-      this.setState({
-        divStyle: {
-          width: 1440,
-          height: 600,
-          opacity: 0,
-        },
-      });
-
-      setTimeout(() => {
-        this.TradingWidget.postMessage.get(
-          "imageURL",
-          {},
-          function (t) {
-            this.downloadImage(
-              `https://s3.tradingview.com/snapshots/${t
-                .slice(0, 1)
-                .toLowerCase()}/${t}.png`
-            );
-          }.bind(this)
-        );
-      }, 100);
-    }
-  };
-
-  const handleClick = async ({ symbol, name }) => {
-    setStockTicker(symbol);
-    setStockLoading(true);
-    setSuggestions([]);
-    setStockTitle(name);
-
-    setQuery("");
-    try {
-      const response = await axios.get(`/stocks/data/?ticker=${symbol}`);
-      console.log(response.data);
-      setSelectedStockData(response.data);
-    } catch (error) {
-      console.error("Error fetching stock data:", error.message);
-    }
-    setStockLoading(false);
-  };
 
 
 const [activeTab, setActiveTab] =useState('chart');

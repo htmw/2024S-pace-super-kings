@@ -11,12 +11,19 @@ const morgan = require('morgan');
 const https = require("https");
 const fs = require("fs");
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 const securePort = process.env.SECURE_PORT || 3002;
 app.use(morgan("tiny"));
 const stringSimilarity  = require("string-similarity-js").stringSimilarity;
 
 app.use(express.json({ limit: '50mb' }));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+app.use(bodyParser.json());
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 const stockData = JSON.parse(fs.readFileSync('./assets/prompts.json', 'utf-8'));
@@ -27,6 +34,10 @@ app.use(cors())
  * SOCKET : Start
  */
 const server = http.createServer(app);
+
+
+
+
 
 
 
@@ -155,8 +166,6 @@ messageEmitted = true;
 
 
 
-// Middleware
-app.use(bodyParser.json());
 
 // MongoDB Atlas credentials from environment variables
 const dbURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -189,7 +198,10 @@ const accountRoutes = require('./routes/account');
 const ordersRoutes = require('./routes/orders');
 const chatRoutes = require('./routes/chat');
 const User = require('./models/User');
-
+const fileUpload = require('express-fileupload');
+app.use(fileUpload({
+  limits: { fileSize: 2 * 1024 * 1024 },
+}));
 
 
 app.use('/profile', profileRoutes);

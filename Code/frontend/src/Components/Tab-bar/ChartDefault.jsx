@@ -38,7 +38,6 @@ const ChartDefault = () => {
 
 
     const location = useLocation();
-    const { hash, pathname, search } = location;
     const divRef = useRef(null);
     const [query, setQuery] = useState("");
     const [stockTitle, setStockTitle] = useState("Apple INC");
@@ -247,6 +246,7 @@ const handleOrderForm = async (event) => {
       }
     
       useEffect(() => {
+        //TODO: Enable to fetch stock data for the default stock
       //  autofetchStock();
         getUserAccountMoney();
         // getOrders();

@@ -7,11 +7,14 @@
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.565.0",
+    
     "axios": "^1.6.8",
     "bcryptjs": "2.4.3",
     "csv-parser": "^3.0.0",
     "dotenv": "^16.4.5",
     "express": "4.19.2",
+    "express-fileupload": "^1.5.0",
     "express-graphql": "0.12.0",
     "fs": "^0.0.1-security",
     "graphql": "14.7.0",
@@ -21,7 +24,7 @@
     "jsonwebtoken": "9.0.2",
     "mongoose": "8.2.4",
     "morgan": "^1.10.0",
-    "multer": "^1.4.5-lts.1",
+    "multer": "1.4.3",
     "natural": "^7.0.5",
     "nodemailer": "^6.9.13",
     "nodemon": "^3.1.0",

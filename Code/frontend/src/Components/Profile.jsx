@@ -91,7 +91,7 @@ const Profile = () => {
   return (
     <>
     <div className="profile-cover-photo">
-    <div className="backbutton"><a href="/trading"><IoMdArrowRoundBack size={35} /></a></div>
+    <div className="backbutton"><a href="/dashboard"><IoMdArrowRoundBack size={35} /></a></div>
     
         <img className='coverImage' src={profileCoverImage} alt="" />
     </div>

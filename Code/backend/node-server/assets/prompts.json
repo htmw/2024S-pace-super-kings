@@ -1,43 +1,110 @@
 [
-    {
-      "prompt": "Hi, can you help me with the stock market?",
-      "reply": "Hi there! I can definitely help you with the stock market simulation. What would you like to do today?"
+  {
+    "prompt": "What are some dividend-paying stocks?",
+    "reply": "Great question! You can find a list of dividend-paying stocks on financial websites or through your simulator's search function (if available). Remember, dividend history is just one factor to consider."
+  },
+  {
+    "prompt": "How can I learn more about a specific company?",
+    "reply": "There are many resources available online, including the company's investor relations website and financial news articles. You can also find company profiles and research reports on financial websites."
+  },
+  {
+    "prompt": "What does P/E ratio mean?",
+    "reply": "P/E ratio stands for Price-to- Earnings ratio. It's a common metric used to compare a company's stock price to its earnings. A higher P/E ratio can indicate a stock is more expensive relative to its earnings."
+  },
+  {
+    "prompt": "Should I invest in penny stocks?",
+    "reply": "Penny stocks can be very risky and volatile. They are not recommended for beginners unless you are comfortable with a high degree of risk."
+  },
+  {
+    "prompt": "What is an IPO?",
+    "reply": "IPO stands for Initial Public Offering. It's the first time a company sells its stock to the public on a stock exchange."
+  },
+  {
+    "prompt": "What is a stop-loss order?",
+    "reply": "A stop-loss order is an order to automatically sell a stock if the price falls below a certain level. This can help limit your losses."
+  },
+  {
+    "prompt": "What is diversification?",
+    "reply": "Diversification means spreading your investments across different asset classes and industries. This helps reduce your overall risk."
+  },
+  {
+    "prompt": "How often should I check my portfolio?",
+    "reply": "There's no one-size-fits-all answer. Some investors check their portfolio daily, while others prefer a long-term approach and check it less frequently. It depends on your investment style and risk tolerance."
+  },
+  {
+    "prompt": "Should I invest all my money at once?",
+    "reply": "It's generally not recommended to invest all your money at once. This is called dollar-cost averaging, where you invest a fixed amount of money at regular intervals. This can help reduce the risk of buying at the wrong time."
+  },
+  {
+    "prompt": "How can I stay emotionally detached while trading?",
+    "reply": "Making investment decisions based on emotions can lead to mistakes. It's important to have a well-defined investment strategy and stick to it, even when the market is volatile."
+  },
+  {
+    "prompt": "How do I place a trade?",
+    "reply": "The specific process for placing a trade will vary depending on your simulator platform. Look for tutorials or guides within the simulator for instructions."
+  },
+  {
+    "prompt": "Can I short sell in the simulator?",
+    "reply": "As mentioned earlier, short selling might not be available in the simulator due to its complexity."
+  },
+  {
+    "prompt": "What happens to my simulated portfolio when I quit?",
+    "reply": "This depends on your simulator.  Some might reset your portfolio, while others might allow you to save your progress. Check the platform's documentation for details."
+  },
+  {
+    "prompt": "Is the simulated price movement realistic?",
+    "reply": "The simulator might use a combination of real-world data and randomization to create a realistic market experience. However, it may not perfectly reflect actual market conditions."
+  },
+  {
+    "prompt": "How can I track my trading performance over time?",
+    "reply": "Many simulators offer features to track your performance metrics, such as total return, average gain/loss per trade, and win rate."
+  },
+  {
+    "prompt": "What are some of the risks involved in investing in the stock market?",
+    "reply": "The stock market carries inherent risks, including the possibility of losing money.  Other risks include inflation, economic downturns, and interest rate fluctuations."
+  },
+  {
+    "prompt": "What are some benefits of investing in the stock market?",
+    "reply": "The stock market has the potential for long-term growth that can outpace other investment options like savings accounts. However, past performance doesn't guarantee future results."
+  },
+  {
+    "prompt": "What are some resources to learn more about the stock market?",
+    "reply": "There are many online resources available, including investment websites, educational blogs, and financial news outlets. You can also find a wealth of information in books, investment courses, and even podcasts."
     },
     {
-      "prompt": "What stocks should I invest in?",
-      "reply": "I can't provide specific investment advice, but I can help you research stocks based on various factors.  Would you like to know about specific companies, or are you looking for general tips on stock selection?"
+    "prompt": "Are there any online courses you recommend?",
+    "reply": "There are many great online courses available, both free and paid. Some popular platforms offer introductory courses on investing.  It's important to choose a course that aligns with your learning style and goals."
     },
     {
-      "prompt": "What factors should I consider when choosing stocks?",
-      "reply": "There are many factors to consider when choosing stocks, such as a company's financial health, its industry outlook, and the overall market conditions. I can provide you with some resources to help you learn more about these factors."
+    "prompt": "What are some good books to read about investing?",
+    "reply": "There are many classic investment books available, such as *Intelligent Investor* by Benjamin Graham and *A Random Walk Down Wall Street* by Burton Malkiel. Consider your experience level when choosing a book."
     },
     {
-      "prompt": "How do I track my stock performance?",
-      "reply": "You can track your stock performance in the simulator by viewing your portfolio. It will show you the current price of each stock you own, as well as your overall gain or loss."
+    "prompt": "What are some financial news outlets I can follow?",
+    "reply": "There are many reputable financial news outlets that cover the stock market. Look for sources with a good track record and unbiased reporting."
     },
     {
-      "prompt": "What happens if a stock goes bankrupt?",
-      "reply": "If a stock goes bankrupt in the simulation, you will lose the entire investment you made in that stock. This is why it's important to choose stocks wisely and diversify your portfolio."
+    "prompt": "Should I consider hiring a financial advisor?",
+    "reply": "A financial advisor can provide personalized investment advice based on your financial goals and risk tolerance. However, they typically charge fees, so consider the cost-benefit analysis."
     },
     {
-      "prompt": "Can you tell me the current price of Apple (AAPL)?",
-      "reply": "The current price information is not available within the simulation, but you can assume a simulated price range for your practice trades."
+    "prompt": "What is the difference between active and passive investing?",
+    "reply": "Active investing involves trying to outperform the market by selecting individual stocks. Passive investing involves buying and holding a diversified portfolio of assets, often through index funds."
     },
     {
-      "prompt": "What are some good indicators for a bull market?",
-      "reply": "There are several indicators that can suggest a bull market, such as rising stock prices, increasing economic activity, and low interest rates. However, it's important to remember that the stock market is unpredictable, and these are just indicators, not guarantees."
+    "prompt": "What is a value investor?",
+    "reply": "Value investors look for stocks that are trading for less than their intrinsic value. They believe the stock price will eventually rise to reflect the company's true worth."
     },
     {
-      "prompt": "How do I short sell stocks?",
-      "reply": "Short selling is an advanced trading strategy that is not available in the simulator. It's important to understand the risks involved before attempting to short sell stocks in real life."
+    "prompt": "What is a growth investor?",
+    "reply": "Growth investors focus on companies with high growth potential, even if the stock is currently expensive. They are looking for long-term capital appreciation."
     },
     {
-      "prompt": "What are some common mistakes new investors make?",
-      "reply": "Some common mistakes new investors make include investing based on emotions, not doing enough research, and putting all their eggs in one basket (not diversifying their portfolio)."
+    "prompt": "How do I develop my own investment philosophy?",
+    "reply": "Do your research and learn about different investment styles. Consider your risk tolerance, investment goals, and time horizon when developing your philosophy."
     },
     {
-      "prompt": "I don't see the answer to my question here.",
-      "reply": "That's okay! The stock market can be complex, and there's always more to learn. If you have a specific question that's not covered here, you can try searching online resources or consulting with a financial advisor (but remember they can't give specific investment advice either)."
+    "prompt": "When should I consider talking to a financial professional?",
+    "reply": "If you're new to investing or have complex financial goals, consulting with a financial advisor can be helpful. They can provide personalized guidance based on your unique situation."
     }
-  ]
-  
+]

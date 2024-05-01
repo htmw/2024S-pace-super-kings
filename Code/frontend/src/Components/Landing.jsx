@@ -185,7 +185,7 @@ const Landing = () => {
         <div class="container_div  Landing-First-Section-Container">
           <div class="container_div  Landing-First-Section-Content">
             <h2 style={{fontSize:"65px"}} class="text_h2__9Rct5  Landing-First-Section-Heading">AI-powered stock simulator</h2>
-            <p class="logo-text-p  Landing-First-Section-Paragraph">Welcome to our trading simulator platform! Practice trading risk-free with our chatbot and chart data analysis. Be constantly aware about your risk index in equity markets with our risk assessment tool and other learning resources.</p><a class="logo-text-a  cta-button" href="developer/docs.html">Get
+            <p class="logo-text-p  Landing-First-Section-Paragraph">Welcome to our trading simulator platform! Practice trading risk-free with our chatbot and chart data analysis. Be constantly aware about your risk index in equity markets with our risk assessment tool and other learning resources.</p><a class="logo-text-a  cta-button" href="/dashboard">Get
               started</a>
           </div>
           <div
