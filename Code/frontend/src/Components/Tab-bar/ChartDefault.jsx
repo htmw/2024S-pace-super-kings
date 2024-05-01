@@ -82,21 +82,17 @@ const ChartDefault = () => {
     socket = manager.socket("/");
     socket.on("connect", () => {
       console.log("connected");
-     // const roomId = window.localStorage.getItem('email');
-      // socket.emit("join", roomId);
-
-
-    
-
-
        });
 
-     
-       socket.on('chat', (data) => {
-    console.log(data);
-        setMsgs([...msgs, data]);
+       socket.on('chat_user', (data) => {
+        // console.log(data);
+        setTimeout(()=> {
+          
+           setMsgs([...msgs, data]);
+  
+        }, 200)
+       
 
-        
        });
 
       
@@ -124,16 +120,22 @@ const ChartDefault = () => {
     if(socket){
 
       var userSideMessage = {
+
+
+        "from": "user",
         userId: roomId,
         title: message,
         type: 'text',
         timeStamp: Date.now()
       };
-      socket.emit("chat", userSideMessage);
+    
+      //What factors should I consider when choosing stocks?
 
+   
       setMsgs([...msgs, userSideMessage]);
 
-        
+          socket.emit("chat_bot", userSideMessage);
+
 
     
   }

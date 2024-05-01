@@ -62,7 +62,7 @@ io.on('connection', (socket) => {
   msocket = socket;
 
 
-  socket.emit("chat", {
+  socket.emit("chat_user", {
     "type": "text", //for image add data
     "from": "bot",
     "title": "Hello, I am your personal assistant. How can I help you today?",
@@ -85,7 +85,7 @@ io.on('connection', (socket) => {
 
 
   // Listen for incoming messages
-  socket.on('chat', (message) => {
+  socket.on('chat_bot', (message) => {
 if(message.type === "text"){
     searchStockQuery(message.title)
 
@@ -107,43 +107,50 @@ if(message.type === "text"){
 
 
 function searchStockQuery(query) {
+  let maxScore = 0;
+  let bestMatch = null;
 
-
-
-  stockData.map(stock => {
-
-    var similarityScore = stringSimilarity(stock.prompt.toLowerCase(),query.toLowerCase());
-    console.log(similarityScore);
-    if(stringSimilarity(stock.prompt.toLowerCase(),query.toLowerCase()) > 0.5){
- if(msocket){
-  msocket.emit("chat", {
-    "type": "text", //for image add data
-    "from": "bot",
-    "title": stock.reply,
-    "timeStamp": Date.now(),
-  
-  
+  // Calculate Dice coefficient for each prompt
+  stockData.forEach(promptObj => {
+      const prompt = promptObj.prompt;
+      const answer = promptObj.reply;
+      const score = diceCoefficient(query.toLowerCase(), prompt.toLowerCase());
+      
+      if (score > maxScore) {
+          maxScore = score;
+          bestMatch = answer;
+      }
   });
- }
-    
-    }else{
-      if(msocket){
-        msocket.emit("chat", {
-          "type": "text", //for image add data
-          "from": "bot",
-          "title": "Sorry, I could not find any information on that. I am still in training phases, You can hop on to our learning module",
-          "timeStamp": Date.now(),
-        
-        
-        });
-       }
-    }
-  })
 
-
-
-
+  console.log(maxScore)
+  // If no match found with sufficient score, emit "don't know"
+  if (maxScore < 0.5) {
+      emitSocketMessage("don't know");
+  } else {
+      emitSocketMessage(bestMatch);
+  }
 }
+
+function diceCoefficient(s1, s2) {
+  return stringSimilarity(s1, s2);
+}
+
+function emitSocketMessage(message) {
+  if(msocket){
+    msocket.emit("chat_user", {
+      "type": "text", //for image add data
+      "from": "bot",
+      "title": message,
+      "timeStamp": Date.now(),
+    
+    
+    });
+messageEmitted = true; 
+  }
+}
+
+
+
 
 
 
@@ -195,14 +202,6 @@ app.use('/chat', chatRoutes);
 app.use('/orders', checkToken, ordersRoutes);
 app.get('/pattern', (req, res) => {
 
-  if(msocket)
-  msocket.emit("chat", {
-    userId: "asdnand",
-    data: "oaskdaokdok",
-    type: 'text',
-    timeStamp: Date.now()
-  });
-  
 
 
 
