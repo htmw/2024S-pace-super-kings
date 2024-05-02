@@ -42,6 +42,8 @@ def detect_pattern():
     cust = []
     boxes = []
     encoded_image = ""
+    patterns = []
+    boxes2 = []
 
     # Run YOLOv8 inference on the image
     results = model(frame)
@@ -58,40 +60,34 @@ def detect_pattern():
             #print(encoded_image)
         
 
-    pattern_info = {'pattern': results[0].names,
-                    'boxes' : cust 
-                    }
 
-    
 
-    for box in results[0].boxes.xyxyn:
-        print(box)
-        label_index = int(box[-1])
-        if label_index < len(results[0].names):
-            label = str(results[0].names[label_index])
-            bounding_box = [int(coord) for coord in box[:-1]]
-            boxes.append({'label': label, 'bounding_box': bounding_box, 'label_index': label_index, 'sequence': 1})
+        
+        class_names = result.names  # Dictionary mapping indices to class names
+        labels = result.boxes.cls.tolist()  # List of class indices
+        boxes = result.boxes.xyxy.tolist()
+        for i, label_index in enumerate(labels):
+            label_name = class_names[int(label_index)]
+            print(f"Object {i+1}: {label_name}")
+            patterns.append({'label': label_name, 'label_index': label_index})
+        
 
-    for box in results[0].boxes.xywhn:
-        print(box)
-        label_index = int(box[-1])
-        if label_index < len(results[0].names):
-            label = str(results[0].names[label_index])
-            bounding_box = [int(coord) for coord in box[:-1]]
-            boxes.append({'label': label, 'bounding_box': bounding_box, 'label_index': label_index, 'sequence': 2})
-            
-    for box in results[0].boxes.xywhn:
-        print(box)
-        label_index = int(box[-1])
-        if label_index < len(results[0].names):
-            label = str(results[0].names[label_index])
-            bounding_box = [int(coord) for coord in box[:-1]]
-            boxes.append({'label': label, 'bounding_box': bounding_box, 'label_index': label_index, 'sequence': 3})
 
+        for i, box in enumerate(boxes):
+            print(f"Object {i+1} bounding box: ({box[0]:.2f}, {box[1]:.2f}) - ({box[2]:.2f}, {box[3]:.2f})")
+            boxes2.append({'bounding_box': {
+                'x1': box[0],
+                'y1': box[1],
+                'x2': box[2],
+                'y2': box[3]
+            }, 'sequence': i})
+
+
+        
     # Prepare JSON response
     response = {
-        'pattern_info': pattern_info,
-        'bounding_boxes': boxes,
+        'pattern': patterns,
+        'bounding_boxes': boxes2,
         # 'image_data' : str(encoded_image)
     }
 
