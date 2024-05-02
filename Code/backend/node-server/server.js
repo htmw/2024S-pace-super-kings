@@ -12,24 +12,20 @@ const https = require("https");
 const fs = require("fs");
 const app = express();
 
+
 const PORT = process.env.PORT || 3001;
 const securePort = process.env.SECURE_PORT || 3002;
 app.use(morgan("tiny"));
 const stringSimilarity  = require("string-similarity-js").stringSimilarity;
 
 app.use(express.json({ limit: '50mb' }));
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
-app.use(bodyParser.json());
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
+app.use(bodyParser.json());
+app.use(cors());
 
 const stockData = JSON.parse(fs.readFileSync('./assets/prompts.json', 'utf-8'));
 const  {Server} = require('socket.io');
-app.use(cors())
-
 /**
  * SOCKET : Start
  */
@@ -198,10 +194,8 @@ const accountRoutes = require('./routes/account');
 const ordersRoutes = require('./routes/orders');
 const chatRoutes = require('./routes/chat');
 const User = require('./models/User');
-const fileUpload = require('express-fileupload');
-app.use(fileUpload({
-  limits: { fileSize: 2 * 1024 * 1024 },
-}));
+
+
 
 
 app.use('/profile', profileRoutes);
@@ -210,7 +204,7 @@ app.use('/dashboard', dashboardRoutes);
 app.use('/stocks', stockRoutes);
 app.use('/account',checkToken,  accountRoutes);
 app.use('/extra', extraRoutes);
-app.use('/chat', chatRoutes);
+app.use('/chat',checkToken, chatRoutes);
 app.use('/orders', checkToken, ordersRoutes);
 app.get('/pattern', (req, res) => {
 

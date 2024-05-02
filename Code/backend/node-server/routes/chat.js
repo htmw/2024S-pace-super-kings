@@ -6,23 +6,12 @@ const User = require('../models/User');
 const verifyToken = require('../utils/verifyToken');
 const fs = require('fs');
 const natural = require('natural');
-
+const multer = require('multer');
 const { S3Client, PutObjectCommand, GetObjectCommand } = require('@aws-sdk/client-s3');
 const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
-
 const { v4: uuidv4 } = require('uuid'); // For generating random UUIDs
 
-
-
-const multer = require('multer');
-
-const storage = multer.memoryStorage(); // Store uploaded file in memory
-
-const upload = multer({
-  storage,
-  limits: { fileSize: 1000000 }, // Set a size limit (1MB in this example)
-});
-
+const upload = multer({storage : multer.memoryStorage() })
 
 const s3Client = new S3Client({
   region:  process.env.S3_REGION, // Update with your desired region
@@ -102,15 +91,18 @@ function getBestMatchReply(userMessage) {
 }
 
 
-router.post('/upload', upload.single('image'), async (req, res) => {
+router.post('/upload', upload.single('file'), async (req, res) => {
 
 
-  if (!req.files.file) {
+console.log(req.file )
+
+
+  if (!req.file) {
     return res.status(400).json({ error: 'No image uploaded' });
   }
 
-  const file = req.files.file;
-  const extension = file.name.split('.').pop(); // Extract file extension
+  const file = req.file;
+  const extension = file.originalname.split('.').pop(); // Extract file extension
   var S3_BUCKET_NAME =  process.env.AWS_BUCKET_NAME;
   // Generate random UUID and construct filename
   const filename = `${uuidv4()}.${extension}`;
@@ -120,7 +112,7 @@ router.post('/upload', upload.single('image'), async (req, res) => {
     const putObjectCommand = new PutObjectCommand({
       Bucket: process.env.AWS_BUCKET_NAME,
       Key: key, // Use the generated filename as the key in S3
-      Body: file.data, // Use the file buffer for efficient upload
+      Body: file.buffer, // Use the file buffer for efficient upload
       ContentType: file.mimetype, // Set the ContentType based on mimetype
     });
 
@@ -134,7 +126,7 @@ router.post('/upload', upload.single('image'), async (req, res) => {
     });
 
 
-    const signedUrl = await getSignedUrl(s3Client, getObjectCommand, { expiresIn: 7200 });
+    const signedUrl = await getSignedUrl(s3Client, getObjectCommand, { expiresIn: process.env.AWS_URL_EXPIRATION });
 
 
 
@@ -147,6 +139,12 @@ router.post('/upload', upload.single('image'), async (req, res) => {
     console.error(error);
     return res.status(500).json({ error: 'Upload failed' });
   }
+
+  return res.status(200).json({ status: req.body
+   });
+
+
+
 });
 
 

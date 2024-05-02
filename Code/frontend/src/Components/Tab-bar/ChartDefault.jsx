@@ -301,7 +301,7 @@ const saveDivAsImage = (divId) => {
                     socket.emit("chat_bot", userSideMessage);
           
           
-              
+  
             }
 
 
