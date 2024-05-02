@@ -7,7 +7,8 @@ const verifyToken = require('../utils/verifyToken');
 const fs = require('fs');
 const natural = require('natural');
 
-const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+const { S3Client, PutObjectCommand, GetObjectCommand } = require('@aws-sdk/client-s3');
+const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
 
 const { v4: uuidv4 } = require('uuid'); // For generating random UUIDs
 
@@ -126,7 +127,22 @@ router.post('/upload', upload.single('image'), async (req, res) => {
     await s3Client.send(putObjectCommand);
     const uploadUrl = `https://${S3_BUCKET_NAME}.s3.amazonaws.com/${key}`;
 
-    return res.status(200).json({ message: 'Image uploaded successfully', url: uploadUrl });
+
+    const getObjectCommand = new GetObjectCommand({
+      Bucket: process.env.AWS_BUCKET_NAME,
+      Key: key,
+    });
+
+
+    const signedUrl = await getSignedUrl(s3Client, getObjectCommand, { expiresIn: 7200 });
+
+
+
+
+
+
+
+    return res.status(200).json({ message: 'Image uploaded successfully', url: signedUrl });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: 'Upload failed' });

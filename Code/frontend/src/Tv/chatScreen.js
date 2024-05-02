@@ -33,6 +33,7 @@ if(msg.type === "image"){
     <div class="Chat_msgs">
       <div class="msg">
         <div class="msg-content">
+        
         <img style={{"width":"100%"}} src={msg.data}/>
         <br/><br/>
         <label>{msg.title}</label>

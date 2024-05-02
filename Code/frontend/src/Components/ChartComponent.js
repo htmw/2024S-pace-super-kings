@@ -4,9 +4,18 @@ import React, {useRef} from 'react';
 import Chart from 'react-apexcharts';
 import html2canvas from 'html2canvas';
 import './chartComponent.css';
+import axios from '../network/networkInterceptor';
+const FormData = require('form-data');
 
 
-const ChartComponent = ({ stockData }) => {
+const ChartComponent = ({ stockData , imageUploadChartToChat}) => {
+
+
+function callDown(){
+
+  imageUploadChartToChat(chartRef.current.chartRef.current.childNodes[0].id)
+}
+
   const chartRef = useRef(null);
 
       const options = {
@@ -18,11 +27,7 @@ const ChartComponent = ({ stockData }) => {
         xaxis: {
           type: 'datetime'
         },
-        // yaxis: {
-        //   tooltip: {
-        //     enabled: true
-        //   }
-        // }
+
       };
 
 //   const series = [
@@ -36,36 +41,6 @@ const ChartComponent = ({ stockData }) => {
 
 
 
-const saveDivAsImage = (divId) => {
-  const div = document.getElementById(divId);
-
-  if (div) {
-    html2canvas(div).then((canvas) => {
-      // Convert canvas to data URL
-      const imageData = canvas.toDataURL('image/png');
-
-      // Create a temporary link element
-      const link = document.createElement('a');
-      link.href = imageData;
-      link.download = 'div_image.png';
-
-
-      // Trigger the download
-      document.body.appendChild(link);
-      link.click();
-
-      // Cleanup
-      document.body.removeChild(link);
-    });
-  }
-};
-
-const saveImage = () => {
-
-  saveDivAsImage(chartRef.current.chartRef.current.childNodes[0].id)
-
-};
-
 
        const series = [{
         data: stockData.historical.map(item => ({
@@ -78,7 +53,7 @@ const saveImage = () => {
     <div>
    
       <Chart options={options} series={series} type="candlestick" height={350}  ref={chartRef} />
-      <button onClick={saveImage} className='saveBtn'>Analyze wiht AI</button>
+      <button onClick={callDown} className='saveBtn'>Analyze wiht AI</button>
     </div>
   );
 };

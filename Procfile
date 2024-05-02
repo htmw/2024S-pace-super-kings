@@ -1,1 +1,0 @@
-web: cd Code/backend/node-server && npm start

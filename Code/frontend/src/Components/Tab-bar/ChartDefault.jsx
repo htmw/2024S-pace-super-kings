@@ -252,6 +252,97 @@ const handleOrderForm = async (event) => {
         // getOrders();
       }, []);
     
+ function imageUploadChartToChat(id) {
+  saveImage(id);
+}
+
+
+const saveDivAsImage = (divId) => {
+  const div = document.getElementById(divId);
+
+  if (div) {
+    html2canvas(div).then((canvas) => {
+      // Convert canvas to data URL
+      const imageData = canvas.toDataURL('image/png');
+      // No need to decode the dataURL since we're directly using it
+  
+      // Create a new file from the data URL
+      const file = new File([dataURItoBlob(imageData)], "div_image.png", {
+          type: "image/png",
+      });
+  
+      let data = new FormData();
+      data.append('file', file);
+  
+      axios
+          .post('/chat/upload', data) // Send FormData object directly
+          .then((response) => {
+              console.log('Image uploaded:', response.data);
+
+
+
+              if(socket && response.data){
+
+                var userSideMessage =  {
+
+                  "type": "image", //for image add data
+                  "from": "bot",
+                  "data": response.data.url ,
+                  "title": "Analyzing",
+                  "timeStamp": Date.now(),
+                  
+                  };
+              
+                //What factors should I consider when choosing stocks?
+          
+             
+                setMsgs([...msgs, userSideMessage]);
+          
+                    socket.emit("chat_bot", userSideMessage);
+          
+          
+              
+            }
+
+
+
+             
+
+
+
+          })
+          .catch((error) => {
+              console.error('Error uploading image:', error);
+          });
+  });
+  
+  // Helper function to convert Data URI to Blob
+  function dataURItoBlob(dataURI) {
+      // Convert base64 to raw binary data held in a string
+      var byteString = atob(dataURI.split(',')[1]);
+      // Separate the mime component
+      var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+      // Write the bytes of the string to an ArrayBuffer
+      var ab = new ArrayBuffer(byteString.length);
+      var ia = new Uint8Array(ab);
+      for (var i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+      }
+      // Create a Blob from an ArrayBuffer
+      var blob = new Blob([ab], { type: mimeString });
+      return blob;
+  }
+  }
+};
+
+const saveImage = (id) => {
+
+  saveDivAsImage(id)
+
+};
+
+
+
       async function autofetchStock() {
         setSuggestions([]);
         setQuery("");
@@ -413,7 +504,7 @@ const handleOrderForm = async (event) => {
                       </div>
                     </div>
                     {selectedStockData && (
-                      <ChartComponent stockData={selectedStockData} />
+                      <ChartComponent stockData={selectedStockData}  imageUploadChartToChat={imageUploadChartToChat} />
                     )}
 
                     <div className="stock-button-holder">
@@ -430,6 +521,7 @@ const handleOrderForm = async (event) => {
                         Sell
                       </button>
                     </div>
+
 
                     {showDialog && (
                       <div className="dialog">
