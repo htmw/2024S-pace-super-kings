@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 
 
-function ChatScreen({msgs}) {
+function ChatScreen({msgs, answerQuestion}) {
 
 
 
@@ -91,11 +91,18 @@ return(<li class="Chat_item Chat_item_l">
           </div>
         </div>
         {
-          msg.options.map((option) => {
+          msg.options.map((option, k) => {
             return(
-              <div class="msg">
-          <div class="msg-content answers">
-            {option}
+              <div class="msg" onClick={()=>{
+        if(option.correct){
+          answerQuestion(1)
+        }else{
+        answerQuestion(0)
+        }
+          
+          }}>
+          <div class="msg-content answers" >
+           {k+1} {option.text}
           </div>
           </div>
             );

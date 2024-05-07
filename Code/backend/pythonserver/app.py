@@ -6,10 +6,13 @@ from ultralytics import YOLO
 import cv2
 import numpy as np
 import base64
+from flask_cors import CORS
+
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 cv2.setUseOptimized(True)
 cv2.setNumThreads(0)
 
@@ -85,11 +88,19 @@ def detect_pattern():
 
         
     # Prepare JSON response
-    response = {
-        'pattern': patterns,
-        'bounding_boxes': boxes2,
-        # 'image_data' : str(encoded_image)
-    }
+    if len(patterns) > 0:
+        response = {
+            'pattern': patterns,
+            'bounding_boxes': boxes2,
+            'message' : "detected"
+            # 'image_data' : str(encoded_image)
+        }
+    else:
+        response = {
+            'pattern': [],
+            'bounding_boxes': [],
+            'message' : "no_pattern"
+        }
 
     return jsonify(response)
 
