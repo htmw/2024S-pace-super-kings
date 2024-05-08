@@ -26,6 +26,11 @@ import './chartdefault.css';
 import { Manager } from "socket.io-client";
 import { base, imageServer } from '../../variables.js';
 
+const patternsData = require('../../assets/all_pattern.json');
+
+
+
+
 var socket = null;
 
 
@@ -662,7 +667,12 @@ const saveImage = (id) => {
               <div class="col-xl-4">
                 <div class="card" id="chatscreen">
                   <div class="card-header border-0 pb-0">
-                    <h4 class="card-title mb-0">Chatbot</h4>
+                    <h4 class="card-title mb-0">   Chatbot<br /><span  style={{fontSize: "9px"}} onClick={()=>{
+setMsgs([])
+}}>
+<u>Clear</u>
+</span></h4>
+                    
                   </div>
                   <div class="card-body pt-2">
                     <div className="chat-content">
@@ -689,8 +699,46 @@ setMsgs([...msgs, userSideMessage]);
 
 
 
+
                         
-                      }} />
+                      }}
+                      
+                      optionInfo={(msg)=>{
+console.log(patternsData)
+                         var m = patternsData.map((value) => {
+                          return value.type === msg ? value : null;
+                         } )
+                         const matchingPattern = m.find((pattern) => pattern !== null);
+                         if(socket){
+
+var userSideMessage =  {
+
+  "type": "text", //for image add data
+  "from": "bot",
+  "title": matchingPattern.appearance,
+  "timeStamp": Date.now(),
+  
+  };
+
+//What factors should I consider when choosing stocks?
+
+
+setMsgs([...msgs, userSideMessage]);
+
+    socket.emit("chat_bot", userSideMessage);
+             
+             
+             
+             
+             
+             
+             
+             
+              }
+
+                      }}
+                      
+                       />
                     </div>
                     <form>
                       {/* <div class="mt-3 d-flex justify-content-between">

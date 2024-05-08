@@ -1,0 +1,39 @@
+[
+     {
+      "type": "Head and shoulders bottom",
+      "description": "A reversal pattern indicating a potential trend change from downtrend to uptrend.",
+      "appearance": "A three-peak low with the middle peak (head) being the highest and the two outer peaks (shoulders) being lower and roughly symmetrical.",
+      "confirmation": "Breakout above the neckline formed by connecting the lows of the two shoulders."
+    },
+   {
+      "type":   "Head and shoulders top",
+      "description": "A reversal pattern indicating a potential trend change from uptrend to downtrend.",
+      "appearance": "A three-peak high with the middle peak (head) being the highest and the two outer peaks (shoulders) being lower and roughly symmetrical.",
+      "confirmation": "Breakout below the neckline formed by connecting the highs of the two shoulders."
+    },
+    {
+      "type" : "M_Head",
+      "description": "A continuation pattern indicating a temporary pause in the prevailing trend before its resumption.",
+      "appearance": "An M-shaped pattern with two relatively equal lows and a higher middle peak.",
+      "confirmation": "Price action continuing in the direction of the prevailing trend after the pattern completes."
+    },
+    {
+      "type": "StockLine",
+      "description": "Not a true chart pattern, but rather a representation of the price movement over time.",
+      "appearance": "A continuous line connecting the highs and lows of price movements at specific intervals (e.g., daily, hourly).",
+      "confirmation": "N/A (not a true pattern)"
+    },
+   {
+      "type":  "Triangle",
+      "description": "A continuation or reversal pattern, depending on the prevailing trend and breakout direction.",
+      "appearance": "A series of converging trendlines, with price action oscillating within the narrowing range formed by the lines.",
+      "confirmation": "Breakout above the resistance trendline for a bullish triangle, or below the support trendline for a bearish triangle."
+    },
+   {
+    "type": "W_Bottom",
+      "description": "A reversal pattern indicating a potential trend change from downtrend to uptrend.",
+      "appearance": "A W-shaped pattern with two relatively equal lows and a higher middle peak.",
+      "confirmation": "Breakout above the neckline formed by connecting the lows of the two troughs."
+    }
+]
+  
