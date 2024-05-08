@@ -232,6 +232,8 @@ if (process.env.NODE_ENV === "production") {
     });
 }
 
+io.listen(process.env.socketPort);
+
 
 
 async function checkToken(req, res, next) {
