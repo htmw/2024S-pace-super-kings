@@ -81,6 +81,8 @@ if (process.env.NODE_ENV === "production") {
 io.on('connection', (socket) => {
   msocket = socket;
 
+  console.log("Client connected ")
+
 
 
 
@@ -121,7 +123,7 @@ if(message.type === "text"){
 
 
 });
-io
+
 
 
 /**
@@ -148,8 +150,8 @@ function searchStockQuery(query) {
 
   console.log(maxScore)
   // If no match found with sufficient score, emit "don't know"
-  if (maxScore < 0.5) {
-      emitSocketMessage("don't know");
+  if (maxScore < 0.3) {
+      //emitSocketMessage("don't know");
   } else {
       emitSocketMessage(bestMatch);
   }

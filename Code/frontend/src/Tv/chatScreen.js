@@ -6,7 +6,7 @@ function ChatScreen({msgs, answerQuestion, optionInfo}) {
 
 
 
-
+console.log(msgs)
 
 
     return (
