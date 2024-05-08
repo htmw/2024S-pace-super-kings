@@ -52,7 +52,6 @@ def detect_pattern():
     results = model(frame)
 
 
-
     for result in results:
         
           # Probs object for classification outputs

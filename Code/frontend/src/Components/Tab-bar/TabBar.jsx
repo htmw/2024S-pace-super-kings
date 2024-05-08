@@ -27,12 +27,12 @@ const TabBar = ({activeTab, onTabChange}) => {
       >
         Orders
       </div>
-      <div
+      {/* <div
         className={`tab ${activeTab === 'portfolio' ? 'active' : ''}`}
         onClick={() => handleTabClick('portfolio')}
       >
         Portfolio
-      </div>
+      </div> */}
       <div
         className={`tab ${activeTab === 'topup' ? 'active' : ''}`}
         onClick={() => handleTabClick('topup')}

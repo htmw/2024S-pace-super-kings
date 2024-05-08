@@ -73,12 +73,9 @@ const { hash, pathname, search } = location;
           {" "}
           <Link to="/">Risk Calculator</Link>{" "}
         </li>
-        <li>
-          <Link to="/myprofile">My Profile</Link>
-        </li>
-        <li>
-          <Link to="/">Settings</Link>
-        </li>
+
+
+       
        
         <li>
         {token ? (
