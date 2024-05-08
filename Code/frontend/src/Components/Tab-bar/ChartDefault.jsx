@@ -252,7 +252,7 @@ const handleOrderForm = async (event) => {
     
       useEffect(() => {
         //TODO: Enable to fetch stock data for the default stock
-      //  autofetchStock();
+        autofetchStock();
         getUserAccountMoney();
         // getOrders();
       }, []);
