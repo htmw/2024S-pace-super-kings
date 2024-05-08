@@ -37,36 +37,25 @@ const server = http.createServer(app);
 
 
 
-if (process.env.NODE_ENV === "production") {
-  https
-    .createServer(
-      {
-        key: fs.readFileSync(
-          "/etc/letsencrypt/live/api.investmatefinance.tech/privkey.pem"
-        ),
-         cert: fs.readFileSync('/etc/letsencrypt/live/api.investmatefinance.tech/cert.pem'),
-        ca: fs.readFileSync(
-          "/etc/letsencrypt/live/api.investmatefinance.tech/fullchain.pem"
-        ),
-      },
-      app
-    )
-    .listen(securePort, () => {
-      console.log(`Server Started at PORT: ${securePort}`);
-    });
-}
+
 
 
 var msocket;
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000", "https://investmatefinance.tech"]
+    origin: '*',
+    methods: ["GET", "POST"],
   }
 
 });
 
+
+
 io.on('connection', (socket) => {
   msocket = socket;
+
+
+
 
 
   socket.emit("chat_user", {
@@ -105,6 +94,7 @@ if(message.type === "text"){
 
 
 });
+io
 
 
 /**
@@ -167,7 +157,7 @@ messageEmitted = true;
 const dbURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 // Connect to MongoDB Atlas
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(dbURI)
 .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -222,6 +212,25 @@ server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
+
+if (process.env.NODE_ENV === "production") {
+  https
+    .createServer(
+      {
+        key: fs.readFileSync(
+          "/etc/letsencrypt/live/api.investmatefinance.tech/privkey.pem"
+        ),
+         cert: fs.readFileSync('/etc/letsencrypt/live/api.investmatefinance.tech/cert.pem'),
+        ca: fs.readFileSync(
+          "/etc/letsencrypt/live/api.investmatefinance.tech/fullchain.pem"
+        ),
+      },
+      app
+    )
+    .listen(securePort, () => {
+      console.log(`Server Started at PORT: ${securePort}`);
+    });
+}
 
 
 
