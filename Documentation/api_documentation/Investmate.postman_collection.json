@@ -1,0 +1,642 @@
+{
+	"info": {
+		"_postman_id": "405d15c9-1e1e-4c33-9300-287e73995d2b",
+		"name": "Investmate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25999706",
+		"_collection_link": "https://blue-meteor-452032.postman.co/workspace/Team-Workspace~96dc5038-0968-4aa5-898c-e76889cd1560/collection/25999706-405d15c9-1e1e-4c33-9300-287e73995d2b?action=share&source=collection_link&creator=25999706"
+	},
+	"item": [
+		{
+			"name": "Python flask server",
+			"item": [
+				{
+					"name": "detect_pattern",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/ankit/Downloads/chrome/div_image.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://144.126.251.89:3002/detect_pattern",
+							"protocol": "http",
+							"host": [
+								"144",
+								"126",
+								"251",
+								"89"
+							],
+							"port": "3002",
+							"path": [
+								"detect_pattern"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Node Server",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"kilaruchandana@gmail.com\",\n\"password\":\"test123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Investmate_dev}}/auth/login",
+									"host": [
+										"{{Investmate_dev}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign up",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var moment = require('moment');",
+											"var bdate = new Date();",
+											"",
+											"",
+											" bdate.setDate(bdate.getDate());",
+											"// endTime.setDate(endTime.getDate() - 20);",
+											"",
+											"",
+											"pm.environment.set('bdate', moment(bdate).valueOf());",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"email\" : \"ankitmhatre@hotmail.com\",\n\"password\":\"ttest123\"    ,\n\"firstName\" : \"Ankit\",\n\"lastName\" : \"Mhatre\",\n\"birthDate\" : {{bdate}}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Investmate_dev}}/auth/signup",
+									"host": [
+										"{{Investmate_dev}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "profile",
+					"item": [
+						{
+							"name": "Update profile",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{investmate_access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstName\" : \"Aankit\",\n\"lastName\":\"Mhatree\",\n\"birthDate\" : 1714491006000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Investmate_dev}}/profile/",
+									"host": [
+										"{{Investmate_dev}}"
+									],
+									"path": [
+										"profile",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get profile",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{investmate_access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Investmate_dev}}/profile",
+									"host": [
+										"{{Investmate_dev}}"
+									],
+									"path": [
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "stocks",
+					"item": [
+						{
+							"name": "stock search 2.0",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Investmate_dev}}/stocks/search2?keyword=apple",
+									"host": [
+										"{{Investmate_dev}}"
+									],
+									"path": [
+										"stocks",
+										"search2"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "apple"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get stocks data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Investmate_dev}}/stocks/data?ticker=AAPL",
+									"host": [
+										"{{Investmate_dev}}"
+									],
+									"path": [
+										"stocks",
+										"data"
+									],
+									"query": [
+										{
+											"key": "ticker",
+											"value": "AAPL"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Yahoo search",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=${query}",
+									"protocol": "https",
+									"host": [
+										"finance",
+										"yahoo",
+										"com"
+									],
+									"path": [
+										"_finance_doubledown",
+										"api",
+										"resource",
+										"searchassist;searchTerm=${query}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "finance modelling prep",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://financialmodelingprep.com/api/v3/historical-price-full/:ticker?timeseries=180&apikey={{FMP_KEY}}",
+									"protocol": "https",
+									"host": [
+										"financialmodelingprep",
+										"com"
+									],
+									"path": [
+										"api",
+										"v3",
+										"historical-price-full",
+										":ticker"
+									],
+									"query": [
+										{
+											"key": "timeseries",
+											"value": "180"
+										},
+										{
+											"key": "apikey",
+											"value": "{{FMP_KEY}}"
+										}
+									],
+									"variable": [
+										{
+											"key": "ticker",
+											"value": "AAPL"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "acccount",
+					"item": [
+						{
+							"name": "Get money",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{investmate_access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{Investmate_dev}}/account/money",
+									"host": [
+										"{{Investmate_dev}}"
+									],
+									"path": [
+										"account",
+										"money"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Recharge money",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{investmate_access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\" : 89,\n    \"currency\" : \"USD\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Investmate_dev}}/account/addMoney",
+									"host": [
+										"{{Investmate_dev}}"
+									],
+									"path": [
+										"account",
+										"addMoney"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "orders",
+					"item": [
+						{
+							"name": "Get all orders",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{investmate_access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{Investmate_dev}}",
+									"host": [
+										"{{Investmate_dev}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Place an order",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var moment = require('moment');",
+											"var orderTimedate = new Date();",
+											"",
+											"",
+											" orderTimedate.setDate(orderTimedate.getDate());",
+											"// endTime.setDate(endTime.getDate() - 20);",
+											"",
+											"",
+											"pm.environment.set('orderTimedate', moment(orderTimedate).valueOf());",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{investmate_access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"quantity\" : 1,\n \"price\" : 32.2,\n  \"ticker\" : \"WMT\",\n  \"orderTime\" : {{orderTimedate}},\n  \"orderType\" :\"BUY\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Investmate_dev}}/orders/place",
+									"host": [
+										"{{Investmate_dev}}"
+									],
+									"path": [
+										"orders",
+										"place"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "chat",
+					"item": [
+						{
+							"name": "s3 chart image upload, retrieve signed link",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const responseJson = pm.response.json();",
+											"var image_url = responseJson.url;",
+											"pm.environment.set(\"uploaded_image\", image_url)"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "DNT",
+										"value": "1"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "authorization",
+										"value": "{{investmate_access_token}}"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Chromium\";v=\"124\", \"Google Chrome\";v=\"124\", \"Not-A.Brand\";v=\"99\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"macOS\""
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/ankit/Library/Mobile Documents/com~apple~CloudDocs/MS/Syllabus/Spring 2024/Project submission/demo/t3fs92gq.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{Investmate_dev}}/chat/upload",
+									"host": [
+										"{{Investmate_dev}}"
+									],
+									"path": [
+										"chat",
+										"upload"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Image analysis",
+					"item": [
+						{
+							"name": "Detect pattern",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{investmate_access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "image/png"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"image\" :{{uploaded_image}}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{investmate_python}}/detect_pattern",
+									"host": [
+										"{{investmate_python}}"
+									],
+									"path": [
+										"detect_pattern"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Hello world python server",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{investmate_py_server}}:3002",
+									"host": [
+										"{{investmate_py_server}}"
+									],
+									"port": "3002"
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Connect: AI assistant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Investmate_dev}}",
+							"host": [
+								"{{Investmate_dev}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
