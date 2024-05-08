@@ -30,24 +30,51 @@ const  {Server} = require('socket.io');
  * SOCKET : Start
  */
 const server = http.createServer(app);
-
-
-
-
-
-
-
-
-
-
+var secureServer;
 var msocket;
-const io = new Server(server, {
-  cors: {
-    origin: '*',
-    methods: ["GET", "POST"],
-  }
+var io;
 
-});
+
+if (process.env.NODE_ENV === "production") {
+
+   secureServer = https
+.createServer(
+  {
+    key: fs.readFileSync(
+      "/etc/letsencrypt/live/api.investmatefinance.tech/privkey.pem"
+    ),
+     cert: fs.readFileSync('/etc/letsencrypt/live/api.investmatefinance.tech/cert.pem'),
+    ca: fs.readFileSync(
+      "/etc/letsencrypt/live/api.investmatefinance.tech/fullchain.pem"
+    ),
+  },
+  app
+)
+
+
+  io = new Server(secureServer, {
+    cors: {
+      origin: '*',
+      methods: ["GET", "POST"],
+    }
+  
+  });
+}else{
+
+  io = new Server(server, {
+    cors: {
+      origin: '*',
+      methods: ["GET", "POST"],
+    }
+  
+  });
+}
+
+
+
+
+
+
 
 
 
@@ -207,32 +234,23 @@ app.get('/pattern', (req, res) => {
 // Start the server
 
 
-server.listen(PORT, () => {
-  // console.log(searchStockQuery("stock inves"));
-  console.log(`Server running on port ${PORT}`);
-});
 
 
 if (process.env.NODE_ENV === "production") {
-  https
-    .createServer(
-      {
-        key: fs.readFileSync(
-          "/etc/letsencrypt/live/api.investmatefinance.tech/privkey.pem"
-        ),
-         cert: fs.readFileSync('/etc/letsencrypt/live/api.investmatefinance.tech/cert.pem'),
-        ca: fs.readFileSync(
-          "/etc/letsencrypt/live/api.investmatefinance.tech/fullchain.pem"
-        ),
-      },
-      app
-    )
+ secureServer
     .listen(securePort, () => {
       console.log(`Server Started at PORT: ${securePort}`);
     });
+    
+}else{
+  server.listen(PORT, () => {
+    // console.log(searchStockQuery("stock inves"));
+    console.log(`Server running on port ${PORT}`);
+  });
+  
 }
 
-io.listen(process.env.socketPort);
+
 
 
 
